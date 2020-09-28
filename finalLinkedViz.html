@@ -1,0 +1,388 @@
+<html>
+
+<head>
+    <style>
+        body {
+            padding-left: 20px;
+        }
+
+        /* svg {
+            border: solid 1px #000;
+            margin-top: 10px;
+            background-color: black;
+        } */
+
+        #tooltipBar {
+            border: solid 1px #ccc;
+            top: 10px;
+            left: 0px;
+            padding: 5px;
+            font-size: 13px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* change the tooltip so that its position can be moved around */
+            position: fixed;
+            /* hide it for when theres no hovering */
+            display: none;
+            background-color: white;
+            color:#03071e;            
+        }
+
+        #timeline path {
+            fill: none
+        }
+
+        /* .xAxis text, .yAxis text{
+        fill: silver;
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+      } */
+
+      .xAxis line, .yAxis line{
+        stroke: silver
+      }
+
+      .xAxis path, .yAxis path {
+          display: none;
+      }
+
+      .axisLabel {
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h4 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+        font-style: bold;
+    }
+
+    h5 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size:medium;
+        /* font-style:oblique; */
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .description {
+      max-width: 520px;
+      text-align: justify;
+      text-anchor: middle;
+      color: rgb(167, 167, 167);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: small;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      margin-bottom: 10;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dropOptions {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .buttons {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <h4 style = "text-align: center">Top 50 
+        <select class="dropOptions" id="typeDropdown">
+            <option value="most">most</option>
+            <option value="least">least</option>
+        </select> deadly police forces in 
+        <select class="dropOptions" id="yearDropdown">
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+            <option value="2007">2007</option>
+            <option value="2006">2006</option>
+            <option value="2005">2005</option>
+            <option value="2004">2004</option>
+            <option value="2003">2003</option>
+            <option value="2002">2002</option>
+            <option value="2001">2001</option>
+            <option value="2000">2000</option>
+        </select>
+        
+    </h4>
+    <!-- <div id="sliderDiv"></div><input id="slider" type="range" min="2000" max="2020" step="1" value="2000"> -->
+    <div class="subtitle">
+        <p class="description"> For a given year, the chart below shows the 50 cities in the United States
+             where the police was most deadly. Hover over a bar to see how 
+             police violence has evolved over time in a specific city.
+        </div>
+        <h5>Choose a metric</h5>
+            <div class="buttons">
+              <button id="death_count" type="button" value="death_count">Total Deaths</button>
+              <button id="death_hthou" type="button" value="death_hthou">Deaths per 100,000 People</button>
+            </div>
+            <div style="text-align:center;" id="charts"></div>
+        <!-- <input type="dropdown"></input> -->
+    <svg id="barchart">
+        <g class="xAxis" />
+        <g class="yAxis" />
+        <g class="body" />
+    </svg>
+    <svg id="timeline">
+        <g class="xAxis" />
+        <g class="yAxis" />
+        <g class="body">
+            <path style="stroke: black" />
+        </g>
+    </svg>
+    <div id="tooltipBar">Tooltip</div>
+</body>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script>
+    let barchart = d3.select("#barchart")
+    let timeline = d3.select("#timeline")
+
+    let width5 = 730;
+    let height5 = 540;
+
+    barchart.attr("height", height5)
+    barchart.attr("width", width5)
+
+    timeline.attr("height",height5)
+    timeline.attr("width", width5)
+
+    let selectedCountry = undefined;
+
+    d3.csv("https://gist.githubusercontent.com/lnicoletti/628370f9fc1aaa007ba0971992ff8369/raw/826fff86dc220b97d1f2c2174cd15c335d449daf/citiesYearDeathsHT.csv")
+    // d3.csv("data/citiesYearDeathsHT.csv")
+        .then((data) => {
+            // data = prepareData(data)
+            // data = 
+            drawBarChart(data, "most", 2020)
+
+            d3.select("#typeDropdown").on("change", function(d) {
+            // recover the option that has been chosen
+            var type = d3.select(this).property("value")
+            var selectedYear = +d3.select("#yearDropdown").property("value")
+            console.log(type)
+            console.log(selectedYear)
+            // run the updateChart function with this selected option
+            drawBarChart(data, type, selectedYear)
+            })
+
+            d3.select("#yearDropdown").on("change", function(d) {
+            // recover the option that has been chosen
+            var selectedYear = +d3.select(this).property("value")
+            var type = d3.select("#typeDropdown").property("value")
+            console.log(type)
+            console.log(selectedYear)
+            // run the updateChart function with this selected option
+            drawBarChart(data, type, selectedYear)
+            })
+
+            d3.selectAll("button").on("click", function() {
+            var selectedYear = +d3.select("#yearDropdown").property("value")
+            var type = d3.select("#typeDropdown").property("value")
+            let metric = d3.select(this).property("value")
+            console.log(metric)
+            if (metric === "death_count") {
+                drawBarChart(data, type, selectedYear)
+            } else {
+                const columns = data.columns.filter(function(d) {
+                    return d !== "death_count";
+                    });
+                    const data = d3.keys(columns)(data);            
+                    console.log(columns)
+                }
+            // showData(filteredData)
+          })
+
+        })
+
+    function showTooltip5(text1, text2, text3, coords) {
+        let x = coords[0]+10;
+        let y = coords[1]-50;
+
+        d3.select("#tooltipBar")
+            .style("display", "block")
+            .style("top", y + "px")
+            .style("left", x + "px")
+            .html("<b>" + text1 + "<br/>" + text2 + "</b> deaths by police in " + "<b>" + text3 + "</b>")
+    }
+
+    function drawLineChart(data, county) {
+        // data = data.history;
+        
+        data = data.filter(d=>d.county === county)
+        console.log(data)
+        let margin5 = { left: 40, bottom: 80, right: 20, top: 20 }
+
+        let bodywidth5 = width5 - margin5.left - margin5.right;
+        let bodyheight5 =height5 - margin5.top - margin5.bottom;
+
+        let xScale = d3.scaleLinear()
+            .range([0, bodywidth5])
+            // .domain(d3.extent(data, d => d.date))
+            .domain([2000, 2020])
+
+        let yScale = d3.scaleLinear()
+            .range([bodyheight5, 0])
+            .domain([0, d3.max(data, d => +d.death_count)])
+
+        let lineGenerator = d3.line()
+            .x(d => xScale(d.date))
+            .y(d => yScale(+d.death_count))
+            .curve(d3.curveBasis);
+
+        timeline.select(".body")
+            .attr("transform", `translate(${margin5.left},${margin5.top})`)
+            .select("path").datum(data)
+            .attr("id", "timeline")
+            .attr("d", lineGenerator)
+            .style("stroke", "#03071e")
+            .attr("opacity", "0.8")
+            .attr("stroke-width", "4")
+
+        timeline.select(".xAxis")
+            .attr("transform", `translate(${margin5.left},${height5 - margin5.bottom})`)
+            // .attr("class", "axis")
+            .call(d3.axisBottom(xScale).ticks(5).tickFormat(d3.format("d")))
+            .selectAll("text")
+            .attr("font-size", "10px")
+                .attr("fill", "silver")
+                .attr("font-family", "arial")
+
+        timeline.select(".yAxis")
+            .attr("transform", `translate(${margin5.left},${margin5.top})`)
+            // .attr("class", "axis")
+            .call(d3.axisLeft(yScale).ticks(5))
+            .selectAll("text")
+            .attr("font-size", "10px")
+                .attr("fill", "silver")
+                .attr("font-family", "arial")
+    }
+
+
+    function drawBarChart(data, type, year) {
+        console.log(year)
+        let margin5 = { left: 20, bottom: 20, right: 20, top: 80}
+
+        let bodywidth5 = width5 - margin5.left - margin5.right;
+        let bodyheight5 = height5 - margin5.top - margin5.bottom;
+
+        filterData = data.filter(d=>+d.date === year)
+        // console.log(data)
+        console.log(filterData)
+
+        let xScale = d3.scaleBand()
+            .range([0, bodywidth5])
+            .domain(filterData.map(d => d.county))
+            .padding(0.2)
+
+        let yScale = d3.scaleLinear()
+            .range([bodyheight5, 0])
+            .domain([0, d3.max(filterData, d => +d.death_count)])
+
+        // console.log(d3.max(filterData, d => +d.death_count))
+
+        // sort the data and select top 100
+        // filterData.sort(function(a, b) {
+        //     return d3.descending(+a.death_count, +b.death_count)
+        //     })
+
+        filterData.sort(function(a, b) { if(type === "most") {
+            return d3.descending(+a.death_count, +b.death_count)} else {
+                return d3.ascending(+a.death_count, +b.death_count)
+            }
+            })
+        
+        filterData = filterData.slice(0,50)
+        
+        xScale.domain(filterData.map(function(d) {
+            return d.county;
+            }));
+
+        barchart.select(".xAxis")
+            .attr("transform", `translate(${margin5.left},${height5 - margin5.bottom*4})`)
+            // .attr("class", "axis")
+            .call(d3.axisBottom(xScale).tickSize(5))
+            .selectAll("text")
+                .attr("transform", "translate(-12,8)rotate(-90)")
+                .style("text-anchor", "end")
+                .attr("font-size", "10px")
+                .attr("fill", "silver")
+                .attr("font-family", "arial")
+
+        barChartBody = barchart.select(".body")
+            .attr("transform", `translate(${margin5.left},${margin5.bottom})`)
+            .selectAll("rect")
+            .data(filterData)
+
+        let newelements = barChartBody.enter()
+            .append("rect")
+            .attr("fill", "#03071e")
+            .attr("opacity", "0.8")
+            .on("mouseenter", (d) => {
+                showTooltip5(d.county, d.death_count, d.date, [d3.event.clientX, d3.event.clientY])
+            })
+            .on("mousemove", (d) => {
+                showTooltip5(d.county, d.death_count, d.date, [d3.event.clientX, d3.event.clientY])
+            })
+            .on("mouseleave", (d) => {
+                d3.select("#tooltipBar").style("display", "none")
+            })
+            .on("mouseleave.color", function() { d3.select(this).attr("fill", "#03071e").attr("opacity", "0.8"); })
+            .on("mouseover.color", function() { d3.select(this).attr("fill", "brown"); })
+            // on hover update line chart
+            .on("mouseover.update", d => {
+                selectedCountry = d.county;
+                drawLineChart(data, d.county)
+            }).merge(barChartBody)
+            // .attr("fill", d => selectedCountry === d.county ? "brown": "#03071e")
+        
+        // transition to new updated year
+        barChartBody.merge(newelements).transition()
+            .attr("width", xScale.bandwidth())
+            .attr("height", d => bodyheight5 - yScale(+d.death_count))
+            .attr("y", d => yScale(+d.death_count))
+            .attr("x", d => xScale(d.county))
+        
+        barChartBody.exit().remove()
+
+
+        // // Annotation values
+        // barchart.selectAll("text.bar")
+        //     .data(filterData)
+        //     .enter().append("text")
+        //     .attr("class", "bar")
+        //     .attr("text-anchor", "middle")
+        //     .attr("y", d => yScale(+d.death_count)+14)
+        //     .attr("x", d => xScale(d.county)+25)
+        //     .text(d => +d.death_count)
+        //     .attr("font-size", "10px")
+        //     .attr("font-weight", "bold")
+        //         .attr("fill", "silver")
+        //         .attr("font-family", "arial")
+            
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,167 @@
+<html>
+<head>
+</head>
+<style>
+    .bubble {
+        fill-opacity: .5;
+        stroke: #fff;
+        stroke-width: .5px;
+        }
+    .legend circle {
+        fill: none;
+        stroke: #ccc;
+        }
+
+    .legend text {
+    fill: #777;
+    font: 10px sans-serif;
+    text-anchor: middle;
+    }
+
+    #tooltipMap {
+            border: solid 1px #ccc;
+            padding: 10px;
+            /* change the tooltip so that its position can be moved around */
+            position: absolute;
+            /* hide it for when theres no hovering */
+            display: none;
+            background-color: white;
+            color:#03071e;            
+        }
+
+    h4 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+        font-style: bold;
+    }
+
+</style>
+
+<body>
+    <h4 style = "text-align: center">Deaths by police in the U.S. (2000-present)
+        
+    </h4>
+    <svg id="container" height="800" width="1250">
+        <g id="body" transform="translate(200,20)"></g>
+    </svg>
+    <div id="tooltipMap">Tooltip</div>
+</body>
+<!-- <script src="d3.js"></script> -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<script>
+    let body = d3.select("#body")
+    // Promise.all([
+    //     d3.json("us-states.geojson"),
+    //     d3.csv("countiesDeaths.csv")]).then(showData)
+    Promise.all([
+        d3.json("https://gist.githubusercontent.com/lnicoletti/57326b3b9e7bc72e2dc13dcb86df5404/raw/21f5c8df18527f2db881a46d8f59572fabeb3114/us-states.geojson"),
+        d3.csv("data/citiesDeaths.csv")]).then(showData)
+    
+    function showTooltip2(text, coords) {
+    // function showTooltip(text1, text2, coords) {
+    d3.select("#tooltipMap").text(text)
+        .style("display", "block")
+        .style("top", coords[1]+100)
+        .style("left", coords[0]-50)
+        .style('font', '12px sans-serif')
+        // .style('fill-opacity', 0.5)
+        .attr('stroke', '#ccc');
+        
+    }
+
+    function showData (datasources) {
+        // load two datasets together
+        let mapInfo = datasources[0]
+        let data = datasources[1]
+        console.log(mapInfo)
+        console.log(data)
+
+        let bodyHeight = 800
+        let bodyWidth = 800
+
+        // set projection               
+        let projection = d3.geoAlbersUsa()
+                           .scale(1500)
+                           .translate([bodyWidth/2, bodyHeight/2])
+
+        let path = d3.geoPath()
+                     .projection(projection)
+        
+        let maxDeaths = d3.max(data, d => d.death_count)
+        var radius = d3.scaleSqrt()
+                             .domain([0, maxDeaths])
+                             .range([0, 15])
+
+        // draw the chart
+        body.selectAll("path")
+            .data(mapInfo.features)
+            .enter().append("path")
+            .attr("d", d => path(d))
+            .attr("stroke", "white")
+            .attr("stroke-width", "1px")
+            .attr("fill", "#d9d9d9")
+        
+        body.append("g")
+            .attr("class", "bubble")
+         .selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("fill", "#03071e")
+            .attr("r", d => radius(+d.death_count))
+            .attr("cx", function(d){ 
+                if(projection([+d.Longitude, +d.Latitude])!== null) {
+                    return projection([+d.Longitude, +d.Latitude])[0]} })
+            .attr("cy", function(d){ 
+                if(projection([+d.Longitude, +d.Latitude])!== null) {
+                    return projection([+d.Longitude, +d.Latitude])[1]} })
+            .on("mouseover", function() { d3.select(this).attr("stroke", "#000").raise(); })
+            .on("mouseout", function() { d3.select(this).attr("stroke", null).lower(); })
+            .on("mouseenter", d => {
+                // show text and get x and y positon of mouse
+                showTooltip2(d.county + ": " + d.death_count + " Fatal Encounters With Police", [d3.event.clientX, d3.event.clientY])
+            })
+            .on("mousemove", d => {
+                // do the same thing on mousemove so that it follows the mouse
+                showTooltip2(d.county + ": " + d.death_count + " Fatal Encounters With Police", [d3.event.clientX, d3.event.clientY])
+            })
+            .on("mouseleave", d => {
+                d3.select("#tooltipMap").style("display", "none")
+            })
+            
+        // .append("title")
+        //     .attr("data-html", "true")
+        //     .html(d => d.county + ": " + "<b>" + d.death_count + "</b> Fatal Encounters With Police")
+                
+
+        var legend = body.append("g")
+            .attr("class", "legend")
+            .attr("transform", "translate(" + (bodyWidth + 100) + "," + (bodyHeight - 50) + ")")
+        .selectAll("g")
+            .data([100, 300, 1000])
+        .enter().append("g");
+
+        legend.append("circle")
+            .attr("cy", function(d) { return -radius(d); })
+            .attr("r", radius);
+
+        legend.append("text")
+            .attr("y", function(d) { return -2 * radius(d); })
+            .attr("dy", "1.3em")
+            .text(d3.format(".1s"))
+
+        legend.append("text")
+            .attr("dy", "1.3em")
+            .text("Fatal Encounters With Police (2000 - Present)")
+            // .style("font", "serif")
+            // .attr("font", "red")
+            // .attr("title", "Fatal Encounters With Police 2000 - Present")
+
+    }
+
+    
+
+</script>
+</html>

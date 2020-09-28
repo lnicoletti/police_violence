@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src = 'd3.js'></script>
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
+
+    <meta property='og:title' content='Best College Majors'/>
+    <meta property='og:image' content='https://github.com/cuthchow/college-majors-visualisation/blob/master/preview.png'/>
+    <meta property='og:description' content='This interactive, scrollable data visualisation will take you on a journey through all of the different college majors in the United States, and compare how they stack up in terms of median graduate salary, gender ratios, employability, and other factors. '/>
+    <meta property='og:url' content='https://cuthchow.github.io/college-majors-visualisation/'/>
+
+
+    <title>Police Violence</title>
+</head>
+
+
+<body>
+    <!-- <div id="info">
+        a
+    </div> -->
+    <img src="https://github.com/cuthchow/college-majors-visualisation/blob/master/preview.png" alt="">
+    <div id="tooltip"></div>
+    <div id="graphic">
+        <div id="sections">
+            <section class="step">
+                <div class="title"></div>
+                <br><br>
+                <h1>Fatal Encounters: A Story of Police Violence in the United States</h1>
+                <p>By <a href = http://leonardonicoletti.com>Leonardo Nicoletti</a></p>
+                <p>
+                    Police violence is a big problem, blurb, blurb blurb, etc Police violence is a big problem, blurb, blurb blurb,
+etc........Police violence is a big problem, blurb, blurb blurb, etc........Police violence is a big problem, blurb, blurb
+blurb, etc........Police violence is a big problem, blurb, blurb blurb, etc........Police violence is a big problem, blurb,
+blurb blurb, etc........Police violence is a big problem, blurb, blurb blurb, etc........Police violence is a big problem, <br><br>
+
+                This is how to interact ...<br><br>
+                </p>
+                
+            </section>
+            <section class="step">
+                <p>
+                    Minorities are affected disproportionately. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<br>
+                </p>
+                <svg id = 'legend' width = '400px' height = '500px'></svg>
+            </section>
+            <section class = 'step'>
+                <svg id = 'legend2' width = '400px' height = '450px'></svg><br><br>
+                It’s clear that we need to have less police ocers in cities and more essential social workers and people who
+                actually know what theyre doing, defund the police !!!!
+            </section>
+            <section class="step">
+                <br><br><br><br><br><br>
+                <p>
+                    If we rearrange all the data points into a histogram format, the salary potential of engineering majors becomes
+                even more stark, as almost all the points on the right of the graph are colored yellow, for engineering. As for all the 
+                other majors, they follow a fairly diverse yet tightly spaced distribution, with the modal class being
+                salaries between $34,000 and $36,000.
+                </p>
+                
+            </section>
+            <section class="step">
+                
+                <p>
+                <h2>Case by Case</h2>
+                Police violence has increased alot since 2000, especially in republican cities. See for yourself in the viz below
+                <br><br>(Hover over the labels to see the amount of deaths)<br><br>
+
+                What is striking about this graphic is djdjdjd.....  
+                </p>
+                 
+            </section>
+            <section class="step">
+                <h1>The End</h1>
+                <p>
+                    Hopefully, this has helped you in deciding what major you hope to study. If you want to take a deeper look into the data for yourself, you can download
+                    all the csv files <a href = 'https://www.kaggle.com/fivethirtyeight/fivethirtyeight-college-majors-dataset'>here</a>.
+                    <br><br>
+                    Special thanks to Jim Vallandingham for his article on <a href = 'https://vallandingham.me/scroller.html'>creating scrolling visualisations using D3.js</a>. All 
+                    of the code associated with this project can be found on its <a href = 'https://github.com/cuthchow/college-majors-visualisation'>Github page</a>.
+                    <br><br>
+                    I've also produced a full write-up of how I made this <a href = 'https://towardsdatascience.com/how-i-created-an-interactive-scrolling-visualisation-with-d3-js-and-how-you-can-too-e116372e2c73'>over at my blog</a>.
+                </p>
+                <span></span><span></span><span></span>                
+            </section>
+           
+
+        </div>
+        <div id="vis">
+
+        </div>
+    </div>
+
+    
+
+    
+    <script src = 'scroller.js'></script>
+    <script src = 'sections.js'></script>
+
+</body>
+</html>

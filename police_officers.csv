@@ -1,0 +1,1486 @@
+,Police Department,Officers per 10K Population,Officers,Total Employees per 10K Population,Total Employees
+0,"New York, New York",42.3,36228,60.0,51399
+1,"Los Angeles, California",24.6,9850,31.7,12692
+2,"Chicago, Illinois",43.9,11954,48.2,13135
+3,"Houston, Texas",22.2,5182,28.4,6632
+4,"Las Vegas Metropolitan Police, Nevada",20.9,3326,30.5,4855
+5,"Phoenix, Arizona",17.4,2762,23.4,3706
+6,"Philadelphia, Pennsylvania",40.2,6313,50.9,7995
+7,"San Antonio, Texas",14.4,2152,18.8,2819
+8,"San Diego, California",12.8,1815,17.8,2522
+9,"Dallas, Texas",24.8,3279,29.0,3829
+10,"San Jose, California",9.0,939,13.0,1352
+11,"Honolulu, Hawaii",20.5,2042,25.5,2537
+12,"Austin, Texas",18.9,1807,24.7,2361
+13,"Charlotte-Mecklenburg, North Carolina",19.4,1743,25.7,2302
+14,"Jacksonville, Florida",20.0,1758,33.5,2947
+15,"San Francisco, California",26.4,2296,33.2,2892
+16,"Indianapolis, Indiana",18.6,1612,20.8,1806
+17,"Fort Worth, Texas",18.4,1566,23.6,2007
+18,"Seattle, Washington",19.8,1384,27.8,1946
+19,"Denver, Colorado",21.2,1483,25.7,1799
+20,"El Paso, Texas",14.7,1013,18.0,1236
+21,Metropolitan Police Department of the District of Columbia,55.1,3753,63.9,4352
+22,"Boston, Massachusetts",31.5,2125,39.7,2678
+23,"Detroit, Michigan",35.1,2350,42.6,2855
+24,"Nashville Metropolitan, Tennessee",20.9,1398,25.5,1708
+25,"Memphis, Tennessee",30.1,1978,36.3,2385
+26,"Portland, Oregon",14.1,908,17.9,1150
+27,"Oklahoma City, Oklahoma",17.3,1113,21.5,1381
+28,"Baltimore, Maryland",40.6,2512,47.0,2908
+29,"Milwaukee, Wisconsin",31.5,1889,38.8,2328
+30,"Tucson, Arizona",16.3,870,21.9,1168
+31,"Fresno, California",14.3,748,19.3,1013
+32,"Sacramento, California",13.2,652,19.3,954
+33,"Kansas City, Missouri",28.3,1356,39.2,1875
+34,"Mesa, Arizona",16.8,804,25.5,1221
+35,"Long Beach, California",16.9,806,24.6,1173
+36,"Atlanta, Georgia",35.8,1694,45.3,2140
+37,"Colorado Springs, Colorado",13.9,645,19.9,924
+38,"Raleigh, North Carolina",15.8,729,19.0,875
+39,"Virginia Beach, Virginia",17.2,779,21.0,951
+40,"Miami, Florida",26.7,1201,34.7,1559
+41,"Omaha, Nebraska",17.9,798,20.8,926
+42,"Oakland, California",17.6,750,24.6,1046
+43,"Minneapolis, Minnesota",20.3,847,24.4,1018
+44,"Tulsa, Oklahoma",18.4,747,22.5,912
+45,"New Orleans, Louisiana",29.5,1171,35.3,1403
+46,"Wichita, Kansas",15.6,612,20.3,794
+47,"Cleveland, Ohio",37.4,1444,43.4,1678
+48,"Bakersfield, California",10.3,390,14.0,530
+49,"Tampa, Florida",25.3,951,32.2,1212
+50,"Aurora, Colorado",18.3,670,22.1,810
+51,"Anaheim, California",11.5,408,15.9,562
+52,"Santa Ana, California",9.2,310,15.5,523
+53,"Corpus Christi, Texas",13.5,444,19.1,625
+54,"Riverside, California",10.7,350,15.4,503
+55,"St. Louis, Missouri",38.0,1194,51.9,1632
+56,"Stockton, California",13.4,412,19.8,610
+57,"St. Paul, Minnesota",20.6,627,26.2,796
+58,"Pittsburgh, Pennsylvania",30.0,908,32.3,976
+59,"Anchorage, Alaska",11.9,356,16.6,497
+60,"Cincinnati, Ohio",35.2,1051,43.2,1292
+61,"Henderson, Nevada",12.0,350,20.2,588
+62,"Greensboro, North Carolina",23.6,681,27.2,786
+63,"Plano, Texas",12.1,350,17.8,512
+64,"Newark, New Jersey",39.5,1113,49.1,1383
+65,"Lincoln, Nebraska",11.6,327,16.5,465
+66,"Toledo, Ohio",21.3,592,23.4,652
+67,"Orlando, Florida",25.7,715,32.9,915
+68,"Chula Vista, California",8.3,225,11.3,305
+69,"Irvine, California",8.0,213,11.3,301
+70,"Jersey City, New Jersey",32.5,865,48.1,1279
+71,"Chandler, Arizona",12.4,329,18.7,497
+72,"Durham, North Carolina",18.6,490,25.7,679
+73,"St. Petersburg, Florida",21.1,548,29.2,759
+74,"Laredo, Texas",18.2,473,21.1,546
+75,"Buffalo, New York",26.9,693,35.0,900
+76,"Gilbert, Arizona",8.9,227,13.3,341
+77,"Lubbock, Texas",15.5,392,20.8,526
+78,"Madison, Wisconsin",18.9,476,23.0,580
+79,"Mobile, Alabama",19.8,496,29.4,736
+80,"Norfolk, Virginia",29.2,718,33.0,811
+81,"Reno, Nevada",12.7,311,15.3,375
+82,"Winston-Salem, North Carolina",22.0,536,28.7,699
+83,"Glendale, Arizona",17.2,419,22.3,542
+84,"Savannah-Chatham Metropolitan, Georgia",23.6,570,34.0,821
+85,"Scottsdale, Arizona",16.6,401,26.3,633
+86,"Irving, Texas",13.7,330,20.0,482
+87,"Hialeah, Florida",10.9,260,13.5,324
+88,"Garland, Texas",13.6,326,19.0,454
+89,"North Las Vegas, Nevada",11.2,268,17.4,414
+90,"Chesapeake, Virginia",16.4,387,21.2,501
+91,"Fremont, California",7.6,180,12.0,282
+92,"Baton Rouge, Louisiana",28.1,641,35.6,814
+93,"Richmond, Virginia",30.6,680,36.1,802
+94,"Boise, Idaho",12.3,272,16.4,363
+95,"San Bernardino, California",9.9,215,16.6,360
+96,"Spokane, Washington",14.3,307,18.7,400
+97,"Modesto, California",10.1,214,14.1,300
+98,"Des Moines, Iowa",16.2,343,21.1,446
+99,"Tacoma, Washington",16.0,336,17.7,371
+100,"Rochester, New York",35.6,747,41.2,864
+101,"Fontana, California",8.8,185,13.1,275
+102,"Oxnard, California",10.9,227,16.1,337
+103,"Huntington Beach, California",10.5,214,16.4,334
+104,"Glendale, California",11.4,232,16.2,328
+105,"Fayetteville, North Carolina",21.9,442,29.7,601
+106,"Yonkers, New York",30.3,613,34.4,696
+107,"Amarillo, Texas",17.1,343,20.5,411
+108,"Montgomery, Alabama",25.2,503,30.8,614
+109,"Little Rock, Arkansas",26.4,525,32.1,639
+110,"Akron, Ohio",22.8,449,24.5,484
+111,"Grand Rapids, Michigan",14.0,276,17.0,335
+112,"Shreveport, Louisiana",26.7,524,36.2,711
+113,"Salt Lake City, Utah",22.4,435,27.9,542
+114,"Huntsville, Alabama",26.0,500,31.5,606
+115,"Tallahassee, Florida",19.4,372,22.8,437
+116,"Grand Prairie, Texas",13.5,257,20.2,384
+117,"Overland Park, Kansas",12.9,243,15.8,298
+118,"Knoxville, Tennessee",20.2,377,24.9,465
+119,"Brownsville, Texas",13.1,244,19.1,354
+120,"Worcester, Massachusetts",23.6,435,26.3,485
+121,"Port St. Lucie, Florida",12.6,229,15.8,289
+122,"Newport News, Virginia",22.6,410,30.1,547
+123,"Fort Lauderdale, Florida",28.0,508,36.5,662
+124,"Cape Coral, Florida",12.3,221,17.0,306
+125,"Providence, Rhode Island",23.6,423,28.5,511
+126,"Tempe, Arizona",19.9,355,27.6,493
+127,"Chattanooga, Tennessee",24.4,434,29.4,523
+128,"Oceanside, California",11.5,204,15.7,278
+129,"Santa Rosa, California",9.8,172,14.2,251
+130,"Garden Grove, California",9.0,159,12.4,218
+131,"Sioux Falls, South Dakota",13.6,239,15.8,276
+132,"Vancouver, Washington",11.0,193,13.4,235
+133,"Peoria, Arizona",10.5,184,15.7,275
+134,"Ontario, California",14.7,254,19.6,339
+135,"Jackson, Mississippi",24.0,409,37.7,641
+136,"Elk Grove, California",7.5,128,12.4,211
+137,"McKinney, Texas",11.1,189,13.8,234
+138,"Pembroke Pines, Florida",12.9,218,17.6,298
+139,"Springfield, Missouri",20.4,344,24.8,418
+140,"Corona, California",9.5,158,13.5,225
+141,"Salem, Oregon",11.4,190,18.7,312
+142,"Eugene, Oregon",11.4,188,19.6,323
+143,"Cary, North Carolina",11.2,185,13.5,223
+144,"Fort Collins, Colorado",12.5,206,17.7,292
+145,"Frisco, Texas",10.2,166,15.2,247
+146,"Hayward, California",12.0,194,19.2,310
+147,"Salinas, California",8.4,134,12.0,191
+148,"Alexandria, Virginia",20.4,317,26.3,409
+149,"Pasadena, Texas",17.3,268,22.3,345
+150,"Lakewood, Colorado",17.0,263,27.0,417
+151,"Pomona, California",10.0,154,16.9,261
+152,"Sunnyvale, California",13.6,209,18.0,278
+153,"Springfield, Massachusetts",27.2,419,33.9,523
+154,"Escondido, California",10.2,156,13.8,211
+155,"Clarksville, Tennessee",18.5,282,22.8,348
+156,"Kansas City, Kansas",22.4,339,28.0,425
+157,"Torrance, California",14.0,208,20.7,309
+158,"Bridgeport, Connecticut",25.4,376,29.2,433
+159,"Joliet, Illinois",17.8,263,22.3,330
+160,"Rockford, Illinois",19.5,288,21.9,323
+161,"Paterson, New Jersey",26.0,383,32.5,478
+162,"Mesquite, Texas",15.0,218,20.6,300
+163,"Syracuse, New York",28.8,415,33.6,484
+164,"Pasadena, California",16.3,234,24.9,357
+165,"Killeen, Texas",17.6,252,24.6,353
+166,"Bellevue, Washington",12.3,175,15.1,215
+167,"McAllen, Texas",18.4,262,28.7,408
+168,"Fullerton, California",9.9,141,14.8,210
+169,"Orange, California",10.1,143,15.0,213
+170,"Miramar, Florida",14.5,203,19.4,272
+171,"Midland, Texas",13.1,181,17.3,239
+172,"West Valley, Utah",13.9,191,16.8,231
+173,"Thornton, Colorado",13.2,180,18.0,245
+174,"Olathe, Kansas",12.2,166,14.3,194
+175,"Warren, Michigan",14.5,196,17.3,235
+176,"Hampton, Virginia",20.0,271,29.0,393
+177,"Charleston, South Carolina",31.8,430,39.2,530
+178,"Columbia, South Carolina",25.1,338,31.5,424
+179,"Denton, Texas",12.0,161,16.2,217
+180,"Waco, Texas",18.0,241,25.0,334
+181,"Roseville, California",9.4,125,13.8,183
+182,"Sterling Heights, Michigan",10.9,145,12.5,165
+183,"Gainesville, Florida",22.8,299,27.4,360
+184,"Visalia, California",10.3,135,15.2,200
+185,"Cedar Rapids, Iowa",16.3,214,21.3,280
+186,"Coral Springs, Florida",14.7,193,22.1,290
+187,"Surprise, Arizona",9.7,127,13.9,181
+188,"New Haven, Connecticut",34.8,454,39.0,509
+189,"Stamford, Connecticut",20.5,267,24.2,315
+190,"Concord, California",11.5,150,15.5,201
+191,"Murfreesboro, Tennessee",16.8,218,20.6,267
+192,"Elizabeth, New Jersey",22.7,293,30.1,388
+193,"Lafayette, Louisiana",19.9,257,24.4,315
+194,"Kent, Washington",10.8,139,14.6,188
+195,"Santa Clara, California",11.2,144,16.8,215
+196,"Simi Valley, California",9.6,122,13.9,177
+197,"Topeka, Kansas",22.2,282,26.3,334
+198,"Athens-Clarke County, Georgia",18.4,228,23.6,292
+199,"Hartford, Connecticut",32.2,398,34.8,430
+200,"Odessa, Texas",13.5,166,17.9,220
+201,"Berkeley, California",14.3,175,21.4,263
+202,"Vallejo, California",9.0,110,12.3,150
+203,"Norman, Oklahoma",14.4,176,19.4,237
+204,"Fargo, North Dakota",13.2,160,15.1,183
+205,"Columbia, Missouri",12.4,150,15.0,182
+206,"Allentown, Pennsylvania",18.2,220,19.9,240
+207,"Amherst Town, New York",12.4,149,14.9,179
+208,"Evansville, Indiana",23.4,281,25.4,305
+209,"Round Rock, Texas",13.2,158,19.0,227
+210,"Beaumont, Texas",21.5,254,26.8,317
+211,"Wilmington, North Carolina",22.1,260,28.1,331
+212,"Ann Arbor, Michigan",10.6,125,12.8,151
+213,"El Monte, California",9.2,108,13.0,152
+214,"Independence, Missouri",15.7,184,21.9,257
+215,"Arvada, Colorado",13.5,158,18.3,215
+216,"Springfield, Illinois",20.7,241,23.0,268
+217,"Provo, Utah",8.9,103,12.9,149
+218,"Lansing, Michigan",16.3,188,18.5,213
+219,"Carlsbad, California",9.0,103,13.0,150
+220,"Downey, California",9.2,106,13.1,150
+221,"Fairfield, California",10.0,114,14.8,169
+222,"Westminster, Colorado",15.2,174,21.6,247
+223,"Clearwater, Florida",20.3,231,30.9,352
+224,"Costa Mesa, California",9.8,112,15.1,172
+225,"West Jordan, Utah",9.9,112,12.9,146
+226,"Rochester, Minnesota",12.1,137,17.0,193
+227,"Richardson, Texas",13.7,155,21.9,248
+228,"Elgin, Illinois",16.1,182,21.8,246
+229,"Pearland, Texas",14.3,161,19.1,215
+230,"Antioch, California",8.5,95,11.0,123
+231,"Inglewood, California",15.6,175,19.5,219
+232,"Gresham, Oregon",10.9,122,13.7,153
+233,"Centennial, Colorado",12.3,137,15.3,171
+234,"Billings, Montana",13.3,148,15.8,176
+235,"High Point, North Carolina",19.9,222,24.0,268
+236,"Murrieta, California",8.0,89,11.5,128
+237,"Cambridge, Massachusetts",24.9,277,29.0,322
+238,"Lowell, Massachusetts",21.5,239,30.3,336
+239,"Richmond, California",16.0,177,21.8,242
+240,"College Station, Texas",11.7,130,16.9,187
+241,"North Charleston, South Carolina",29.6,327,35.7,394
+242,"Manchester, New Hampshire",20.9,231,26.1,288
+243,"Ventura, California",11.3,125,15.0,165
+244,"Pueblo, Colorado",17.7,195,22.7,250
+245,"Boulder, Colorado",16.1,176,24.5,267
+246,"Everett, Washington",17.2,187,20.7,226
+247,"West Covina, California",8.5,93,14.3,156
+248,"Palm Bay, Florida",14.2,155,19.5,212
+249,"Waterbury, Connecticut",25.1,272,29.1,316
+250,"Broken Arrow, Oklahoma",12.8,138,17.4,188
+251,"West Palm Beach, Florida",25.7,278,33.8,365
+252,"Sandy Springs, Georgia",11.8,127,13.4,144
+253,"Daly City, California",9.3,100,12.4,133
+254,"Santa Maria, California",10.5,111,15.6,166
+255,"Clovis, California",9.4,100,15.3,162
+256,"Lakeland, Florida",22.4,237,33.4,353
+257,"Lewisville, Texas",14.1,149,20.7,219
+258,"Burbank, California",14.6,154,22.1,234
+259,"Green Bay, Wisconsin",17.9,189,21.6,228
+260,"Tyler, Texas",18.1,190,22.7,238
+261,"San Mateo, California",10.6,111,14.1,148
+262,"Wichita Falls, Texas",19.0,199,27.1,284
+263,"El Cajon, California",11.6,121,17.1,179
+264,"Hillsboro, Oregon",12.7,133,17.7,185
+265,"Rialto, California",10.1,105,13.7,142
+266,"Davenport, Iowa",15.3,158,17.3,178
+267,"Davie, Florida",17.9,184,24.1,248
+268,"Edison Township, New Jersey",17.2,177,22.0,226
+269,"Greeley, Colorado",14.1,145,19.1,196
+270,"Las Cruces, New Mexico",17.8,182,25.0,256
+271,"Woodbridge Township, New Jersey",19.0,194,24.7,252
+272,"Renton, Washington",11.5,117,14.3,146
+273,"San Angelo, Texas",15.9,162,18.9,193
+274,"South Bend, Indiana",23.6,240,27.9,284
+275,"League City, Texas",11.2,114,15.4,156
+276,"Allen, Texas",11.9,120,17.7,179
+277,"Clinton Township, Michigan",9.3,93,10.1,102
+278,"Lakewood Township, New Jersey",12.1,121,15.3,153
+279,"Roanoke, Virginia",24.5,245,29.2,292
+280,"Kenosha, Wisconsin",19.9,199,20.8,208
+281,"Tuscaloosa, Alabama",27.4,274,35.2,352
+282,"Erie, Pennsylvania",17.1,169,19.3,191
+283,"Albany, New York",34.1,336,43.9,433
+284,"Beaverton, Oregon",13.7,134,17.5,171
+285,"Vacaville, California",10.1,99,15.4,150
+286,"Flint, Michigan",10.6,103,12.0,117
+287,"Sparks, Nevada",11.3,110,16.0,156
+288,"Greece Town, New York",10.2,99,10.8,105
+289,"South Gate, California",8.2,79,12.2,118
+290,"Lawton, Oklahoma",17.3,167,24.4,235
+291,"Federal Way, Washington",13.5,130,16.5,159
+292,"Spokane Valley, Washington",10.5,101,10.6,102
+293,"Lee's Summit, Missouri",14.5,139,20.1,193
+294,"Portsmouth, Virginia",24.1,231,32.6,312
+295,"Roswell, Georgia",14.7,141,20.5,196
+296,"Orem, Utah",8.9,85,12.1,116
+297,"Rio Rancho, New Mexico",14.1,135,24.4,233
+298,"Brockton, Massachusetts",19.6,187,21.9,208
+299,"Lawrence, Kansas",15.9,151,19.3,184
+300,"Boca Raton, Florida",19.2,182,30.2,287
+301,"Yuma, Arizona",18.0,170,27.2,258
+302,"Dearborn, Michigan",20.0,189,26.0,246
+303,"Sandy, Utah",11.5,109,15.1,143
+304,"New Bedford, Massachusetts",27.0,255,31.4,297
+305,"Sunrise, Florida",18.5,175,24.5,231
+306,"Livonia, Michigan",15.6,147,19.7,186
+307,"Meridian, Idaho",9.8,92,12.2,115
+308,"Yakima, Washington",14.9,140,19.4,183
+309,"Plantation, Florida",17.5,165,26.8,252
+310,"Santa Monica, California",21.7,204,39.8,374
+311,"Quincy, Massachusetts",22.5,210,25.5,238
+312,"Longmont, Colorado",14.7,137,21.9,204
+313,"Miami Beach, Florida",42.3,394,52.8,492
+314,"Ramapo Town, New York",10.3,95,12.6,117
+315,"Westminster, California",8.5,79,12.4,115
+316,"Santa Barbara, California",15.1,140,22.2,205
+317,"Lynn, Massachusetts",19.6,181,21.6,200
+318,"Redding, California",10.7,98,14.3,131
+319,"San Leandro, California",9.8,90,14.3,131
+320,"Edmond, Oklahoma",13.0,119,17.2,158
+321,"Greenville, North Carolina",19.4,178,24.2,222
+322,"Nampa, Idaho",12.2,112,18.2,167
+323,"Chico, California",9.4,86,15.0,137
+324,"Toms River Township, New Jersey",17.7,160,20.7,187
+325,"Sugar Land, Texas",16.8,151,19.4,175
+326,"Canton Township, Michigan",9.1,82,13.2,119
+327,"Livermore, California",9.9,89,14.9,133
+328,"Asheville, North Carolina",22.3,200,29.4,263
+329,"Concord, North Carolina",18.6,166,21.7,194
+330,"Hawthorne, California",9.9,88,15.2,136
+331,"Bend, Oregon",9.7,87,12.9,115
+332,"Indio, California",7.1,63,11.1,99
+333,"Newton, Massachusetts",16.7,149,21.9,195
+334,"Norwalk, Connecticut",19.9,177,24.4,217
+335,"Hamilton Township, New Jersey",19.1,169,23.1,205
+336,"Kirkland, Washington",10.6,94,14.7,130
+337,"Fort Smith, Arkansas",15.9,141,21.3,189
+338,"Fall River, Massachusetts",24.7,218,30.0,265
+339,"Suffolk, Virginia",20.6,182,27.5,243
+340,"Waukegan, Illinois",17.0,150,21.4,189
+341,"Nashua, New Hampshire",19.7,174,26.6,235
+342,"Whittier, California",13.7,120,19.0,167
+343,"Tracy, California",9.7,85,14.3,126
+344,"Reading, Pennsylvania",18.2,160,20.7,182
+345,"Citrus Heights, California",10.0,88,15.3,134
+346,"Newport Beach, California",16.0,140,26.1,228
+347,"Bloomington, Minnesota",13.5,118,17.0,148
+348,"Chino, California",12.3,107,18.3,159
+349,"Champaign, Illinois",13.7,119,16.2,141
+350,"Redwood City, California",10.5,91,13.3,116
+351,"Edinburg, Texas",16.3,141,22.5,195
+352,"Clifton, New Jersey",16.8,145,20.6,178
+353,"O'Fallon, Missouri",13.6,117,17.5,151
+354,"Duluth, Minnesota",17.3,149,21.3,183
+355,"Alhambra, California",9.8,84,14.5,125
+356,"Bellingham, Washington",13.1,113,20.2,174
+357,"Ogden, Utah",14.9,128,18.2,156
+358,"Hoover, Alabama",19.3,165,26.5,227
+359,"Danbury, Connecticut",17.1,146,17.7,151
+360,"Hemet, California",7.3,62,10.8,92
+361,"Fayetteville, Arkansas",14.5,123,19.9,169
+362,"Santa Fe, New Mexico",19.6,166,25.2,213
+363,"Johns Creek, Georgia",8.5,72,9.6,81
+364,"Mission, Texas",17.5,148,22.9,193
+365,"Mount Pleasant, South Carolina",17.3,146,19.8,167
+366,"Cicero, Illinois",17.9,150,21.0,176
+367,"Buena Park, California",9.7,81,14.4,121
+368,"Troy, Michigan",12.2,102,17.8,149
+369,"Trenton, New Jersey",29.4,246,45.6,381
+370,"Bryan, Texas",16.9,141,21.4,178
+371,"Merced, California",10.7,89,15.0,125
+372,"Upper Darby Township, Pennsylvania",15.2,126,17.5,145
+373,"Sioux City, Iowa",15.1,125,18.1,150
+374,"Longview, Texas",20.8,172,22.5,186
+375,"Clarkstown Town, New York",19.1,157,22.0,181
+376,"Goodyear, Arizona",11.7,96,16.1,132
+377,"St. George, Utah",13.1,107,19.0,155
+378,"Mountain View, California",10.5,86,15.8,129
+379,"Farmington Hills, Michigan",12.2,100,16.8,137
+380,"Tustin, California",10.7,87,16.0,131
+381,"Westland, Michigan",9.9,81,13.1,107
+382,"Avondale, Arizona",15.0,122,22.4,183
+383,"Warwick, Rhode Island",20.5,167,26.8,218
+384,"Pleasanton, California",9.5,77,13.5,110
+385,"Largo, Florida",17.2,140,22.4,182
+386,"Cranston, Rhode Island",18.1,147,21.7,176
+387,"Napa, California",8.5,69,13.6,110
+388,"Melbourne, Florida",18.8,152,26.1,211
+389,"Somerville, Massachusetts",15.7,127,17.6,142
+390,"Medford, Oregon",12.4,100,17.0,137
+391,"Deerfield Beach, Florida",15.1,122,16.4,132
+392,"Lawrence, Massachusetts",16.0,129,18.2,147
+393,"New Rochelle, New York",18.9,152,26.2,211
+394,"Lynchburg, Virginia",21.4,172,24.7,198
+395,"Colonie Town, New York",13.9,111,18.7,150
+396,"Milpitas, California",10.6,85,13.6,109
+397,"Kennewick, Washington",11.4,91,13.3,106
+398,"Brooklyn Park, Minnesota",12.9,103,16.7,133
+399,"Alameda, California",10.2,81,13.8,110
+400,"Springdale, Arkansas",17.9,142,25.2,200
+401,"Bloomington, Illinois",15.9,125,20.5,161
+402,"Shelby Township, Michigan",8.4,66,10.8,85
+403,"Auburn, Washington",13.8,108,16.3,128
+404,"Cheektowaga Town, New York",16.1,126,20.7,162
+405,"Pharr, Texas",16.1,125,21.1,164
+406,"Racine, Wisconsin",24.6,191,27.7,215
+407,"Baldwin Park, California",8.4,65,12.7,98
+408,"Scranton, Pennsylvania",19.4,150,22.0,170
+409,"Folsom, California",9.1,70,12.3,95
+410,"Baytown, Texas",21.1,163,30.4,235
+411,"Manteca, California",7.7,59,11.2,86
+412,"Hammond, Indiana",26.9,207,30.4,234
+413,"Plymouth, Minnesota",9.4,72,11.4,88
+414,"Upland, California",9.0,69,12.5,96
+415,"Loveland, Colorado",13.4,103,19.4,149
+416,"San Ramon, California",8.5,65,10.5,81
+417,"Lake Charles, Louisiana",23.8,183,24.2,186
+418,"Fort Myers, Florida",23.4,179,31.1,238
+419,"St. Joseph, Missouri",16.3,125,22.1,169
+420,"Kalamazoo, Michigan",28.3,216,33.9,259
+421,"Arlington Heights, Illinois",14.2,108,17.9,136
+422,"Wyoming, Michigan",11.5,87,13.4,102
+423,"Evanston, Illinois",21.9,166,30.0,227
+424,"Missouri City, Texas",13.5,102,17.3,131
+425,"Iowa City, Iowa",10.6,80,13.6,103
+426,"Union City, California",9.9,75,13.8,104
+427,"Layton, Utah",9.9,75,14.2,107
+428,"Jonesboro, Arkansas",20.6,155,24.2,182
+429,"Boynton Beach, Florida",19.7,148,26.9,202
+430,"Gastonia, North Carolina",22.6,170,25.6,192
+431,"Bethlehem, Pennsylvania",19.8,148,19.8,148
+432,"Brick Township, New Jersey",17.9,134,26.2,196
+433,"Franklin, Tennessee",17.1,128,18.6,139
+434,"Rapid City, South Dakota",15.3,114,19.2,143
+435,"Bolingbrook, Illinois",14.6,109,16.7,124
+436,"Appleton, Wisconsin",14.8,110,18.4,137
+437,"Warner Robins, Georgia",14.0,104,19.6,146
+438,"Albany, Georgia",21.8,162,25.0,186
+439,"Southfield, Michigan",16.5,121,20.4,150
+440,"Temple, Texas",19.6,144,24.2,178
+441,"New Braunfels, Texas",16.0,117,19.4,142
+442,"Waterford Township, Michigan",7.2,53,9.5,70
+443,"Bismarck, North Dakota",15.7,115,19.8,145
+444,"Turlock, California",10.7,78,16.0,117
+445,"New Britain, Connecticut",22.1,161,23.2,169
+446,"Decatur, Illinois",21.7,158,26.0,189
+447,"Gulfport, Mississippi",21.1,153,28.5,207
+448,"Flower Mound, Texas",11.2,81,16.7,121
+449,"Rock Hill, South Carolina",20.7,150,26.7,194
+450,"Lauderhill, Florida",13.5,98,17.0,123
+451,"Waukesha, Wisconsin",16.3,118,20.8,150
+452,"Wilmington, Delaware",41.8,302,49.9,360
+453,"Missoula, Montana",14.5,104,18.1,130
+454,"Pawtucket, Rhode Island",19.3,138,23.7,170
+455,"Redlands, California",11.2,80,16.5,118
+456,"Framingham, Massachusetts",20.2,144,22.1,158
+457,"Kissimmee, Florida",17.7,126,30.9,220
+458,"Flagstaff, Arizona",14.3,102,21.1,150
+459,"Conroe, Texas",16.6,118,22.8,162
+460,"Cherry Hill Township, New Jersey",19.6,139,23.4,166
+461,"Pasco, Washington",10.0,71,11.7,83
+462,"Passaic, New Jersey",21.7,154,25.4,180
+463,"Pittsburg, California",10.9,77,13.6,96
+464,"North Richland Hills, Texas",15.6,110,26.4,186
+465,"Frederick, Maryland",21.0,148,26.5,186
+466,"South Jordan, Utah",7.1,50,8.3,58
+467,"Walnut Creek, California",12.2,85,16.9,118
+468,"Maple Grove, Minnesota",9.5,66,11.3,79
+469,"Bossier City, Louisiana",23.2,161,28.8,200
+470,"St. Charles, Missouri",15.9,110,21.9,152
+471,"Union City, New Jersey",23.4,162,35.9,249
+472,"Dothan, Alabama",23.3,161,33.7,233
+473,"Cedar Park, Texas",11.6,80,16.8,116
+474,"Woodbury, Minnesota",9.7,67,11.4,79
+475,"Northern York Regional, Pennsylvania",7.1,49,7.7,53
+476,"Mount Vernon, New York",27.9,192,37.9,261
+477,"Victoria, Texas",15.6,107,20.7,142
+478,"Waterloo, Iowa",18.1,124,19.4,133
+479,"Redondo Beach, California",13.4,92,20.9,143
+480,"Marysville, Washington",9.4,64,12.9,88
+481,"Davis, California",8.8,60,13.4,91
+482,"Eau Claire, Wisconsin",14.5,99,19.7,134
+483,"South San Francisco, California",11.8,80,16.2,110
+484,"Homestead, Florida",16.5,112,22.5,152
+485,"Georgetown, Texas",11.9,80,17.3,117
+486,"Delray Beach, Florida",23.0,155,31.6,213
+487,"North Little Rock, Arkansas",26.4,178,31.9,215
+488,"St. Cloud, Minnesota",15.6,105,19.6,132
+489,"Palo Alto, California",11.7,79,20.4,137
+490,"Old Bridge Township, New Jersey",13.4,90,17.4,117
+491,"Yuba City, California",7.7,52,11.6,78
+492,"Kenner, Louisiana",24.9,167,34.5,232
+493,"Portland, Maine",23.4,157,32.2,216
+494,"Jackson, Tennessee",31.6,212,38.2,256
+495,"Broomfield, Colorado",16.1,108,31.2,209
+496,"Franklin Township, New Jersey",15.6,104,18.6,124
+497,"Eagan, Minnesota",10.5,70,12.4,83
+498,"Jacksonville, North Carolina",17.2,115,21.4,143
+499,"Oshkosh, Wisconsin",14.7,98,16.8,112
+500,"Bayonne, New Jersey",27.3,182,42.6,284
+501,"Johnson City, Tennessee",22.3,148,26.6,177
+502,"Ames, Iowa",7.8,52,11.5,76
+503,"West Bloomfield Township, Michigan",10.6,70,15.6,103
+504,"Conway, Arkansas",19.1,126,25.1,166
+505,"Middletown Township, New Jersey",17.0,112,20.5,135
+506,"Harlingen, Texas",19.7,130,25.8,170
+507,"Mansfield, Texas",14.4,95,34.2,225
+508,"Greenville, South Carolina",27.7,182,35.0,230
+509,"West Des Moines, Iowa",9.6,63,11.9,78
+510,"Shawnee, Kansas",13.6,89,16.6,109
+511,"Tamarac, Florida",12.4,81,15.1,99
+512,"Daytona Beach, Florida",33.3,218,38.2,250
+513,"Schenectady, New York",22.4,146,26.3,171
+514,"Lodi, California",10.3,67,14.9,97
+515,"Santa Cruz, California",14.3,93,17.7,115
+516,"East Orange, New Jersey",31.6,205,40.4,262
+517,"Madera, California",9.3,60,12.0,78
+518,"Rogers, Arkansas",15.2,98,21.5,139
+519,"Buckeye, Arizona",13.3,86,17.3,112
+520,"Bowling Green, Kentucky",18.0,116,23.4,151
+521,"San Marcos, Texas",16.0,103,22.2,143
+522,"Jupiter, Florida",17.7,114,22.1,142
+523,"Janesville, Wisconsin",15.1,97,16.8,108
+524,"Montebello, California",10.3,66,15.4,99
+525,"Youngstown, Ohio",23.2,149,30.1,193
+526,"Cheyenne, Wyoming",15.9,102,19.2,123
+527,"Eden Prairie, Minnesota",10.5,67,14.5,93
+528,"Auburn, Alabama",17.2,110,18.2,116
+529,"Waltham, Massachusetts",22.5,143,26.7,170
+530,"Gloucester Township, New Jersey",19.7,125,23.2,147
+531,"North Port, Florida",15.5,98,20.0,127
+532,"Blaine, Minnesota",9.3,59,11.1,70
+533,"North Bergen Township, New Jersey",19.0,120,20.6,130
+534,"West Hartford, Connecticut",20.3,128,23.2,146
+535,"North Miami, Florida",18.1,114,25.4,160
+536,"Greenwich, Connecticut",24.0,151,28.3,178
+537,"Tulare, California",11.4,72,17.3,109
+538,"Haverhill, Massachusetts",14.6,92,16.5,104
+539,"Council Bluffs, Iowa",17.4,109,20.6,129
+540,"La Habra, California",11.0,69,15.8,99
+541,"Hamilton, Ohio",17.8,111,19.2,120
+542,"Coon Rapids, Minnesota",10.1,63,11.2,70
+543,"Rocklin, California",8.9,55,12.7,79
+544,"Redmond, Washington",12.8,79,19.9,123
+545,"Fairfield, Connecticut",17.3,107,18.3,113
+546,"Monterey Park, California",11.2,69,15.9,98
+547,"Burnsville, Minnesota",12.0,74,13.5,83
+548,"Lakeville, Minnesota",8.9,55,10.4,64
+549,"National City, California",14.0,86,19.5,120
+550,"Moore, Oklahoma",14.3,88,15.1,93
+551,"Casper, Wyoming",15.2,93,21.0,129
+552,"Taylor, Michigan",12.1,74,14.7,90
+553,"Springfield, Oregon",10.6,65,15.7,96
+554,"Hamden, Connecticut",17.7,108,22.1,135
+555,"Malden, Massachusetts",16.5,101,18.7,114
+556,"West Chester Township, Ohio",13.6,83,17.4,106
+557,"Rowlett, Texas",12.4,76,16.7,102
+558,"Petaluma, California",9.5,58,13.5,82
+559,"Battle Creek, Michigan",17.9,109,20.5,125
+560,"Utica, New York",26.8,163,29.6,180
+561,"Vineland, New Jersey",21.7,132,25.8,157
+562,"Lehi, Utah",7.7,47,8.7,53
+563,"Gardena, California",15.6,95,19.6,119
+564,"La Mesa, California",11.2,68,16.0,97
+565,"Coconut Creek, Florida",15.8,96,21.4,130
+566,"Grand Junction, Colorado",18.3,111,32.5,197
+567,"West Allis, Wisconsin",20.8,126,25.3,153
+568,"Port Orange, Florida",14.0,85,16.4,99
+569,"Brentwood, California",10.2,62,13.7,83
+570,"Bristol, Connecticut",19.5,118,23.7,143
+571,"Bensalem Township, Pennsylvania",16.4,99,20.2,122
+572,"Lakewood, Washington",16.0,96,18.6,112
+573,"Chapel Hill, North Carolina",17.3,104,21.2,127
+574,"St. Clair Shores, Michigan",13.5,81,14.3,86
+575,"Meriden, Connecticut",18.9,113,20.9,125
+576,"Great Falls, Montana",14.7,88,21.8,130
+577,"Huntington Park, California",8.5,51,14.4,86
+578,"Idaho Falls, Idaho",14.6,87,22.1,132
+579,"Marietta, Georgia",23.0,137,29.4,175
+580,"Springfield, Ohio",20.2,120,22.2,132
+581,"Novi, Michigan",10.4,62,14.1,84
+582,"San Rafael, California",10.9,65,14.5,86
+583,"Royal Oak, Michigan",13.1,78,15.7,93
+584,"Owensboro, Kentucky",15.2,90,22.9,136
+585,"Lancaster, Pennsylvania",20.9,124,24.9,148
+586,"Ankeny, Iowa",9.1,54,10.5,62
+587,"Woodland, California",10.3,61,12.7,75
+588,"Plymouth, Massachusetts",20.1,119,22.7,134
+589,"Brookline, Massachusetts",21.9,129,26.9,159
+590,"Dubuque, Iowa",17.1,101,18.3,108
+591,"Orland Park, Illinois",16.6,98,21.0,124
+592,"Pflugerville, Texas",13.9,82,18.5,109
+593,"Bartlett, Tennessee",20.4,120,26.3,155
+594,"Arcadia, California",11.2,66,15.5,91
+595,"White Plains, New York",32.5,191,34.2,201
+596,"Bowie, Maryland",10.7,63,13.6,80
+597,"Ocala, Florida",27.1,159,39.4,231
+598,"Doral, Florida",20.2,118,27.1,158
+599,"Lower Merion Township, Pennsylvania",22.5,131,25.1,146
+600,"Piscataway Township, New Jersey",14.6,85,18.0,105
+601,"State College, Pennsylvania",9.5,55,11.2,65
+602,"Union Township, New Jersey",22.9,133,31.3,182
+603,"Margate, Florida",18.1,105,24.1,140
+604,"Manchester, Connecticut",17.9,104,23.3,135
+605,"Grand Forks, North Dakota",14.5,84,17.1,99
+606,"St. Peters, Missouri",15.4,89,19.5,113
+607,"Midwest City, Oklahoma",15.9,92,21.6,125
+608,"Tonawanda Town, New York",17.9,103,26.2,151
+609,"Medford, Massachusetts",18.0,103,18.3,105
+610,"Fountain Valley, California",10.3,59,14.0,80
+611,"New Brunswick, New Jersey",25.2,144,31.3,179
+612,"Smyrna, Georgia",15.7,90,22.2,127
+613,"Castle Rock, Colorado",12.1,69,16.3,93
+614,"Hendersonville, Tennessee",18.4,105,23.2,132
+615,"Chicopee, Massachusetts",23.2,132,23.9,136
+616,"Oak Lawn, Illinois",19.0,108,21.8,124
+617,"Taunton, Massachusetts",20.1,114,21.2,120
+618,"Jackson Township, New Jersey",15.4,87,18.6,105
+619,"Greenwood, Indiana",10.3,58,11.7,66
+620,"Porterville, California",10.6,60,15.2,86
+621,"Bellevue, Nebraska",16.3,92,19.2,108
+622,"Novato, California",10.0,56,14.2,80
+623,"Weymouth, Massachusetts",16.4,92,19.2,108
+624,"Corvallis, Oregon",10.0,56,16.1,90
+625,"Hanford, California",9.5,53,13.8,77
+626,"Shoreline, Washington",9.5,53,13.1,73
+627,"Valdosta, Georgia",24.2,135,28.1,157
+628,"Hempstead Village, New York",21.1,118,25.1,140
+629,"Dearborn Heights, Michigan",14.9,83,17.0,95
+630,"Sarasota, Florida",29.2,163,37.5,209
+631,"Abington Township, Pennsylvania",16.5,92,20.5,114
+632,"Bradenton, Florida",21.3,118,26.1,145
+633,"Port Arthur, Texas",20.2,112,26.7,148
+634,"Richland, Washington",11.2,62,13.7,76
+635,"Rocky Mount, North Carolina",28.9,160,36.4,202
+636,"Kettering, Ohio",13.2,73,17.9,99
+637,"Decatur, Alabama",24.0,133,26.7,148
+638,"Commerce City, Colorado",17.3,96,21.7,120
+639,"York Area Regional, Pennsylvania",8.0,44,8.7,48
+640,"Colton, California",8.3,46,13.1,72
+641,"Wayne Township, New Jersey",20.7,114,25.6,141
+642,"Mount Prospect, Illinois",15.0,82,18.6,102
+643,"West Haven, Connecticut",22.4,123,25.2,138
+644,"Euless, Texas",15.3,84,24.1,132
+645,"Normal, Illinois",14.8,81,17.0,93
+646,"Pocatello, Idaho",16.2,88,23.3,127
+647,"Blue Springs, Missouri",18.0,98,25.9,141
+648,"Irvington, New Jersey",29.0,158,35.8,195
+649,"Cathedral City, California",9.0,49,13.6,74
+650,"Gilroy, California",11.5,62,16.1,87
+651,"Watsonville, California",12.6,68,15.9,86
+652,"Hoboken, New Jersey",23.3,126,26.8,145
+653,"Millcreek Township, Pennsylvania",11.5,62,14.4,78
+654,"Bristol Township, Pennsylvania",11.3,61,12.6,68
+655,"Huntersville, North Carolina",15.8,85,16.9,91
+656,"Wheaton, Illinois",12.3,66,15.2,82
+657,"West New York, New Jersey",20.3,109,22.1,119
+658,"Palm Beach Gardens, Florida",20.1,108,29.5,159
+659,"Milford, Connecticut",21.6,116,25.7,138
+660,"Lake Havasu City, Arizona",12.7,68,19.2,103
+661,"Elyria, Ohio",14.7,79,17.5,94
+662,"West Sacramento, California",12.9,69,16.6,89
+663,"Revere, Massachusetts",18.3,98,20.0,107
+664,"Parsippany-Troy Hills Township, New Jersey",19.3,103,23.2,124
+665,"Pensacola, Florida",26.2,140,37.4,200
+666,"Sammamish, Washington",6.0,32,7.5,40
+667,"Lenexa, Kansas",16.5,88,24.0,128
+668,"DeSoto, Texas",12.2,65,22.6,120
+669,"Kingsport, Tennessee",21.3,113,28.8,153
+670,"Leesburg, Virginia",12.8,68,15.7,83
+671,"Harrisonburg, Virginia",17.9,95,21.3,113
+672,"Stratford, Connecticut",18.9,100,20.2,107
+673,"Placentia, California",8.5,45,12.9,68
+674,"Caldwell, Idaho",12.1,64,14.8,78
+675,"Perth Amboy, New Jersey",22.6,119,27.3,144
+676,"Burlington, North Carolina",22.9,121,30.5,161
+677,"Delano, California",9.5,50,13.1,69
+678,"Albany, Oregon",11.6,61,16.9,89
+679,"Elkhart, Indiana",22.9,120,27.0,142
+680,"Peabody, Massachusetts",17.5,92,21.1,111
+681,"La Crosse, Wisconsin",17.5,92,20.8,109
+682,"Brookhaven, Georgia",14.7,77,16.2,85
+683,"Glendora, California",9.7,51,16.4,86
+684,"Howell Township, New Jersey",16.4,86,19.5,102
+685,"Florissant, Missouri",16.3,85,20.7,108
+686,"Enid, Oklahoma",18.8,98,23.4,122
+687,"Hoffman Estates, Illinois",16.9,88,19.7,103
+688,"Pinellas Park, Florida",19.4,101,23.2,121
+689,"Minnetonka, Minnesota",10.0,52,13.3,69
+690,"Joplin, Missouri",19.6,102,28.1,146
+691,"Casa Grande, Arizona",14.8,77,18.7,97
+692,"Coral Gables, Florida",30.8,160,44.1,229
+693,"Grand Island, Nebraska",16.4,85,19.6,102
+694,"Kentwood, Michigan",13.1,68,15.6,81
+695,"Tigard, Oregon",14.1,73,17.0,88
+696,"Apple Valley, Minnesota",10.1,52,11.6,60
+697,"Minot, North Dakota",15.8,81,21.1,108
+698,"Plainfield, New Jersey",24.6,126,29.7,152
+699,"Southampton Town, New York",18.4,94,24.6,126
+700,"Olympia, Washington",13.1,67,18.6,95
+701,"Burien, Washington",10.2,52,14.5,74
+702,"Irondequoit Town, New York",9.6,49,11.8,60
+703,"Logan, Utah",10.8,55,16.5,84
+704,"East Hartford, Connecticut",24.2,123,30.2,153
+705,"Galveston, Texas",28.2,143,35.3,179
+706,"Edina, Minnesota",10.1,51,14.2,72
+707,"Parker, Colorado",14.3,72,22.4,113
+708,"Azusa, California",11.3,57,18.7,94
+709,"Lakewood, Ohio",19.9,100,24.2,122
+710,"Coeur d'Alene, Idaho",16.0,80,19.5,98
+711,"Summerville, South Carolina",18.7,94,22.9,115
+712,"Methuen, Massachusetts",18.6,93,22.2,111
+713,"Downers Grove, Illinois",14.2,71,19.6,98
+714,"Troy, New York",25.3,126,27.9,139
+715,"Bedford, Texas",15.3,76,25.3,126
+716,"Apopka, Florida",18.9,94,25.7,128
+717,"Murray, Utah",15.1,75,18.1,90
+718,"Wilson, North Carolina",21.9,109,24.9,124
+719,"Monroe, Louisiana",27.6,137,36.2,180
+720,"Stillwater, Oklahoma",14.5,72,22.4,111
+721,"Maricopa, Arizona",13.1,65,17.3,86
+722,"Cypress, California",10.7,53,13.9,69
+723,"Collierville, Tennessee",20.0,99,27.7,137
+724,"Charleston, West Virginia",33.0,163,37.8,187
+725,"Dunwoody, Georgia",11.0,54,13.0,64
+726,"Covina, California",12.0,59,17.7,87
+727,"Cedar Hill, Texas",13.0,64,17.7,87
+728,"Haverford Township, Pennsylvania",14.2,70,16.7,82
+729,"East Brunswick Township, New Jersey",17.1,84,22.4,110
+730,"Harrisburg, Pennsylvania",27.1,133,31.6,155
+731,"Saginaw, Michigan",10.8,53,12.5,61
+732,"St. Louis Park, Minnesota",10.9,53,13.7,67
+733,"Middletown, Ohio",13.9,68,21.1,103
+734,"Sheboygan, Wisconsin",16.8,82,20.7,101
+735,"Niagara Falls, New York",32.3,157,36.6,178
+736,"Lower Paxton Township, Pennsylvania",12.1,59,13.6,66
+737,"Roswell, New Mexico",16.3,79,21.2,103
+738,"Portage, Michigan",11.1,54,15.2,74
+739,"Huntington, West Virginia",21.6,105,23.9,116
+740,"East Lansing, Michigan",11.1,54,13.8,67
+741,"Ceres, California",9.5,46,12.8,62
+742,"Mishawaka, Indiana",22.2,107,25.1,121
+743,"Bloomfield, New Jersey",25.1,121,30.3,146
+744,"Texas City, Texas",12.7,61,17.0,82
+745,"Twin Falls, Idaho",14.8,71,21.2,102
+746,"Smyrna, Tennessee",16.0,77,20.8,100
+747,"Glenview, Illinois",14.4,69,15.4,74
+748,"Chesterfield, Missouri",18.8,90,20.9,100
+749,"Alexandria, Louisiana",32.8,157,39.6,190
+750,"Union Township, Clermont County, Ohio",10.0,48,12.9,62
+751,"Palm Springs, California",18.4,88,26.5,127
+752,"Salina, Kansas",15.3,73,20.5,98
+753,"San Luis Obispo, California",11.5,55,16.3,78
+754,"Wylie, Texas",12.8,61,13.8,66
+755,"Wauwatosa, Wisconsin",18.2,87,23.7,113
+756,"Madison, Alabama",16.8,80,22.2,106
+757,"Roseville, Michigan",14.5,69,15.1,72
+758,"Draper, Utah",8.2,39,9.9,47
+759,"Washington Township, Gloucester County, New Jersey",16.2,77,17.7,84
+760,"East Providence, Rhode Island",19.4,92,23.4,111
+761,"Euclid, Ohio",19.4,92,20.7,98
+762,"West Orange, New Jersey",20.5,97,23.4,111
+763,"Jeffersonville, Indiana",17.3,82,18.4,87
+764,"Apex, North Carolina",15.6,74,19.2,91
+765,"St. Cloud, Florida",16.7,79,24.7,117
+766,"Littleton, Colorado",14.8,70,20.1,95
+767,"Redford Township, Michigan",11.9,56,13.8,65
+768,"Lacey, Washington",10.6,50,12.3,58
+769,"Lincoln, California",4.2,20,5.7,27
+770,"Keller, Texas",10.2,48,17.9,84
+771,"Charlottesville, Virginia",26.4,124,33.4,157
+772,"Kannapolis, North Carolina",16.9,79,22.6,106
+773,"Mentor, Ohio",17.3,81,23.5,110
+774,"Everett, Massachusetts",21.6,101,23.5,110
+775,"Mansfield, Ohio",17.6,82,24.9,116
+776,"Middletown, Connecticut",23.4,109,26.2,122
+777,"Beavercreek, Ohio",10.1,47,13.1,61
+778,"Bentonville, Arkansas",14.6,68,21.1,98
+779,"Elmhurst, Illinois",14.5,67,19.2,89
+780,"Hamburg Town, New York",13.3,61,16.9,78
+781,"Biloxi, Mississippi",27.6,127,38.5,177
+782,"Newark, California",12.0,55,16.8,77
+783,"South Brunswick Township, New Jersey",17.4,80,23.1,106
+784,"Dublin, Ohio",13.7,63,19.8,91
+785,"Binghamton, New York",28.6,131,31.7,145
+786,"West Seneca Town, New York",14.9,68,17.7,81
+787,"Greenburgh Town, New York",24.5,112,30.6,140
+788,"Titusville, Florida",18.8,86,26.9,123
+789,"Evesham Township, New Jersey",16.7,76,18.6,85
+790,"Middletown Township, Pennsylvania",12.3,56,13.7,62
+791,"Ocoee, Florida",17.0,77,19.6,89
+792,"Bridgewater Township, New Jersey",16.4,74,18.1,82
+793,"Beaumont, California",8.4,38,12.4,56
+794,"Altoona, Pennsylvania",13.5,61,15.3,69
+795,"Sayreville, New Jersey",18.6,84,21.3,96
+796,"Burleson, Texas",13.5,61,18.2,82
+797,"Urbandale, Iowa",11.3,51,13.1,59
+798,"Arlington, Massachusetts",14.7,66,18.7,84
+799,"Fort Pierce, Florida",24.0,108,29.6,133
+800,"Hackensack, New Jersey",26.5,119,30.7,138
+801,"Chesterfield Township, Michigan",9.1,41,12.2,55
+802,"Monroe Township, Middlesex County, New Jersey",12.2,55,16.0,72
+803,"Oakland Park, Florida",18.9,85,21.4,96
+804,"Wallingford, Connecticut",15.4,69,20.1,90
+805,"Bozeman, Montana",13.9,62,15.6,70
+806,"Cleveland Heights, Ohio",21.3,95,23.3,104
+807,"Strongsville, Ohio",15.9,71,19.0,85
+808,"Haltom City, Texas",15.9,71,18.9,84
+809,"Lompoc, California",10.1,45,15.3,68
+810,"Blacksburg, Virginia",13.7,61,15.9,71
+811,"Webster Town and Village, New York",7.2,32,8.1,36
+812,"North Miami Beach, Florida",23.9,106,31.5,140
+813,"Cleveland, Tennessee",19.1,85,23.2,103
+814,"Enfield, Connecticut",21.2,94,25.8,114
+815,"North Lauderdale, Florida",11.5,51,13.1,58
+816,"Attleboro, Massachusetts",17.9,79,20.6,91
+817,"El Centro, California",10.9,48,16.1,71
+818,"Oro Valley, Arizona",22.7,100,29.0,128
+819,"York, Pennsylvania",23.9,105,27.3,120
+820,"Morgan Hill, California",8.9,39,13.4,59
+821,"Bountiful, Utah",8.2,36,12.0,53
+822,"Pine Bluff, Arkansas",32.5,143,39.3,173
+823,"Barnstable, Massachusetts",25.7,113,29.1,128
+824,"Egg Harbor Township, New Jersey",19.3,85,25.0,110
+825,"Southington, Connecticut",15.5,68,20.3,89
+826,"Lombard, Illinois",15.5,68,18.7,82
+827,"Bothell, Washington",13.2,58,19.2,84
+828,"San Bruno, California",11.2,49,14.9,65
+829,"Rockwall, Texas",18.4,80,23.0,100
+830,"Manchester Township, New Jersey",15.6,68,19.8,86
+831,"Altamonte Springs, Florida",22.5,98,26.2,114
+832,"Freeport Village, New York",22.6,98,26.5,115
+833,"Bell Gardens, California",11.5,50,16.6,72
+834,"Jefferson City, Missouri",20.4,88,29.0,125
+835,"De Kalb, Illinois",14.4,62,17.9,77
+836,"Pittsfield, Massachusetts",22.3,96,26.5,114
+837,"Sierra Vista, Arizona",16.3,70,21.9,94
+838,"Billerica, Massachusetts",15.1,65,18.2,78
+839,"The Colony, Texas",13.5,58,20.7,89
+840,"Fond du Lac, Wisconsin",17.0,73,18.6,80
+841,"Prescott Valley, Arizona",14.2,61,18.9,81
+842,"Salem, Massachusetts",23.3,100,24.7,106
+843,"Fairfield, Ohio",14.2,61,18.5,79
+844,"Marana, Arizona",20.6,88,27.1,116
+845,"North Brunswick Township, New Jersey",18.9,81,22.9,98
+846,"Brentwood, Tennessee",13.6,58,17.1,73
+847,"Rohnert Park, California",13.8,59,19.9,85
+848,"Meridian Township, Michigan",9.1,39,10.3,44
+849,"Concord, New Hampshire",18.3,78,20.9,89
+850,"Moline, Illinois",18.6,79,23.0,98
+851,"Moorhead, Minnesota",13.2,56,16.9,72
+852,"Brea, California",14.4,61,22.4,95
+853,"Urbana, Illinois",12.7,54,16.0,68
+854,"Burlington, Vermont",22.6,96,31.6,134
+855,"Prescott, Arizona",16.1,68,19.1,81
+856,"Bloomfield Township, Michigan",12.8,54,17.5,74
+857,"Pocono Mountain Regional, Pennsylvania",9.7,41,10.9,46
+858,"Farmington, New Mexico",31.0,131,40.0,169
+859,"Manassas, Virginia",21.8,92,28.2,119
+860,"Midland, Michigan",10.9,46,11.4,48
+861,"Kearny, New Jersey",25.8,109,27.2,115
+862,"Linden, New Jersey",30.2,127,36.3,153
+863,"Penn Hills, Pennsylvania",12.0,50,12.7,53
+864,"Mount Laurel Township, New Jersey",14.6,61,16.5,69
+865,"Edmonds, Washington",12.9,54,15.1,63
+866,"Westfield, Massachusetts",19.4,81,21.1,88
+867,"Danville, Virginia",29.7,124,31.7,132
+868,"Berkeley Township, New Jersey",15.8,66,21.1,88
+869,"Coppell, Texas",14.9,62,16.6,69
+870,"Cedar Falls, Iowa",9.6,40,9.8,41
+871,"Shelton, Connecticut",12.5,52,14.7,61
+872,"Winter Garden, Florida",17.1,71,24.1,100
+873,"Leominster, Massachusetts",16.1,67,20.0,83
+874,"Goose Creek, South Carolina",15.2,63,21.7,90
+875,"Buffalo Grove, Illinois",15.2,63,17.8,74
+876,"Woonsocket, Rhode Island",22.2,92,27.5,114
+877,"Campbell, California",10.1,42,16.2,67
+878,"Hutchinson, Kansas",17.4,72,26.3,109
+879,"Little Elm, Texas",11.3,47,12.3,51
+880,"Huntsville, Texas",14.0,58,15.7,65
+881,"Ormond Beach, Florida",14.8,61,19.8,82
+882,"Beverly, Massachusetts",16.5,68,17.4,72
+883,"Mankato, Minnesota",13.6,56,15.7,65
+884,"Findlay, Ohio",15.6,64,19.9,82
+885,"Sherman, Texas",14.8,61,20.2,83
+886,"Covington, Kentucky",26.3,108,28.2,116
+887,"Maplewood, Minnesota",12.2,50,13.4,55
+888,"Teaneck Township, New Jersey",21.7,89,25.6,105
+889,"Sumter, South Carolina",26.9,110,38.7,158
+890,"Quincy, Illinois",17.2,70,20.3,83
+891,"Marlboro Township, New Jersey",17.9,73,25.3,103
+892,"Holyoke, Massachusetts",29.5,120,35.3,144
+893,"Leander, Texas",10.6,43,14.8,60
+894,"Wilkes-Barre, Pennsylvania",19.9,81,22.6,92
+895,"San Gabriel, California",12.1,49,15.8,64
+896,"Hagerstown, Maryland",24.9,101,28.1,114
+897,"Shakopee, Minnesota",11.6,47,13.8,56
+898,"Carol Stream, Illinois",14.8,60,20.3,82
+899,"Hickory, North Carolina",25.5,103,34.1,138
+900,"Manalapan Township, New Jersey",13.4,54,14.1,57
+901,"Fitchburg, Massachusetts",19.3,78,23.3,94
+902,"Crystal Lake, Illinois",14.9,60,17.1,69
+903,"Calexico, California",5.7,23,8.7,35
+904,"Puyallup, Washington",13.9,56,19.2,77
+905,"Grove City, Ohio",15.2,61,19.4,78
+906,"Florence, Alabama",26.1,105,32.4,130
+907,"Chelsea, Massachusetts",27.4,110,29.7,119
+908,"Duncanville, Texas",13.5,54,16.5,66
+909,"Hillsborough Township, New Jersey",13.0,52,16.2,65
+910,"Wake Forest, North Carolina",17.0,68,20.8,83
+911,"Weslaco, Texas",16.5,66,22.5,90
+912,"Hallandale, Florida",23.0,92,32.3,129
+913,"Lancaster, Ohio",16.8,67,21.0,84
+914,"Manheim Township, Pennsylvania",15.8,63,18.8,75
+915,"Marlborough, Massachusetts",16.3,65,19.3,77
+916,"Northglenn, Colorado",15.0,60,19.8,79
+917,"Culver City, California",25.1,100,38.4,153
+918,"New Berlin, Wisconsin",16.8,67,19.6,78
+919,"Bremerton, Washington",13.8,55,16.8,67
+920,"Norwich, Connecticut",22.1,88,25.6,102
+921,"Cape Girardeau, Missouri",20.4,81,29.7,118
+922,"Clovis, New Mexico",13.6,54,19.9,79
+923,"Annapolis, Maryland",27.5,109,38.5,153
+924,"Pacifica, California",8.3,33,8.8,35
+925,"Woburn, Massachusetts",18.9,75,20.2,80
+926,"Northampton Township, Pennsylvania",10.4,41,11.9,47
+927,"Bullhead City, Arizona",18.0,71,28.7,113
+928,"Gainesville, Georgia",24.9,98,28.2,111
+929,"Saginaw Township, Michigan",10.4,41,11.7,46
+930,"Friendswood, Texas",14.7,58,19.8,78
+931,"Meridian, Mississippi",19.8,78,25.9,102
+932,"Hobbs, New Mexico",23.9,94,32.5,128
+933,"Hurst, Texas",19.1,75,30.8,121
+934,"Germantown, Tennessee",25.4,100,31.3,123
+935,"Schertz, Texas",13.0,51,18.4,72
+936,"Poughkeepsie Town, New York",20.4,80,23.2,91
+937,"Lancaster, Texas",12.2,48,14.5,57
+938,"Atlantic City, New Jersey",70.9,278,101.3,397
+939,"Wausau, Wisconsin",18.4,72,20.7,81
+940,"Montclair, California",12.0,47,17.4,68
+941,"American Fork/Cedar Hills, Utah",9.0,35,10.8,42
+942,"Pleasant Grove, Utah",6.9,27,9.0,35
+943,"Lake Oswego, Oregon",10.8,42,17.0,66
+944,"Panama City, Florida",24.5,95,33.7,131
+945,"Westerville, Ohio",19.1,74,26.3,102
+946,"Winslow Township, New Jersey",18.6,72,20.4,79
+947,"Pittsfield Township, Michigan",10.3,40,14.7,57
+948,"Delaware, Ohio",13.5,52,15.3,59
+949,"Milton, Georgia",9.6,37,10.6,41
+950,"Martinez, California",8.6,33,11.7,45
+951,"Spanish Fork, Utah",8.3,32,9.6,37
+952,"Phenix City, Alabama",21.8,84,28.0,108
+953,"Apache Junction, Arizona",14.8,57,22.6,87
+954,"Winter Haven, Florida",22.3,86,29.1,112
+955,"Muskegon, Michigan",19.2,74,21.3,82
+956,"Hanover Park, Illinois",14.6,56,21.1,81
+957,"Florence, South Carolina",24.0,92,31.3,120
+958,"Brighton, Colorado",16.4,63,22.9,88
+959,"Muskogee, Oklahoma",23.5,90,29.0,111
+960,"Westfield, Indiana",11.8,45,13.1,50
+961,"Roy, Utah",10.0,38,11.5,44
+962,"Keizer, Oregon",9.4,36,11.3,43
+963,"Wheeling, Illinois",15.7,60,24.9,95
+964,"Newnan, Georgia",20.7,79,24.4,93
+965,"Montclair, New Jersey",27.3,104,31.8,121
+966,"Spartanburg, South Carolina",30.2,115,36.2,138
+967,"Brookfield, Wisconsin",18.4,70,23.1,88
+968,"Aventura, Florida",21.0,80,31.3,119
+969,"Orangetown Town, New York",21.6,82,22.7,86
+970,"Hollister, California",7.1,27,8.7,33
+971,"Plant City, Florida",17.7,67,22.1,84
+972,"Marion, Iowa",11.9,45,15.1,57
+973,"Dover, Delaware",27.8,105,36.0,136
+974,"Park Ridge, Illinois",14.3,54,17.5,66
+975,"Haverstraw Town, New York",17.0,64,18.3,69
+976,"Los Banos, California",9.8,37,16.4,62
+977,"Lima, Ohio",22.3,84,27.0,102
+978,"Braintree, Massachusetts",20.4,77,24.4,92
+979,"Monrovia, California",13.6,51,21.8,82
+980,"Spring Hill, Tennessee",12.8,48,13.8,52
+981,"Blackman Township, Michigan",9.1,34,9.3,35
+982,"Texarkana, Texas",23.2,87,26.4,99
+983,"Lancaster Town, New York",13.1,49,17.1,64
+984,"Kyle, Texas",9.1,34,15.8,59
+985,"Reynoldsburg, Ohio",14.2,53,19.0,71
+986,"Greenfield, Wisconsin",15.2,57,20.1,75
+987,"Grants Pass, Oregon",14.2,53,22.8,85
+988,"Issaquah, Washington",8.8,33,16.4,61
+989,"Yorktown Town, New York",14.5,54,16.9,63
+990,"Galloway Township, New Jersey",15.8,59,21.7,81
+991,"Addison, Illinois",17.7,66,31.9,119
+992,"Columbia, Tennessee",22.8,85,26.1,97
+993,"Lynnwood, Washington",18.8,70,27.4,102
+994,"San Juan, Texas",12.7,47,15.6,58
+995,"Cheltenham Township, Pennsylvania",18.9,70,21.0,78
+996,"Wentzville, Missouri",17.1,63,22.7,84
+997,"Cooper City, Florida",16.0,59,20.9,77
+998,"Brighton Town, New York",10.3,38,11.9,44
+999,"Beloit, Wisconsin",17.6,65,20.9,77
+1000,"Shrewsbury, Massachusetts",12.2,45,15.5,57
+1001,"Longview, Washington",15.7,58,18.7,69
+1002,"Lincoln Park, Michigan",10.9,40,12.5,46
+1003,"Monroe Township, Gloucester County, New Jersey",18.2,67,19.8,73
+1004,"Natick, Massachusetts",15.2,56,18.8,69
+1005,"Bartlesville, Oklahoma",16.6,61,22.6,83
+1006,"Trumbull, Connecticut",20.4,75,23.4,86
+1007,"Fort Lee, New Jersey",24.5,90,29.9,110
+1008,"Portage, Indiana",18.2,67,20.2,74
+1009,"Grand Blanc Township, Michigan",10.7,39,12.6,46
+1010,"Lufkin, Texas",20.5,75,27.1,99
+1011,"Claremont, California",10.1,37,16.7,61
+1012,"Springfield Township, Hamilton County, Ohio",12.9,47,14.8,54
+1013,"Oregon City, Oregon",12.3,45,14.3,52
+1014,"Mooresville, North Carolina",21.7,79,26.9,98
+1015,"Ewing Township, New Jersey",20.6,75,25.8,94
+1016,"Richfield, Minnesota",11.5,42,13.7,50
+1017,"Rosenberg, Texas",19.3,70,25.3,92
+1018,"Bell, California",9.1,33,12.4,45
+1019,"Franklin, Wisconsin",16.2,59,20.7,75
+1020,"Rome, Georgia",24.5,89,26.7,97
+1021,"Belleville, New Jersey",30.6,111,33.1,120
+1022,"Menomonee Falls, Wisconsin",15.7,57,20.2,73
+1023,"Del Rio, Texas",16.6,60,21.0,76
+1024,"Cottage Grove, Minnesota",11.3,41,13.3,48
+1025,"Lewiston, Maine",22.1,80,25.2,91
+1026,"Leavenworth, Kansas",14.4,52,20.8,75
+1027,"Manhattan Beach, California",18.4,66,29.2,105
+1028,"Roseville, Minnesota",13.4,48,15.6,56
+1029,"Bettendorf, Iowa",12.5,45,14.5,52
+1030,"Goldsboro, North Carolina",24.8,89,28.2,101
+1031,"Freehold Township, New Jersey",18.2,65,19.3,69
+1032,"Hot Springs, Arkansas",28.6,102,36.4,130
+1033,"Prattville, Alabama",23.3,83,25.8,92
+1034,"Andover, Massachusetts",14.3,51,20.0,71
+1035,"Owasso, Oklahoma",15.5,55,20.5,73
+1036,"La Porte, Texas",21.2,75,29.9,106
+1037,"Pennsauken Township, New Jersey",20.6,73,22.9,81
+1038,"West Fargo, North Dakota",14.4,51,17.2,61
+1039,"Peachtree City, Georgia",17.8,63,19.2,68
+1040,"Oak Creek, Wisconsin",15.8,56,22.1,78
+1041,"Central Marin, California",11.6,41,13.0,46
+1042,"Chelmsford, Massachusetts",14.8,52,18.2,64
+1043,"La Vergne, Tennessee",15.0,53,18.7,66
+1044,"Lauderdale Lakes, Florida",11.1,39,11.6,41
+1045,"Gallatin, Tennessee",20.2,71,26.2,92
+1046,"Pleasant Hill, California",11.7,41,16.2,57
+1047,"Leawood, Kansas",15.9,56,21.9,77
+1048,"Winter Springs, Florida",14.5,51,18.5,65
+1049,"Inver Grove Heights, Minnesota",11.1,39,12.6,44
+1050,"Beverly Hills, California",33.4,117,52.5,184
+1051,"University City, Missouri",19.4,68,27.4,96
+1052,"Monroe, North Carolina",23.4,82,27.2,95
+1053,"Coventry, Rhode Island",15.7,55,19.7,69
+1054,"Benton, Arkansas",18.3,64,25.8,90
+1055,"Gahanna, Ohio",15.2,53,19.5,68
+1056,"Seaside, California",10.6,37,13.2,46
+1057,"Stow, Ohio",11.2,39,13.5,47
+1058,"Northern Regional, Pennsylvania",8.3,29,8.9,31
+1059,"Brunswick, Ohio",11.5,40,15.2,53
+1060,"Northern Lancaster County Regional, Pennsylvania",6.9,24,7.5,26
+1061,"Glastonbury, Connecticut",16.4,57,21.6,75
+1062,"Cumberland, Rhode Island",12.4,43,15.6,54
+1063,"Watertown, Massachusetts",19.3,67,20.5,71
+1064,"Dartmouth, Massachusetts",20.2,70,25.4,88
+1065,"Torrington, Connecticut",21.9,76,25.1,87
+1066,"Mount Vernon, Washington",12.2,42,15.6,54
+1067,"Cottonwood Heights, Utah",12.2,42,15.1,52
+1068,"Norristown, Pennsylvania",19.5,67,23.8,82
+1069,"Houma, Louisiana",23.5,81,28.5,98
+1070,"Guilderland Town, New York",10.2,35,14.0,48
+1071,"El Mirage, Arizona",11.6,40,15.7,54
+1072,"Carmel Town, New York",9.0,31,11.1,38
+1073,"Riviera Beach, Florida",31.2,107,43.7,150
+1074,"Newark, Delaware",20.7,71,25.7,88
+1075,"McMinnville, Oregon",10.8,37,12.6,43
+1076,"Stroud Area Regional, Pennsylvania",15.2,52,17.2,59
+1077,"Kennesaw, Georgia",17.0,58,21.9,75
+1078,"Deer Park, Texas",16.4,56,24.3,83
+1079,"Waxahachie, Texas",17.3,59,22.3,76
+1080,"Salisbury, North Carolina",20.2,69,22.3,76
+1081,"Chester, Pennsylvania",27.3,93,30.2,103
+1082,"Foster City, California",10.6,36,14.7,50
+1083,"Nacogdoches, Texas",18.5,63,25.5,87
+1084,"Dalton, Georgia",24.4,83,28.2,96
+1085,"Richmond, Kentucky",13.8,47,18.0,61
+1086,"Wenatchee, Washington",11.2,38,13.9,47
+1087,"Holland, Michigan",16.8,57,19.2,65
+1088,"Falls Township, Bucks County, Pennsylvania",15.4,52,17.7,60
+1089,"Riverhead Town, New York",25.1,85,30.5,103
+1090,"Randolph, Massachusetts",17.5,59,18.0,61
+1091,"Menlo Park, California",13.9,47,19.9,67
+1092,"Bay City, Michigan",14.5,49,15.7,53
+1093,"Englewood, Colorado",21.1,71,29.7,100
+1094,"Fair Lawn, New Jersey",17.5,59,21.4,72
+1095,"Lexington, Massachusetts",14.0,47,18.1,61
+1096,"Long Beach, New York",20.2,68,25.3,85
+1097,"Fairborn, Ohio",13.4,45,17.6,59
+1098,"Farmers Branch, Texas",20.3,68,29.8,100
+1099,"St. Charles, Illinois",15.5,52,18.8,63
+1100,"Kearney, Nebraska",16.7,56,20.6,69
+1101,"Pullman, Washington",8.7,29,12.0,40
+1102,"Tooele, Utah",11.4,38,14.6,49
+1103,"Socorro, Texas",8.7,29,12.3,41
+1104,"Salisbury, Maryland",26.9,90,34.1,114
+1105,"Douglasville, Georgia",29.1,97,36.7,122
+1106,"Franklin, Massachusetts",13.8,46,16.2,54
+1107,"Elk Grove Village, Illinois",26.8,89,31.6,105
+1108,"Derry, New Hampshire",15.3,51,19.2,64
+1109,"Copperas Cove, Texas",13.5,45,20.2,67
+1110,"Gillette, Wyoming",15.4,51,23.5,78
+1111,"University Place, Washington",4.5,15,4.8,16
+1112,"Clermont, Florida",19.6,65,21.4,71
+1113,"North Ridgeville, Ohio",11.5,38,14.2,47
+1114,"Jackson, Michigan",13.9,46,17.5,58
+1115,"Pekin, Illinois",16.3,54,19.4,64
+1116,"Mount Juliet, Tennessee",16.6,55,21.2,70
+1117,"Alabaster, Alabama",18.5,61,24.2,80
+1118,"Mason, Ohio",13.9,46,15.4,51
+1119,"Lawrence Township, New Jersey",17.6,58,18.8,62
+1120,"La Verne, California",12.1,40,18.2,60
+1121,"Juneau, Alaska",15.2,50,24.9,82
+1122,"Sun Prairie, Wisconsin",15.8,52,20.9,69
+1123,"Manitowoc, Wisconsin",19.2,63,22.2,73
+1124,"Holly Springs, North Carolina",14.9,49,18.3,60
+1125,"Spring Valley Village, New York",15.5,51,17.7,58
+1126,"Springville, Utah",7.6,25,10.7,35
+1127,"Valparaiso, Indiana",15.2,50,16.8,55
+1128,"Lower Makefield Township, Pennsylvania",11.6,38,12.8,42
+1129,"Eastpointe, Michigan",11.3,37,12.5,41
+1130,"Mount Lebanon, Pennsylvania",13.8,45,16.5,54
+1131,"Westtown-East Goshen Regional, Pennsylvania",9.2,30,10.1,33
+1132,"Lewiston, Idaho",12.6,41,19.3,63
+1133,"Warminster Township, Pennsylvania",13.2,43,14.7,48
+1134,"North Providence, Rhode Island",18.7,61,24.0,78
+1135,"Fairbanks, Alaska",11.4,37,13.2,43
+1136,"Laramie, Wyoming",14.2,46,21.9,71
+1137,"Rome, New York",22.9,74,23.5,76
+1138,"Walla Walla, Washington",14.2,46,22.0,71
+1139,"Petersburg, Virginia",28.8,93,37.2,120
+1140,"Cookeville, Tennessee",21.7,70,27.9,90
+1141,"Bangor, Maine",23.6,76,28.5,92
+1142,"San Luis, Arizona",10.9,35,16.8,54
+1143,"Bethel Park, Pennsylvania",11.8,38,13.7,44
+1144,"Paso Robles, California",9.7,31,13.8,44
+1145,"Garfield, New Jersey",20.7,66,23.8,76
+1146,"Myrtle Beach, South Carolina",68.7,219,94.2,300
+1147,"Dania, Florida",21.4,68,23.6,75
+1148,"West Bend, Wisconsin",16.7,53,22.0,70
+1149,"Mundelein, Illinois",16.1,51,22.1,70
+1150,"Radnor Township, Pennsylvania",13.3,42,14.5,46
+1151,"Dracut, Massachusetts",12.3,39,14.2,45
+1152,"Parkland, Florida",12.7,40,14.3,45
+1153,"Shawnee, Oklahoma",16.5,52,23.8,75
+1154,"Des Moines, Washington",10.2,32,13.6,43
+1155,"Naugatuck, Connecticut",18.1,57,21.6,68
+1156,"Lake Stevens, Washington",8.6,27,10.5,33
+1157,"Bowling Green, Ohio",11.8,37,16.6,52
+1158,"Matthews, North Carolina",17.5,55,21.7,68
+1159,"Wheat Ridge, Colorado",23.9,75,32.5,102
+1160,"Falmouth, Massachusetts",17.5,55,18.8,59
+1161,"Woodstock, Georgia",16.0,50,17.6,55
+1162,"Willingboro Township, New Jersey",20.8,65,24.0,75
+1163,"Banning, California",8.7,27,13.8,43
+1164,"Statesboro, Georgia",19.6,61,25.7,80
+1165,"Tewksbury, Massachusetts",18.9,59,23.7,74
+1166,"White Lake Township, Michigan",8.4,26,11.6,36
+1167,"Florence, Arizona",9.3,29,11.9,37
+1168,"Lebanon, Tennessee",23.8,74,29.9,93
+1169,"Savage, Minnesota",10.3,32,12.9,40
+1170,"Ridley Township, Pennsylvania",10.3,32,11.9,37
+1171,"Morgantown, West Virginia",20.9,65,24.4,76
+1172,"Kaysville, Utah",8.4,26,9.3,29
+1173,"Dover, New Hampshire",16.1,50,23.5,73
+1174,"Helena, Montana",15.5,48,22.5,70
+1175,"Post Falls, Idaho",13.9,43,22.6,70
+1176,"Gurnee, Illinois",19.3,60,29.0,90
+1177,"Los Altos, California",8.7,27,13.5,42
+1178,"Long Branch, New Jersey",26.5,82,33.3,103
+1179,"Los Gatos, California",12.0,37,17.4,54
+1180,"Cranberry Township, Pennsylvania",8.7,27,10.0,31
+1181,"Ithaca, New York",21.3,66,23.9,74
+1182,"Newburgh Town, New York",14.9,46,18.1,56
+1183,"LaGrange, Georgia",27.2,84,32.3,100
+1184,"Lawrenceville, Georgia",22.6,70,30.4,94
+1185,"Parkersburg, West Virginia",22.0,68,24.6,76
+1186,"Brooklyn Center, Minnesota",15.5,48,19.4,60
+1187,"DeLand, Florida",18.1,56,24.0,74
+1188,"South Kingstown, Rhode Island",16.8,52,22.7,70
+1189,"Brownstown Township, Michigan",10.4,32,12.6,39
+1190,"Ross Township, Pennsylvania",13.9,43,14.6,45
+1191,"Aiken, South Carolina",27.9,86,37.0,114
+1192,"Burlingame, California",11.7,36,18.2,56
+1193,"North Huntingdon Township, Pennsylvania",9.1,28,11.0,34
+1194,"Santa Paula, California",9.7,30,12.3,38
+1195,"Clearfield, Utah",10.1,31,13.6,42
+1196,"Alamogordo, New Mexico",18.2,56,24.7,76
+1197,"Needham, Massachusetts",15.0,46,17.9,55
+1198,"Liberty, Missouri",13.0,40,17.6,54
+1199,"Sherwood, Arkansas",21.8,67,31.0,95
+1200,"San Pablo, California",15.0,46,21.8,67
+1201,"Southlake, Texas",20.2,62,22.5,69
+1202,"North Tonawanda, New York",15.3,47,16.6,51
+1203,"Newington, Connecticut",16.7,51,20.9,64
+1204,"Ballwin, Missouri",15.7,48,19.3,59
+1205,"Orange, New Jersey",31.8,97,38.7,118
+1206,"Flint Township, Michigan",12.5,38,14.1,43
+1207,"Cedar City, Utah",11.8,36,13.1,40
+1208,"Texarkana, Arkansas",26.3,80,34.2,104
+1209,"Westfield, New Jersey",19.1,58,23.3,71
+1210,"Deptford Township, New Jersey",21.1,64,22.7,69
+1211,"Winter Park, Florida",26.4,80,36.2,110
+1212,"Madison Heights, Michigan",15.2,46,19.1,58
+1213,"Poughkeepsie, New York",30.1,91,41.3,125
+1214,"Opelika, Alabama",27.8,84,34.5,104
+1215,"New Bern, North Carolina",26.9,81,34.2,103
+1216,"Atascadero, California",9.3,28,12.6,38
+1217,"Rochester, New Hampshire",18.3,55,22.6,68
+1218,"Cleburne, Texas",17.3,52,23.3,70
+1219,"Kent, Ohio",14.0,42,18.7,56
+1220,"East Palo Alto, California",11.0,33,13.4,40
+1221,"Williston, North Dakota",16.7,50,23.1,69
+1222,"Groton Town, Connecticut",19.7,59,21.4,64
+1223,"Niles, Illinois",18.4,55,22.8,68
+1224,"Jamestown, New York",19.7,59,22.8,68
+1225,"North Andover, Massachusetts",13.4,40,17.1,51
+1226,"Oak Park, Michigan",16.4,49,20.4,61
+1227,"Gloucester, Massachusetts",15.8,47,17.4,52
+1228,"Rahway, New Jersey",24.5,73,27.5,82
+1229,"Livingston Township, New Jersey",22.8,68,26.5,79
+1230,"Suisun City, California",7.1,21,11.1,33
+1231,"Port Chester Village, New York",20.5,61,21.2,63
+1232,"Orchard Park Town, New York",10.4,31,13.1,39
+1233,"Duluth, Georgia",26.2,78,31.3,93
+1234,"Hampden Township, Pennsylvania",8.4,25,8.8,26
+1235,"Princeton, New Jersey",17.5,52,23.6,70
+1236,"Tredyffrin Township, Pennsylvania",14.2,42,15.9,47
+1237,"Morristown, Tennessee",28.7,85,31.1,92
+1238,"Delhi Township, Ohio",10.1,30,10.8,32
+1239,"Carlsbad, New Mexico",21.0,62,30.1,89
+1240,"Atwater, California",9.2,27,11.6,34
+1241,"Raytown, Missouri",18.0,53,24.5,72
+1242,"Russellville, Arkansas",17.4,51,19.4,57
+1243,"Rotterdam Town, New York",13.6,40,14.6,43
+1244,"Sanford, North Carolina",27.9,82,35.8,105
+1245,"Johnston, Rhode Island",22.8,67,27.3,80
+1246,"East Fishkill Town, New York",9.9,29,13.0,38
+1247,"Oak Ridge, Tennessee",18.8,55,24.2,71
+1248,"Cheshire, Connecticut",16.1,47,20.2,59
+1249,"Eagle Pass, Texas",21.5,63,26.7,78
+1250,"Voorhees Township, New Jersey",16.8,49,19.8,58
+1251,"Big Spring, Texas",11.6,34,17.5,51
+1252,"Port Huron, Michigan",18.5,54,23.6,69
+1253,"Redmond, Oregon",12.3,36,15.4,45
+1254,"Williamsport, Pennsylvania",17.5,51,18.9,55
+1255,"Southgate, Michigan",12.3,36,13.7,40
+1256,"Miami Township, Montgomery County, Ohio",13.0,38,15.4,45
+1257,"Mount Olive Township, New Jersey",16.2,47,19.2,56
+1258,"Kingman, Arizona",18.6,54,24.4,71
+1259,"Norwood, Massachusetts",19.6,57,23.4,68
+1260,"Wellesley, Massachusetts",13.4,39,15.5,45
+1261,"North Attleboro, Massachusetts",15.2,44,20.0,58
+1262,"Ridgecrest, California",11.0,32,17.2,50
+1263,"Windsor, Connecticut",18.6,54,23.1,67
+1264,"Salem, New Hampshire",21.8,63,26.6,77
+1265,"Greer, South Carolina",18.7,54,24.9,72
+1266,"Vernon, Connecticut",16.9,49,22.1,64
+1267,"Henderson, Kentucky",20.8,60,28.0,81
+1268,"McCandless, Pennsylvania",9.7,28,10.4,30
+1269,"Granite City, Illinois",19.4,56,23.9,69
+1270,"Northville Township, Michigan",9.3,27,13.2,38
+1271,"East Haven, Connecticut",18.0,52,19.4,56
+1272,"Lone Peak, Utah",7.3,21,8.3,24
+1273,"Agawam, Massachusetts",16.3,47,19.8,57
+1274,"Fredericksburg, Virginia",22.9,66,31.6,91
+1275,"West Warwick, Rhode Island",18.1,52,21.9,63
+1276,"Cornelius, North Carolina",21.6,62,26.8,77
+1277,"West Springfield, Massachusetts",29.3,84,32.4,93
+1278,"Jacksonville, Arkansas",25.1,72,30.0,86
+1279,"Englewood, New Jersey",29.3,84,38.4,110
+1280,"Nutley Township, New Jersey",25.8,74,30.0,86
+1281,"Gates Town, New York",10.5,30,12.2,35
+1282,"Maryville, Tennessee",17.4,50,19.5,56
+1283,"Upper Merion Township, Pennsylvania",22.3,64,27.9,80
+1284,"Milford, Massachusetts",15.7,45,18.9,54
+1285,"Fitchburg, Wisconsin",17.1,49,21.3,61
+1286,"Stoughton, Massachusetts",18.2,52,20.6,59
+1287,"Desert Hot Springs, California",8.4,24,10.5,30
+1288,"Burton, Michigan",14.0,40,15.1,43
+1289,"Lacey Township, New Jersey",15.1,43,20.0,57
+1290,"Wallkill Town, New York",13.7,39,14.0,40
+1291,"Northampton, Massachusetts",22.1,63,24.2,69
+1292,"Harrison Town, New York",22.1,63,25.9,74
+1293,"Garner, North Carolina",21.7,62,24.6,70
+1294,"Monterey, California",15.1,43,21.4,61
+1295,"East Chicago, Indiana",33.0,94,35.4,101
+1296,"Aberdeen, South Dakota",15.8,45,18.9,54
+1297,"West Windsor Township, New Jersey",16.5,47,20.7,59
+1298,"Shaler Township, Pennsylvania",9.1,26,9.8,28
+1299,"SeaTac, Washington",15.1,43,21.1,60
+1300,"Lafayette, Colorado",13.4,38,16.9,48
+1301,"Benicia, California",11.6,33,17.3,49
+1302,"Seguin, Texas",19.8,56,27.5,78
+1303,"Bella Vista, Arkansas",9.5,27,14.1,40
+1304,"Paragould, Arkansas",17.0,48,20.9,59
+1305,"Vestal Town, New York",12.0,34,13.1,37
+1306,"Enterprise, Alabama",18.4,52,24.8,70
+1307,"Hobart, Indiana",22.0,62,25.2,71
+1308,"Oakdale, Minnesota",11.3,32,13.5,38
+1309,"Westport, Connecticut",22.0,62,26.6,75
+1310,"Millville, New Jersey",26.3,74,30.2,85
+1311,"Newburgh, New York",30.5,86,35.1,99
+1312,"Branford, Connecticut",17.4,49,22.0,62
+1313,"Monroeville, Pennsylvania",15.6,44,18.8,53
+1314,"Saugus, Massachusetts",20.6,58,25.6,72
+1315,"Fountain, Colorado",18.1,51,22.1,62
+1316,"Rexburg, Idaho",11.4,32,14.2,40
+1317,"Slidell, Louisiana",23.8,67,35.2,99
+1318,"Newtown, Connecticut",15.7,44,17.1,48
+1319,"Van Buren Township, Michigan",14.2,40,19.6,55
+1320,"Oak Forest, Illinois",14.6,41,18.5,52
+1321,"Cibolo, Texas",11.4,32,13.2,37
+1322,"Melrose, Massachusetts",16.7,47,16.7,47
+1323,"Syracuse, Utah",7.5,21,8.2,23
+1324,"Saratoga Springs, New York",26.1,73,30.7,86
+1325,"Danvers, Massachusetts",16.4,46,20.7,58
+1326,"Dodge City, Kansas",15.4,43,22.5,63
+1327,"Frankfort, Kentucky",20.1,56,21.1,59
+1328,"Fridley, Minnesota",14.7,41,16.2,45
+1329,"Round Lake Beach, Illinois",13.3,37,13.7,38
+1330,"Kirkwood, Missouri",21.9,61,27.0,75
+1331,"Middletown, New York",23.1,64,27.0,75
+1332,"Pemberton Township, New Jersey",13.7,38,15.5,43
+1333,"Lake Jackson, Texas",15.9,44,21.3,59
+1334,"Bergenfield, New Jersey",17.7,49,18.8,52
+1335,"Marshalltown, Iowa",14.8,41,21.0,58
+1336,"Plum, Pennsylvania",8.7,24,10.9,30
+1337,"East Windsor Township, New Jersey",15.6,43,17.8,49
+1338,"Anderson, South Carolina",33.1,91,46.5,128
+1339,"Spring Township, Berks County, Pennsylvania",10.5,29,10.9,30
+1340,"Neptune Township, New Jersey",26.5,73,30.2,83
+1341,"Belmont, California",10.9,30,16.0,44
+1342,"West Chicago, Illinois",16.7,46,18.6,51
+1343,"Wheeling, West Virginia",24.7,68,28.0,77
+1344,"Glen Cove, New York",18.2,50,19.7,54
+1345,"Shaker Heights, Ohio",21.8,60,29.8,82
+1346,"Whitehall Township, Pennsylvania",16.4,45,18.2,50
+1347,"Maryland Heights, Missouri",28.5,78,34.7,95
+1348,"Tualatin, Oregon",13.5,37,16.4,45
+1349,"Winchester, Virginia",26.3,72,35.1,96
+1350,"Allen Park, Michigan",14.7,40,15.8,43
+1351,"Mason City, Iowa",16.9,46,18.7,51
+1352,"Casselberry, Florida",17.6,48,20.9,57
+1353,"Saratoga Springs, Utah",11.4,31,15.1,41
+1354,"Gladstone, Missouri",15.8,43,21.4,58
+1355,"Thomasville, North Carolina",24.3,66,26.6,72
+1356,"New Milford, Connecticut",18.4,50,22.9,62
+1357,"New London, Connecticut",28.4,77,34.0,92
+1358,"Wakefield, Massachusetts",16.6,45,17.0,46
+1359,"Horn Lake, Mississippi",18.5,50,24.7,67
+1360,"Ocean Township, Monmouth County, New Jersey",22.5,61,27.3,74
+1361,"Garden City, Kansas",22.9,62,33.7,91
+1362,"Bernards Township, New Jersey",14.1,38,15.9,43
+1363,"Jeffersontown, Kentucky",18.1,49,21.8,59
+1364,"Winona, Minnesota",14.1,38,15.6,42
+1365,"Eureka, California",17.4,47,26.3,71
+1366,"Stafford Township, New Jersey",18.9,51,26.3,71
+1367,"Rockledge, Florida",18.5,50,26.3,71
+1368,"Paramus, New Jersey",32.3,87,40.1,108
+1369,"Easton, Pennsylvania",23.0,62,24.5,66
+1370,"Springettsbury Township, Pennsylvania",11.9,32,13.0,35
+1371,"Mount Pleasant Town, New York",15.2,41,17.5,47
+1372,"West Linn, Oregon",10.8,29,12.3,33
+1373,"Wooster, Ohio",14.9,40,16.0,43
+1374,"Zionsville, Indiana",10.8,29,11.2,30
+1375,"Plymouth Township, Michigan",11.2,30,17.9,48
+1376,"Auburn, New York",24.6,66,26.4,71
+1377,"New Windsor Town, New York",14.2,38,17.9,48
+1378,"Alton, Illinois",21.6,58,28.0,75
+1379,"Hamilton Township, Atlantic County, New Jersey",18.6,50,27.2,73
+1380,"Garden City, Michigan",10.5,28,11.2,30
+1381,"Watertown, New York",24.3,65,25.4,68
+1382,"West Milford Township, New Jersey",16.5,44,19.1,51
+1383,"Greenville, Texas",20.2,54,27.4,73
+1384,"Horsham Township, Pennsylvania",15.0,40,17.6,47
+1385,"Bristol, Tennessee",25.9,69,33.0,88
+1386,"Carrollton, Georgia",23.7,63,28.6,76
+1387,"Mahwah Township, New Jersey",19.6,52,22.6,60
+1388,"Stevens Point, Wisconsin",16.5,44,18.1,48
+1389,"McHenry, Illinois",17.3,46,21.4,57
+1390,"Vernon Hills, Illinois",15.8,42,26.7,71
+1391,"Batavia, Illinois",15.1,40,17.3,46
+1392,"Statesville, North Carolina",27.1,72,34.6,92
+1393,"Yukon, Oklahoma",16.2,43,23.0,61
+1394,"Paradise, California",7.2,19,12.4,33
+1395,"Kankakee, Illinois",25.7,68,27.2,72
+1396,"Fremont, Nebraska",14.0,37,15.9,42
+1397,"Superior, Wisconsin",21.2,56,23.1,61
+1398,"Laurel, Maryland",24.2,64,32.2,85
+1399,"Genoa Township, Ohio",9.1,24,9.8,26
+1400,"Carbondale, Illinois",25.4,67,31.5,83
+1401,"Lower Providence Township, Pennsylvania",11.8,31,12.5,33
+1402,"Upper Dublin Township, Pennsylvania",15.2,40,17.5,46
+1403,"Wethersfield, Connecticut",18.2,48,23.2,61
+1404,"Maple Valley, Washington",7.2,19,9.1,24
+1405,"Mount Pleasant, Wisconsin",18.3,48,20.2,53
+1406,"Medina, Ohio",13.7,36,17.5,46
+1407,"Ramsey, Minnesota",9.1,24,10.3,27
+1408,"Montgomery Township, Pennsylvania",13.7,36,17.1,45
+1409,"South Pasadena, California",13.3,35,18.7,49
+1410,"Asheboro, North Carolina",27.1,71,30.1,79
+1411,"Kingsville, Texas",17.9,47,25.5,67
+1412,"Mint Hill, North Carolina",11.8,31,13.0,34
+1413,"Barberton, Ohio",16.0,42,16.8,44
+1414,"North Kingstown, Rhode Island",16.8,44,20.3,53
+1415,"Madison, Mississippi",25.7,67,32.9,86
+1416,"Newberg-Dundee, Oregon",13.4,35,18.8,49
+1417,"Alvin, Texas",18.0,47,29.1,76
+1418,"New Lenox, Illinois",14.2,37,15.7,41
+1419,"Burlington, Massachusetts",24.9,65,28.0,73
+1420,"Brawley, California",13.8,36,19.2,50
+1421,"Mount Pleasant, Michigan",11.1,29,13.4,35
+1422,"Colleyville, Texas",16.5,43,18.8,49
+1423,"Xenia, Ohio",15.7,41,25.7,67
+1424,"Wall Township, New Jersey",25.4,66,35.0,91
+1425,"Canton, Georgia",17.3,45,19.2,50
+1426,"Key West, Florida",35.4,92,45.4,118
+1427,"Temple Terrace, Florida",19.3,50,25.4,66
+1428,"Exeter Township, Berks County, Pennsylvania",11.2,29,12.0,31
+1429,"Cabot, Arkansas",16.2,42,20.4,53
+1430,"Clinton, Iowa",15.4,40,17.8,46
+1431,"Randolph Township, New Jersey",13.9,36,15.8,41
+1432,"Lemoore, California",12.0,31,14.7,38
+1433,"Neenah, Wisconsin",15.9,41,19.7,51
+1434,"Moon Township, Pennsylvania",10.8,28,13.2,34
+1435,"Reedley, California",10.5,27,15.5,40
+1436,"South Windsor, Connecticut",14.7,38,20.2,52
+1437,"Sahuarita, Arizona",16.7,43,19.4,50
+1438,"Reading, Massachusetts",16.3,42,21.3,55
+1439,"Prior Lake, Minnesota",9.7,25,10.9,28
+1440,"Owatonna, Minnesota",14.0,36,15.1,39
+1441,"Troy, Ohio",16.3,42,17.1,44
+1442,"Marshfield, Massachusetts",17.9,46,19.1,49
+1443,"Farmington, Connecticut",17.5,45,23.8,61
+1444,"Merrimack, New Hampshire",15.6,40,20.3,52
+1445,"South Portland, Maine",20.6,53,23.0,59
+1446,"Hazelwood, Missouri",26.1,67,30.4,78
+1447,"Galt, California",12.9,33,19.1,49
+1448,"Belmont, Massachusetts",17.9,46,23.4,60
+1449,"Ridgewood, New Jersey",16.8,43,18.0,46
+1450,"DeWitt Town, New York",17.2,44,18.7,48
+1451,"Athens, Alabama",18.7,48,23.0,59
+1452,"Daphne, Alabama",19.6,50,28.9,74
+1453,"Washington, Utah",9.4,24,10.2,26
+1454,"Hercules, California",7.8,20,8.6,22
+1455,"Lebanon, Pennsylvania",16.0,41,17.2,44
+1456,"Mauldin, South Carolina",19.2,49,23.5,60
+1457,"Mercer Island, Washington",12.1,31,13.7,35
+1458,"White Bear Lake, Minnesota",11.0,28,14.5,37
+1459,"Chaska, Minnesota",9.8,25,11.0,28
+1460,"Balch Springs, Texas",14.1,36,20.8,53
+1461,"Sachse, Texas",11.0,28,16.5,42
+1462,"Bixby, Oklahoma",10.6,27,14.1,36
+1463,"Londonderry, New Hampshire",22.0,56,27.5,70
+1464,"Grandview, Missouri",20.1,51,23.6,60
+1465,"Dedham, Massachusetts",22.4,57,23.2,59
+1466,"Salem, Virginia",24.4,62,33.5,85
+1467,"Woodburn, Oregon",13.4,34,16.5,42
+1468,"Burlington, Iowa",16.9,43,18.5,47
+1469,"Ridgefield, Connecticut",16.6,42,18.9,48
+1470,"Ardmore, Oklahoma",20.1,51,27.7,70
+1471,"Moscow, Idaho",13.8,35,17.0,43
+1472,"Fuquay-Varina, North Carolina",15.1,38,17.4,44
+1473,"El Cerrito, California",15.9,40,18.6,47
+1474,"San Fernando, California",10.7,27,16.3,41
+1475,"Walpole, Massachusetts",15.9,40,21.0,53
+1476,"Edwardsville, Illinois",16.7,42,22.3,56
+1477,"Dickinson, North Dakota",14.3,36,21.9,55
+1478,"University Park, Texas",15.5,39,21.1,53
+1479,"Sandusky, Ohio",18.7,47,19.5,49
+1480,"Sanger, California",13.2,33,14.8,37
+1481,"Northport, Alabama",23.6,59,30.7,77
+1482,"Derry Township, Dauphin County, Pennsylvania",15.6,39,23.2,58
+1483,"Wyandotte, Michigan",12.8,32,18.4,46
+1484,"South Salt Lake, Utah",22.8,57,27.2,68

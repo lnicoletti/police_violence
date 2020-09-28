@@ -1,0 +1,216 @@
+
+<meta charset="utf-8">
+<html>
+  <head>
+    <style>
+      /* .mainview {
+            display: flex;
+        } */
+
+      /* #text {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 18px;
+        position: right;
+      } */
+
+      .axis text{
+        fill: silver;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+
+      }
+
+      .axis line{
+        stroke: silver
+      }
+
+      #tooltip {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+      }
+
+      .legend {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16;
+        font-weight:bold;
+      }
+
+      .axisLabel {
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* textPath {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+      } */
+    </style>
+  </head>
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- <body>
+  <div class="mainView">
+    <div>
+      <div id="my_dataviz"></div>
+    </div>
+    <div>
+      style="position: sticky; right: 500; width:100%; text-align: right" -->
+      <!-- <div id="text"></div>
+    </div> -->
+  
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+<script>
+
+    // set the dimensions and margins of the graph
+    var margin = {top: 20, right: 150, bottom: 30, left: 18},
+        width = 1400 - margin.left - margin.right,
+        height = 700 - margin.top - margin.bottom;
+    
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+    
+    // Parse the Data
+    //deaths_by_race.csv
+    d3.csv("https://gist.githubusercontent.com/lnicoletti/f882ff644e6bdc76b6d518a8b8857b99/raw/cb28adf0826168ca9ef8e936027fdf54523a15c0/deaths_by_race.csv", function(data) {
+    
+      // List of groups = header of the csv files
+      var keys = data.columns.slice(2)
+        console.log(data)
+        console.log(keys)
+      // Add X axis
+      var x = d3.scaleLinear()
+        .domain(d3.extent(data, function(d) { return d.date; }))
+        .range([ 0, width ]);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).ticks(10))
+        .attr("class", "axis");
+    
+      // Add Y axis
+      let maxValue = d3.max(data, d => d.black)
+      var y = d3.scaleLinear()
+        .domain([0, 20])
+        .range([ height, 0 ]);
+        
+      svg.append("g")
+        .call(d3.axisRight(y))
+        .attr("class", "axis")
+        .attr("id", "yAxis")
+        .attr("transform", "translate(" + width/1.00000005 + "0)")
+        d3.selectAll("path.domain").remove();
+
+        svg.append("text")
+          .attr("class", "axisLabel")
+          .attr("transform", "rotate(-90)")
+          .attr("y", width*1.04)
+          .attr("x",0 - (height / 2))
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .style("fill", "silver")
+          .text("Deaths by Police per 100,000 Inhabitants")
+
+
+      // color palette
+      var color = d3.scaleOrdinal()
+        .domain(keys)
+        // .range(['#bfbfbf','#7f7f7f','#404040'])
+        // .range(['#9595A0','#4E5262','#0E2034'])
+        .range(['#e5e5e8','#61616d','#171717'])
+        // .range(['#e5e5e8','#9595a0','#171717'])
+
+    
+      //stack the data?
+      var stackedData = d3.stack()
+        .keys(keys)
+        (data)
+        console.log("This is the stack result: ", stackedData)
+
+      // create a tooltip
+      var Tooltip = svg
+        .append("text")
+        .attr("id", "tooltip")
+        .attr("x", 0)
+        .attr("y", 0)
+        .style("opacity", 0)
+
+      // Three function that change the tooltip when user hover / move / leave a cell
+      var mouseover = function(d) {
+        Tooltip.style("opacity", 1)
+        d3.selectAll(".myArea").style("opacity", .2)
+        d3.select(this)
+          // .style("stroke", "black")
+          // .style("stroke-width", "1")
+          .style("opacity", 1)
+      }
+      var mousemove = function(d,i) {
+        grp = keys[i]
+        // console.log(d3.max(stackedData[i])[1])
+        // console.log(stackedData[i][19][1])
+        Tooltip.attr("y", y(stackedData[i][19][1]))
+        Tooltip.attr("x", x(d3.max(data.map(d=>+d.date)))+4)
+        Tooltip.text("+ " + Math.round(d3.max(data.map(d=>+d[grp]))-d3.min(data.map(d=>+d[grp]))) + " deaths per 100,000")
+        d3.selectAll("#yAxis").attr("opacity", "0")
+        d3.selectAll(".axisLabel").attr("opacity", "0")
+      }
+      var mouseleave = function(d) {
+        Tooltip.style("opacity", 0)
+        d3.selectAll(".myArea").style("opacity", 1).style("stroke", "none")
+        d3.selectAll(".axisLabel").attr("opacity", "1")
+        d3.selectAll("#yAxis").attr("opacity", "1")
+
+       }
+
+       // Area generator
+      var area = d3.area()
+        .x(function(d) { return x(d.data.date); })
+        .y0(function(d) { return y(d[0]); })
+        .y1(function(d) { return y(d[1]); })
+        .curve(d3.curveNatural);
+    
+      // Show the areas
+      svg
+        .selectAll("mylayers")
+        .data(stackedData)
+        .enter()
+        .append("path")
+        .attr("class", "myArea")
+        .attr("id", "myArea")
+          .style("fill", function(d) { return color(d.key); })
+          .attr("d", area)
+        .on("mouseover", mouseover)
+          .on("mousemove", mousemove)
+          .on("mouseleave", mouseleave)
+
+        // Legend
+        // svg.append("circle").attr("cx",50).attr("cy",10).attr("r", 6).style("fill", "#404040")
+        // svg.append("circle").attr("cx",50).attr("cy",50).attr("r", 6).style("fill", "#7f7f7f")
+        // svg.append("circle").attr("cx",50).attr("cy",90).attr("r", 6).style("fill", "#bfbfbf")
+        svg.append("text").attr("x", 0).attr("y", 12).text("African American/Black").attr("alignment-baseline","middle").attr("class", "legend").attr("fill", "#171717")
+        svg.append("text").attr("x", 0).attr("y", 52).text("Hispanic/Latino").attr("alignment-baseline","middle").attr("class", "legend").attr("fill", "#61616d")
+        svg.append("text").attr("x", 0).attr("y", 92).text("European American/White").attr("alignment-baseline","middle").attr("class", "legend").attr("fill", "#cbcbd1")
+        
+        // //Create an SVG text element and append a textPath element
+        // svg.append("text")
+        //   .append("textPath") //append a textPath to the text element
+        //     .attr("id", "textPath")
+        //     // .attr("dy", 20)
+        //     // .attr("dx", -100)
+        //     .attr("xlink:href", "#myArea") //place the ID of the path here
+        //     .style("text-anchor","end") //place the text halfway on the arc
+        //     .attr("startOffset", "45%")
+        //     .attr("fill", "white")
+        //     .text("White");
+    })
+    
+    </script>
+    </html>

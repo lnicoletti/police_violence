@@ -1,0 +1,100 @@
+<html>
+<style>
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.cells path {
+  fill: none;
+  pointer-events: all;
+}
+
+.cells :hover circle {
+  fill: red;
+}
+
+svg {
+    border: black
+}
+
+</style>
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    margin = {top: 20, right: 40, bottom: 40, left: 40},
+    width = svg.attr("width") - margin.left - margin.right,
+    height = svg.attr("height") - margin.top - margin.bottom;
+    svg.attr("transform", "translate(50,0)")
+
+var formatValue = d3.format(",d");
+
+// var g = svg.append("g")
+//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("https://gist.githubusercontent.com/lnicoletti/628370f9fc1aaa007ba0971992ff8369/raw/826fff86dc220b97d1f2c2174cd15c335d449daf/citiesYearDeathsHT.csv").then((data) => {
+console.log(data)
+showData(data)})
+
+function showData(data) {
+
+    filterData = data.filter(d=>+d.date === 2020)
+    filterData = filterData.filter(d=>+d.population > 100000)
+
+    console.log(filterData)
+    var xScale = d3.scaleLinear()
+            .range([0, width])
+            .domain([d3.max(filterData, d => +d.death_count), 0])
+    
+    maxpop = d3.max(filterData, d=>+d.population)
+    var radius = d3.scaleSqrt()
+                        .domain([-1000, maxpop])
+                        .range([0, 20])
+    
+    // xScale.domain(d3.extent(filterData, function(d) { return +d.death_count; }));
+
+    let simulation = d3.forceSimulation(filterData)
+                .force('charge', d3.forceManyBody().strength(1))
+                .force('x', d3.forceX().x(function(d) {
+                    return xScale(+d.death_count);
+                }))
+                .force("y", d3.forceY(height/1.5).strength(0.05))
+                .force('collision', d3.forceCollide().radius(6))
+                .on('tick', function() {
+    
+    let u = svg.selectAll('circle')
+                    .data(filterData);
+        
+        console.log(filterData)
+
+        u.enter()
+        .append('circle')
+        .attr('r', d=>radius(+d.population))
+        .style('fill', "grey")
+        .style('stroke', "white")
+        .merge(u)
+        .attr('cx', function(d) {
+            return d.x;
+        })
+        .attr('cy', function(d) {
+            return d.y;
+        })
+
+        u.exit().remove();
+        });
+  
+  svg.append("g")
+      .call(d3.axisBottom(xScale))
+      .attr("transform", "translate(0, "+height+")")
+}
+</script>
+</html>

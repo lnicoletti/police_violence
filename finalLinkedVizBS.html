@@ -55,6 +55,14 @@
             fill: none
         }
 
+        .forceText {
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 8px;
+        text-anchor: middle;
+        fill: white;
+        }
+
         /* .xAxis text, .yAxis text{
         fill: silver;
         font-size: 10px;
@@ -121,6 +129,18 @@
     .buttons {
         text-align: center;
     }
+
+    .legend circle {
+        fill: none;
+        stroke: #ccc;
+        }
+
+    .legend text {
+    fill: silver;
+    font: 8px sans-serif;
+    text-anchor: middle;
+    }
+
     </style>
 </head>
  
@@ -160,9 +180,9 @@
     </h4>
     <!-- <div id="sliderDiv"></div><input id="slider" type="range" min="2000" max="2020" step="1" value="2000"> -->
     <div class="subtitle">
-        <p class="description"> For a given year, the chart below show the death toll of policing in 
-            U.S. cities above 50,000 people. Hover over a bubble to see how 
-             police violence has evolved over time in a specific city.
+        <p class="description"> For a given year, the chart below shows the death toll of policing in 
+            U.S. cities above 50,000 people. Bubbles represent cities, and are sized by population.
+             Hover over a bubble to see how police violence has evolved over time in a specific city.
         </div>
         <h5>Choose a metric</h5>
             <div class="buttons">
@@ -212,7 +232,7 @@
         })
 
     function showTooltip5(ttip, text1, text2, text3, coords, data, county, c) {
-        let x = coords[0]+10;
+        let x = coords[0]-120;
         let y = coords[1]-200;
         party = c.party
         console.log(c)
@@ -505,8 +525,13 @@
         maxpop = d3.max(filterData, d=>+d.population)
         var radius = d3.scaleSqrt()
                             .domain([-1000, maxpop])
-                            .range([0, 40])
-        
+                            .range([0, 52])
+
+        var fontScale = d3.scaleLinear()
+                            .domain([2200000, maxpop])
+                            .range([5, 10])
+
+        console.log(fontScale(3000000)+"px")
         // xScale.domain(d3.extent(filterData, function(d) { return +d.death_count; }));
         // var init_decay; 
         // init_decay = setTimeout(function(){
@@ -538,6 +563,10 @@
         
         circles = barchart.select(".body")
                         .selectAll('circle')
+                        .data(filterData);
+
+        annot = barchart.select(".body")
+                        .selectAll('text')
                         .data(filterData);
             
         newCircles = circles.enter()
@@ -582,6 +611,12 @@
             //     drawLineChart(dataType, d.county, ttip)
             // })
 
+        newText = annot.enter()
+                .append("text")
+                .attr("class", "forceText")
+                .text(d=>+d.population>2200000 ? d.county:'')
+                .style("font-size", d=>fontScale(+d.population)+"px")
+
         // transition to new updated year
         circles.merge(newCircles)
             .attr('cx', function(d) {
@@ -591,7 +626,16 @@
                 return d.y;
             })
 
+        annot.merge(newText)
+            .attr('x', function(d) {
+                return d.x;
+            })
+            .attr('y', function(d) {
+                return d.y;
+            })
+
         circles.exit().remove();
+        annot.exit().remove();
 
             });
 
@@ -677,7 +721,16 @@
                 circles = barchart.select(".body")
                     .selectAll('circle')
                     .data(filterData[0]);
-                
+
+                annot = barchart.select(".body")
+                    .selectAll('text')
+                    .data(filterData[0]);
+
+                newText = annot.enter()
+                    .append("text")
+                    .attr("class", "forceText")
+                    .text(d=>+d.population>3000000 ? d.county:'')
+                    
                 // newCircles = circles.enter()
                 //     .append('circle')
                 //     .attr("class", "forceCircles")
@@ -700,8 +753,17 @@
                     //     selectedCountry = d.county;
                     //     drawLineChart(dataType, d.county, ttip)
                     // })
-                circles.exit().remove();
 
+                annot.merge(newText)
+                    .attr('x', function(d) {
+                        return d.x;
+                    })
+                    .attr('y', function(d) {
+                        return d.y;
+                    })
+
+                    circles.exit().remove();
+                    annot.exit().remove();
             })
 
     // Update metric data on click
@@ -813,6 +875,26 @@
 
                     }
                 })
+
+        var legend = barchart.append("g")
+            .attr("class", "legend")
+            .attr("transform", "translate(" + (50) + "," + (100) + ")")
+        .selectAll("g")
+            .data([500000, 1000000, 3000000, 10000000])
+        .enter().append("g");
+
+        legend.append("circle")
+            .attr("cy", function(d) { return -radius(d); })
+            .attr("r", radius);
+
+        legend.append("text")
+            .attr("y", function(d) { return -2 * radius(d); })
+            .attr("dy", "1.3em")
+            .text(d3.format(".1s"))
+
+        legend.append("text")
+            .attr("dy", "1.3em")
+            .text("Population")
                 
     }
 

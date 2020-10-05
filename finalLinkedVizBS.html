@@ -6,11 +6,11 @@
             padding-left: 20px;
         }
 
-        /* svg {
-            border: solid 1px #000;
-            margin-top: 10px;
-            background-color: black;
-        } */
+        /* svg { */
+            /* border: solid 1px #000; */
+            /* margin-top: 10px;
+            background-color: black; */
+        /* } */
 
         /* #tooltipBar {
             border: solid 1px #ccc;
@@ -45,9 +45,8 @@
             padding: 5px;
             position: fixed;
             /* hide it for when theres no hovering */
-            /* display: none; */
+            /* display:none; */
             background-color: white;
-            /* opacity: 0; */
         }
 
 
@@ -127,6 +126,33 @@
     }
 
     .buttons {
+      justify-content: center;
+      display: flex;
+    }
+
+    button {
+      border-color: lightgray;
+      border-style:solid;
+      border-width: 0.5;
+      /* color: white; */
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      /* display: inline-block; */
+      font-size: 12px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    button:hover {
+      background-color: darkgray;
+      color: white;
+    }
+
+    button:focus{
+      font-weight: bold;
+    }
+
+    .search {
         text-align: center;
     }
 
@@ -140,6 +166,7 @@
     font: 8px sans-serif;
     text-anchor: middle;
     }
+
 
     </style>
 </head>
@@ -189,13 +216,18 @@
               <button id="death_count" type="button" value="death_count">Total Deaths</button>
               <button id="death_hthou" type="button" value="death_hthou">Deaths per 100,000 People</button>
             </div>
+        <h5>Or search for a city</h5> 
+        <div class="buttons">
+            <input id="citySearch" type="input"></button></div>
             <div style="text-align:center;" id="charts"></div>
         <!-- <input type="dropdown"></input> -->
+    <div id="chart" style="text-align: center;">
     <svg id="barchart">
         <g class="xAxis" />
         <g class="yAxis" />
         <g class="body" />
     </svg>
+    </div>
     <svg id="timeline">
         <g class="xAxis" />
         <g class="yAxis" />
@@ -203,7 +235,7 @@
             <path style="stroke: black" />
         </g>
     </svg>
-    <svg id="tooltipBar">Tooltip</svg>
+    <!-- <svg id="tooltipBar">Tooltip</svg> -->
 </body>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <!-- <script src="https://d3js.org/d3-quadtree.v1.min.js"></script> -->
@@ -230,6 +262,13 @@
             kind = "tot"
             drawBarChart(data, type, 2020, kind)
         })
+    
+    // define this to move elments to front
+    // d3.selection.prototype.moveToFront = function() {
+    //     return this.each(function(){
+    //         this.parentNode.appendChild(this);
+    //     });
+    //     };
 
     function showTooltip5(ttip, text1, text2, text3, coords, data, county, c) {
         let x = coords[0]-120;
@@ -252,7 +291,7 @@
             .style("top", y + "px")
             .style("left", x + "px")
             .style("border", "solid 1px #ccc")
-            // .syle("opacity", "1")
+            // .syle("display", "block")
 
         // rename data column based on what we are showing
         data = ttip === "tot"? data.map(function(d) {return {
@@ -517,7 +556,7 @@
         // console.log(filterData)
         var xScale = d3.scaleSymlog()
                 .range([0, bodywidth5])
-                .domain([d3.max(filterData, d => +d.death_count)+8, 0])
+                .domain([0, d3.max(filterData, d => +d.death_count)+8])
 
         // var xScale = d3.scaleLog()
         //         .rangeRound([0, width]);
@@ -603,6 +642,8 @@
             // .on("mouseleave.colorAll", function() { d3.selectAll(".forceCircles").attr("fill", d=>d.party==="red" ? '#DD1F26':'#0076C0').attr("opacity", "0.8"); })
             // .on("mouseover.color", function() { d3.select(this).attr("fill", d=>d.party==="red" ? '#DD1F26':'#0076C0').attr("opacity", "0.8"); })
             // .on("mouseleave.color", function() { d3.select(this).attr("fill", d=>d.party==="red" ? '#DD1F26':'#0076C0').attr("opacity", "0.8"); })
+            .on("mouseover.color", function() { d3.select(this).style("stroke", "black"); })
+            .on("mouseleave.color", function() { d3.select(this).style("stroke", "white"); })
             
             // on hover update line chart
             // .on("mouseover.update", d => {
@@ -658,7 +699,7 @@
             .attr("font-size", "17px")
             .style("text-anchor", "start")
             .style("fill", "silver")
-            .text("← More Deaths by Police")
+            .text("← Less Deaths by Police")
             .style("font-weight", "bold")  
             .style("font-family", "sans-serif")
 
@@ -671,7 +712,7 @@
             .attr("font-size", "17px")
             .style("text-anchor", "end")
             .style("fill", "silver")
-            .text("Less Deaths by Police →")
+            .text("More Deaths by Police →")
             .style("font-weight", "bold")  
             .style("font-family", "sans-serif")
 
@@ -690,7 +731,7 @@
             // Remove X-Axis
             d3.select("#barchart").selectAll(".yAxis").remove()
                 // Update the X-scale and X-Axis
-                xScale.domain([d3.max(filterData, d => +d.death_count)+8, 0])
+                xScale.domain([0, d3.max(filterData, d => +d.death_count)+8])
 
                 barchart.append("g")
                 .call(d3.axisBottom(xScale))
@@ -709,6 +750,7 @@
                     .restart();
 
                 simulation.nodes(filterData)
+                        // .force("center", d3.forceCenter(bodywidth5/ 1.38, bodyheight5 / 1.5))
                         .force('charge', d3.forceManyBody().strength(1))
                         .force('x', d3.forceX().x(function(d) {
                             return xScale(+d.death_count);
@@ -775,7 +817,7 @@
             // console.log(metric)
             if (metric === "death_count") {
                 // Update the X-scale and X-Axis
-                xScale.domain([d3.max(filterData, d => +d.death_count)+8, 0])
+                xScale.domain([0, d3.max(filterData, d => +d.death_count)+8])
 
                 barchart.append("g")
                 .call(d3.axisBottom(xScale))
@@ -796,6 +838,7 @@
 
                 simulation
                         // .force('charge', d3.forceManyBody().strength(1))
+                        // .force("center", d3.forceCenter(bodywidth5/ 1.38, bodyheight5 / 1.5))
                         .force('x', d3.forceX().x(function(d) {
                             return xScale(+d.death_count);
                         }))
@@ -826,7 +869,7 @@
                 // Remove X-Axis
                 d3.select("#barchart").selectAll(".yAxis").remove()
                 // Update the X-scale and X-Axis
-                xScale.domain([d3.max(filterData, d => +d.death_hthou)+8, 0])
+                xScale.domain([0, d3.max(filterData, d => +d.death_hthou)+8])
 
                 barchart.append("g")
                 .call(d3.axisBottom(xScale))
@@ -847,6 +890,7 @@
 
                 simulation
                         // .force('charge', d3.forceManyBody().strength(1))
+                        // .force("center", d3.forceCenter(bodywidth5/ 2, bodyheight5 / 1.5))
                         .force('x', d3.forceX().x(function(d) {
                             return xScale(+d.death_hthou);
                         }))
@@ -876,9 +920,22 @@
                     }
                 })
 
+        // Search functionality
+        d3.select("#citySearch").on("input", function() {
+
+        selected_city = d3.event.target.value;
+        
+        console.log(selected_city.toLowerCase())
+        // console.log(circles._groups[0].filter(d=>d.__data__.county === selected_city))
+        console.log(circles._groups[0].filter(d=>d.__data__.county.toLowerCase().match(selected_city)))
+        circles.attr("opacity", d=>d.county.toLowerCase().match(selected_city)?"0.8":"0.2")
+
+        })
+        
         var legend = barchart.append("g")
             .attr("class", "legend")
-            .attr("transform", "translate(" + (50) + "," + (100) + ")")
+            .attr("transform", "translate(" + (bodywidth5/2) + "," + (bodyheight5*1.29) + ")")
+
         .selectAll("g")
             .data([500000, 1000000, 3000000, 10000000])
         .enter().append("g");
@@ -895,6 +952,7 @@
         legend.append("text")
             .attr("dy", "1.3em")
             .text("Population")
+
                 
     }
 

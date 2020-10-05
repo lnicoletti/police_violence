@@ -2,15 +2,17 @@
 
 <head>
     <style>
-        body {
+        /* body {
             padding-left: 20px;
-        }
+        } */
 
         /* svg { */
             /* border: solid 1px #000; */
-            /* margin-top: 10px;
-            background-color: black; */
-        /* } */
+            /* margin-top: ; */
+            /* background-color: lightgrey; */
+            /* left: 0px;
+            right:0px; */
+            /* } */
 
         /* #tooltipBar {
             border: solid 1px #ccc;
@@ -23,6 +25,11 @@
             display: none;
             background-color: white;
             color:#03071e;            
+        } */
+
+        /* #barchart {
+            left: 0px;
+            right: 0px;
         } */
 
         #tooltipText {
@@ -43,7 +50,8 @@
             top: 10px;
             left: 0px;
             padding: 5px;
-            position: fixed;
+            position:fixed;
+            /* opacity:0; */
             /* hide it for when theres no hovering */
             /* display:none; */
             background-color: white;
@@ -69,7 +77,7 @@
       } */
 
       .xAxis line, .yAxis line{
-        stroke: silver
+        stroke: silver;
       }
 
       .xAxis text {
@@ -167,6 +175,22 @@
     text-anchor: middle;
     }
 
+    .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 40%;
+    vertical-align: top;
+    overflow: hidden;
+    }
+    .svg-content {
+        display: inline-block;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        left: 0;
+    }
+
 
     </style>
 </head>
@@ -221,7 +245,7 @@
             <input id="citySearch" type="input"></button></div>
             <div style="text-align:center;" id="charts"></div>
         <!-- <input type="dropdown"></input> -->
-    <div id="chart" style="text-align: center;">
+    <div id="chart" class="svg-container" style="text-align: center;">
     <svg id="barchart">
         <g class="xAxis" />
         <g class="yAxis" />
@@ -240,19 +264,28 @@
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <!-- <script src="https://d3js.org/d3-quadtree.v1.min.js"></script> -->
 <script>
-    let barchart = d3.select("#barchart")
-    let timeline = d3.select("#timeline")
 
     let width5 = 1500;
     let height5 = 540;
+    
+    let barchart = d3.select("div#chart").select("#barchart")
+                    .attr("preserveAspectRatio", "xMinYMin meet")
+                    .attr("viewBox", "0 0 "+ width5 +"," + height5+"")
+                    .classed("svg-content", true);
+    // let barchart = d3.select("#barchart")
 
-    barchart.attr("height", height5)
-    barchart.attr("width", width5)
+    let timeline = d3.select("#timeline")
+
+    // let width5 = 1500;
+    // let height5 = 540;
+
+    // barchart.attr("height", height5)
+    // barchart.attr("width", width5)
 
     timeline.attr("height",height5/4)
     timeline.attr("width", width5/5)
 
-    let selectedCountry = undefined;
+    // let selectedCountry = undefined;
 
     d3.csv("https://gist.githubusercontent.com/lnicoletti/b5cac73cbb8c4cdbb38875c95607fe5f/raw/14bd11ef30d6c8d59d838c7ab7485f46d4f2312d/citiesYearDeathsHT_party.csv")
     // d3.csv("data/citiesYearDeathsHT_party.csv")
@@ -555,8 +588,21 @@
 
         // console.log(filterData)
         var xScale = d3.scaleSymlog()
-                .range([0, bodywidth5])
+                .range([5, bodywidth5])
                 .domain([0, d3.max(filterData, d => +d.death_count)+8])
+
+        // draw X-axis
+        barchart.append("g")
+            .call(d3.axisBottom(xScale))
+            .attr("transform", "translate(0, "+bodyheight5+")")
+            // .call(d3.axisTop(xScale).tickSize(300).ticks(7))
+            // .attr("transform", "translate(0, "+bodyheight5+")")
+            .attr("class", "yAxis")
+            .selectAll("text")
+                .attr("font-size", "10px")
+                .attr("fill", "silver")
+                .attr("font-family", "arial")
+                // .attr("z-index", "-1")
 
         // var xScale = d3.scaleLog()
         //         .rangeRound([0, width]);
@@ -679,16 +725,6 @@
         annot.exit().remove();
 
             });
-
-    // draw X-axis
-    barchart.append("g")
-        .call(d3.axisBottom(xScale))
-        .attr("transform", "translate(0, "+bodyheight5+")")
-        .attr("class", "yAxis")
-        .selectAll("text")
-            .attr("font-size", "10px")
-            .attr("fill", "silver")
-            .attr("font-family", "arial")
     
     barchart.append("text")
             .attr("id", "xAxisLabel")
@@ -952,8 +988,7 @@
         legend.append("text")
             .attr("dy", "1.3em")
             .text("Population")
-
-                
+            // .style("font-size", "10px")
     }
 
     // function to wrap text

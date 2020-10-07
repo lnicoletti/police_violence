@@ -286,29 +286,12 @@
 
     // let selectedCountry = undefined;
 
-    d3.csv("https://gist.githubusercontent.com/lnicoletti/b5cac73cbb8c4cdbb38875c95607fe5f/raw/14bd11ef30d6c8d59d838c7ab7485f46d4f2312d/citiesYearDeathsHT_party.csv")
-    // d3.csv("data/citiesYearDeathsHT_party.csv")
+    // d3.csv("https://gist.githubusercontent.com/lnicoletti/b5cac73cbb8c4cdbb38875c95607fe5f/raw/14bd11ef30d6c8d59d838c7ab7485f46d4f2312d/citiesYearDeathsHT_party.csv")
+    d3.csv("data/citiesYearDeathsHT_party_n.csv")
         .then((data) => {
         
             type = "most"
             kind = "tot"
-            console.log(data)
-
-            // divide death hthou (million to 100k)
-            data = data.map(d => ({
-            "": "",
-            Latitude: +d.Latitude,
-            Longitude: +d.Longitude,
-            county: d.county,
-            date: d.date,
-            death_count: d.death_count,
-            death_hthou: +d.death_hthou/10,
-            party: d.party,
-            population: d.population
-            }))
-
-            // console.log(data)
-
             drawBarChart(data, type, 2020, kind)
         })
     
@@ -605,7 +588,7 @@
         console.log(filterData)
         var xScale = d3.scaleSymlog()
                 .range([5, bodywidth5])
-                .domain([0, d3.max(filterData, d => +d.death_count)+8])
+                .domain([0, d3.max(filterData, d => +d.death_count)+4])
 
         // draw X-axis
         barchart.append("g")
@@ -624,13 +607,14 @@
         //         .rangeRound([0, width]);
         
         maxpop = d3.max(filterData, d=>+d.population)
+        console.log(maxpop)
         var radius = d3.scaleSqrt()
-                            .domain([-1000, maxpop])
-                            .range([0, 52])
+                            .domain([20000, maxpop])
+                            .range([0, 60])
 
         var fontScale = d3.scaleLinear()
-                            .domain([2200000, maxpop])
-                            .range([5, 10])
+                            .domain([600000, maxpop])
+                            .range([4.5, 10])
 
         console.log(fontScale(3000000)+"px")
         // xScale.domain(d3.extent(filterData, function(d) { return +d.death_count; }));
@@ -646,7 +630,7 @@
                     .force('x', d3.forceX().x(function(d) {
                         return xScale(+d.death_count);
                     }))
-                    .force("y", d3.forceY(bodyheight5/2).strength(0.05))
+                    .force("y", d3.forceY(bodyheight5/1.5).strength(0.05))
                     .force('collide', d3.forceCollide((d)=>{ 
                         return radius(+d.population)}))
                     // .alpha(0.5)
@@ -717,7 +701,7 @@
         newText = annot.enter()
                 .append("text")
                 .attr("class", "forceText")
-                .text(d=>+d.population>2200000 ? d.county:'')
+                .text(d=>+d.population>600000 ? d.county:'')
                 .style("font-size", d=>fontScale(+d.population)+"px")
 
         // transition to new updated year
@@ -783,7 +767,7 @@
             // Remove X-Axis
             d3.select("#barchart").selectAll(".yAxis").remove()
                 // Update the X-scale and X-Axis
-                xScale.domain([0, d3.max(filterData, d => +d.death_count)+8])
+                xScale.domain([0, d3.max(filterData, d => +d.death_count)+4])
 
                 barchart.append("g")
                 .call(d3.axisBottom(xScale))
@@ -807,7 +791,7 @@
                         .force('x', d3.forceX().x(function(d) {
                             return xScale(+d.death_count);
                         }))
-                        .force("y", d3.forceY(bodyheight5/2).strength(0.05))
+                        .force("y", d3.forceY(bodyheight5/1.5).strength(0.05))
                         .force('collide', d3.forceCollide((d)=>{ 
                             return radius(+d.population)}).strength(1))
                         
@@ -823,7 +807,7 @@
                 newText = annot.enter()
                     .append("text")
                     .attr("class", "forceText")
-                    .text(d=>+d.population>3000000 ? d.county:'')
+                    .text(d=>+d.population>600000 ? d.county:'')
                     
                 // newCircles = circles.enter()
                 //     .append('circle')
@@ -869,7 +853,7 @@
             // console.log(metric)
             if (metric === "death_count") {
                 // Update the X-scale and X-Axis
-                xScale.domain([0, d3.max(filterData, d => +d.death_count)+8])
+                xScale.domain([0, d3.max(filterData, d => +d.death_count)+4])
 
                 barchart.append("g")
                 .call(d3.axisBottom(xScale))
@@ -894,7 +878,7 @@
                         .force('x', d3.forceX().x(function(d) {
                             return xScale(+d.death_count);
                         }))
-                        .force("y", d3.forceY(bodyheight5/2).strength(0.05))
+                        .force("y", d3.forceY(bodyheight5/1.5).strength(0.05))
                         .force('collide', d3.forceCollide((d)=>{ 
                             return radius(+d.population)}).strength(1))
                     
@@ -921,7 +905,7 @@
                 // Remove X-Axis
                 d3.select("#barchart").selectAll(".yAxis").remove()
                 // Update the X-scale and X-Axis
-                xScale.domain([-0.15, d3.max(filterData, d => +d.death_hthou)+1])
+                xScale.domain([0, d3.max(filterData, d => +d.death_hthou)+1])
 
                 barchart.append("g")
                 .call(d3.axisBottom(xScale))
@@ -946,7 +930,7 @@
                         .force('x', d3.forceX().x(function(d) {
                             return xScale(+d.death_hthou);
                         }))
-                        .force("y", d3.forceY(bodyheight5/2).strength(0.05))
+                        .force("y", d3.forceY(bodyheight5/1.5).strength(0.05))
                         .force('collide', d3.forceCollide((d)=>{ 
                             return radius(+d.population)}).strength(1))
 
@@ -989,7 +973,7 @@
             .attr("transform", "translate(" + (bodywidth5/2) + "," + (bodyheight5*1.29) + ")")
 
         .selectAll("g")
-            .data([500000, 1000000, 3000000, 10000000])
+            .data([100000, 500000, 1000000, 2000000])
         .enter().append("g");
 
         legend.append("circle")

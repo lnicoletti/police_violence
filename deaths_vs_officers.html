@@ -23,6 +23,13 @@
         stroke: silver
       }
 
+      .tooltip {
+        position: absolute;
+        background-color: white;
+        border: solid 2px silver;
+        padding: 10;
+      }
+
     </style>
   </head>
 
@@ -61,8 +68,10 @@
     
     //Read the data
     // deaths_vs_officers.csv
-    d3.csv("https://gist.githubusercontent.com/lnicoletti/1cc02dd942ff7efb1f7d7f1bc8e908cf/raw/c37b69c25c2855b8c7a7bd456561d9ff056757e7/deaths_vs_officers.csv", function(data) {
-      
+    // d3.csv("https://gist.githubusercontent.com/lnicoletti/1cc02dd942ff7efb1f7d7f1bc8e908cf/raw/c37b69c25c2855b8c7a7bd456561d9ff056757e7/deaths_vs_officers.csv", function(data) {
+      d3.csv("data/deaths_vs_officers.csv", function(data) {
+
+        console.log(data)
       // data for text
       // pareto = data.filter(d => +d.d_2010 > 1500);
       pareto = data.filter(function(d){ return +d.d_2010 >= 12.2 || +d.police_hthou >= 1800})
@@ -141,13 +150,15 @@
       var showTooltip = function(d) {
         var color = myColor(d.party)
         tooltip
-          .transition()
-          .duration(200)
+        .style("display", "block")
+          // .transition()
+          // .duration(200)
+          
         tooltip
           .style("opacity", 1)
           .html("<span style='color:" + color + ";'>" + d.city + "</br>"
-          + "<b>" + Math.round(d.police_hthou) + "</b> Police Officers per 100,000 Inhabitants </br>" 
-          + "<b>" + Math.round(d.d_2010) + "</b> Deaths by Police per 100,000 Inhabitants </span>")
+          + "<b>" + Math.round(d.police_hthou*100)/100 + "</b> Police Officers per 100,000 Inhabitants </br>" 
+          + "<b>" + Math.round(d.d_2010*100)/100 + "</b> Deaths by Police per 100,000 Inhabitants </span>")
           .style("left", (d3.mouse(this)[0]+30) + "px")
           .style("top", (d3.mouse(this)[1]+30) + "px")
           .style("color", "Silver")
@@ -161,9 +172,9 @@
       }
       var hideTooltip = function(d) {
         tooltip
-          .transition()
-          .duration(200)
-          .style("opacity", 0)
+          // .transition()
+          // .duration(200)
+          .style("display", "none")
       }
 
 

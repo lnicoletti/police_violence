@@ -118,15 +118,18 @@
         .domain(["blue", "red"])
         .range(['#0076C0', '#DD1F26']);
     //death_by_city_party.csv
-    d3.csv("https://gist.githubusercontent.com/lnicoletti/d8e01d5991e20eb19b7aa68b674311eb/raw/c87d0d8d0fa419878be0efe2917de2bb59c29bdb/death_by_city_party.csv", convertTextToNumbers, function(error, data) {
-      
+    // d3.csv("https://gist.githubusercontent.com/lnicoletti/d8e01d5991e20eb19b7aa68b674311eb/raw/c87d0d8d0fa419878be0efe2917de2bb59c29bdb/death_by_city_party.csv", convertTextToNumbers, function(error, data) {
+      d3.csv("data/death_by_city_party.csv", convertTextToNumbers, function(error, data) {
+
       data.sort(function(x, y){
         // return d3.ascending(x.MV - x.LV, y.MV - y.LV);
         return d3.ascending(x.party, y.party);
       })
 
+      data = data.filter(d=>(+d.year===2000)|(+d.year===2019))
+
       xScale.domain(d3.extent(data, function(d) { return d.year; }));
-      yScale.domain([0,d3.max(data, function(d) {  return d.value; })+ 4]);
+      yScale.domain([0,d3.max(data, function(d) {  return d.value; })]);
       
       // Nest data by subject.
       var cities = d3.nest()

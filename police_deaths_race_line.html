@@ -1,0 +1,163 @@
+
+<html>
+<head>
+    <style>
+        .line {
+            fill:none;
+            stroke-width: 4px;
+        }
+
+        .text {
+            font: sans-serif
+        }
+
+    </style>
+</head>
+
+<body>
+    <svg id="container" height="700" width="1200">
+        <g id="body" transform="translate(50,50)"></g>
+    </svg>
+</body>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script>
+    let body = d3.select("#body")
+    d3.csv("https://gist.githubusercontent.com/lnicoletti/f882ff644e6bdc76b6d518a8b8857b99/raw/cb28adf0826168ca9ef8e936027fdf54523a15c0/deaths_by_race.csv").then(showData)
+
+    function showData(data) {
+        let bodyHeight = 500
+        let bodyWidth = 800
+
+        // convert date field to datetime object
+        data = data.map(d => ({
+            date: new Date(d.date),
+            black: +d.black,
+            white: +d.white,
+            latino: +d.latino
+        }))
+
+        console.log(data)
+        
+        let maxValue = d3.max(data, d => d.black)
+
+        // make yScale and yAxis
+        let yScale = d3.scaleLinear()
+                       .range([bodyHeight, 0])
+                       .domain([0, maxValue])
+        body.append("g")
+            .call(d3.axisLeft(yScale))
+        
+        // make xScale and xAxis
+        let xScale = d3.scaleUtc()
+                       .domain(d3.extent(data, d => d.date))
+                       .range([0, bodyWidth])
+        body.append("g")
+            .attr("transform", "translate(0, "+bodyHeight+")")
+            .call(d3.axisBottom(xScale))
+            // .tickFormat(d3.timeFormat("%b"))
+        d3.selectAll("path.domain").remove();
+        d3.selectAll("line").style("stroke", "silver");
+        d3.selectAll("text").style("fill", "silver");
+        d3.selectAll("text").style("font-size", "14px");
+
+        body.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -50)
+        .attr("x",0 - (bodyHeight / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("fill", "silver")
+        .text("Deaths by Police per 100,000 Inhabitants")
+        .style("font-weight", "bold")  
+        .style("font-family", "sans-serif")
+            
+        // generate the lines
+        // line for whites
+        valueline_w = d3.line().curve(d3.curveCardinal)
+                      .x(d => xScale(d.date))
+                      .y(d => yScale(d.white))
+                      .defined(d => !!d.white)  
+                          
+        let path1 = body.append("path")
+            .datum(data)
+            .attr("d", valueline_w)
+            .attr("class", "line")
+            // .attr("stroke", "#bfbfbf")
+            .attr("stroke", "#9595A0")
+            .attr("stroke-linejoin", "round")
+            .attr("stroke-linecap", "round")
+
+        // line for blacks
+        valueline_b = d3.line().curve(d3.curveCardinal)
+                      .x(d => xScale(d.date))
+                      .y(d => yScale(d.black))
+                      .defined(d => !!d.black)      
+        let path2 = body.append("path")
+            .datum(data)
+            .attr("d", valueline_b)
+            .attr("class", "line")
+            // .attr("stroke", "#404040")
+            .attr("stroke", "#0E2034")
+            .attr("stroke-linejoin", "round")
+            .attr("stroke-linecap", "round")
+
+        // line for latino
+        valueline_l = d3.line().curve(d3.curveCardinal)
+                      .x(d => xScale(d.date))
+                      .y(d => yScale(d.latino))
+                      .defined(d => !!d.latino)      
+        let path3 = body.append("path")
+            .datum(data)
+            .attr("d", valueline_l)
+            .attr("class", "line")
+            // .attr("stroke", "#7f7f7f")
+            .attr("stroke", "#4E5262")
+            .attr("stroke-linejoin", "round")
+            .attr("stroke-linecap", "round")
+            
+
+
+        // create the legend
+        // body.append("circle").attr("cx",50).attr("cy",10).attr("r", 6).style("fill", "#404040")
+        // body.append("circle").attr("cx",50).attr("cy",50).attr("r", 6).style("fill", "#7f7f7f")
+        // body.append("circle").attr("cx",50).attr("cy",90).attr("r", 6).style("fill", "#bfbfbf")
+        body.append("text").attr("x", 70).attr("y", 12).text("African American/Black").style("font-size", "13px").style("font-weight", "bold").attr("alignment-baseline","middle").attr("font-family", "sans-serif").attr("fill", "#404040")
+        body.append("text").attr("x", 70).attr("y", 52).text("Hispanic/Latino").style("font-size", "13px").style("font-weight", "bold").attr("alignment-baseline","middle").attr("font-family", "sans-serif").attr("fill", "#7f7f7f")
+        body.append("text").attr("x", 70).attr("y", 92).text("European American/White").style("font-size", "13px").style("font-weight", "bold").attr("alignment-baseline","middle").attr("font-family", "sans-serif").attr("fill", "#bfbfbf")
+
+        var totalLength = [path1.node().getTotalLength(), path2.node().getTotalLength(), path3.node().getTotalLength()];
+        // var totalLength = path1.node().getTotalLength()
+
+        console.log(totalLength);
+        console.log(totalLength[0])
+
+        path1
+            .attr("stroke-dasharray", totalLength[0] + " " + totalLength[0])
+            .attr("stroke-dashoffset", totalLength[0])
+        .transition() // Call Transition Method
+            .duration(4000) // Set Duration timing (ms)
+            .ease(d3.easeLinear) // Set Easing option
+            .attr("stroke-dashoffset", 0);
+
+        path2
+            .attr("stroke-dasharray", totalLength[1] + " " + totalLength[1])
+            .attr("stroke-dashoffset", totalLength[1])
+        .transition() // Call Transition Method
+            .duration(4000) // Set Duration timing (ms)
+            .ease(d3.easeLinear) // Set Easing option
+            .attr("stroke-dashoffset", 0);
+
+        path3
+            .attr("stroke-dasharray", totalLength[2] + " " + totalLength[2])
+            .attr("stroke-dashoffset", totalLength[2])
+        .transition() // Call Transition Method
+            .duration(4000) // Set Duration timing (ms)
+            .ease(d3.easeLinear) // Set Easing option
+            .attr("stroke-dashoffset", 0);
+
+
+    }   
+
+    
+</script>
+</html>

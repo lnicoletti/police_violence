@@ -1,228 +1,170 @@
 
-<meta charset="utf-8">
 <html>
-  <head>
-    <style>
-      /* .mainview {
-            display: flex;
-        } */
-
-      /* #text {
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size: 18px;
-        position: right;
-      } */
-
-      .axis text{
-        fill: silver;
-        font-size: 14px;
-        font-family: Arial, Helvetica, sans-serif;
-
-      }
-
-      .axis line{
-        stroke: silver
-      }
-
-      #tooltip {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        font-size: 13px;
-      }
-
-      .legend {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 16;
-        font-weight:bold;
-      }
-
-      .axisLabel {
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-
-      /* textPath {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        font-size: 14px;
-      } */
-    </style>
-  </head>
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-
-<!-- <body>
-  <div class="mainView">
-    <div>
-      <div id="my_dataviz"></div>
-    </div>
-    <div>
-      style="position: sticky; right: 500; width:100%; text-align: right" -->
-      <!-- <div id="text"></div>
-    </div> -->
-  
-<!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
-<script>
-
-    // set the dimensions and margins of the graph
-    var margin = {top: 20, right: 150, bottom: 30, left: 18},
-        width = 1400 - margin.left - margin.right,
-        height = 700 - margin.top - margin.bottom;
+    <head>
+        <style>
+            .line {
+                fill:none;
+                stroke-width: 4px;
+            }
     
-    // append the svg object to the body of the page
-    var svg = d3.select("#my_dataviz")
-      .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-        .attr("transform",
-              "translate(" + margin.left + "," + margin.top + ")");    
+            .text {
+                font: sans-serif
+            }
     
-    // Parse the Data
-    //deaths_by_race.csv
-    d3.csv("https://gist.githubusercontent.com/lnicoletti/f882ff644e6bdc76b6d518a8b8857b99/raw/cb28adf0826168ca9ef8e936027fdf54523a15c0/deaths_by_race.csv", function(data) {
+        </style>
+    </head>
     
-      // List of groups = header of the csv files
-      var keys = data.columns.slice(2)
-        console.log(data)
-        console.log(keys)
+    <body>
+        <svg id="container" height="700" width="1200">
+            <g id="body" transform="translate(50,50)"></g>
+        </svg>
+    </body>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+        let body = d3.select("#body")
+        // d3.csv("https://gist.githubusercontent.com/lnicoletti/f882ff644e6bdc76b6d518a8b8857b99/raw/cb28adf0826168ca9ef8e936027fdf54523a15c0/deaths_by_race.csv").then(showData)
+    
+        d3.csv("data/deaths_by_race_city_year.csv").then(showData)
 
-        data = data.map(d => ({
-            date: new Date(d.date),
-            black: +d.black,
-            white: +d.white,
-            latino: +d.latino
-        }))
-      // Add X axis
-    //   var x = d3.scaleLinear()
-    //     .domain(d3.extent(data, function(d) { return d.date; }))
-    //     .range([ 0, width ]);
+        function showData(data) {
+            let bodyHeight = 500
+            let bodyWidth = 800
 
-        let x = d3.scaleUtc()
-                .domain(d3.extent(data, d => d.date))
-                .range([0, width])
+            year_filter = 2019
+            data = data.filter(d=>d.city=="National Total")
+            data = data.filter(d=>d.date<year_filter)
+
+            // convert date field to datetime object
+            data = data.map(d => ({
+                date: new Date(d.date),
+                black: +d.black,
+                white: +d.white,
+                latino: +d.latino
+            }))
+    
+            console.log(data)
+            
+            let maxValue = d3.max(data, d => d.black)
+    
+            // make yScale and yAxis
+            let yScale = d3.scaleLinear()
+                           .range([bodyHeight, 0])
+                           .domain([0, maxValue])
+            body.append("g")
+                .call(d3.axisLeft(yScale))
+            
+            // make xScale and xAxis
+            let xScale = d3.scaleUtc()
+                           .domain(d3.extent(data, d => d.date))
+                           .range([0, bodyWidth])
+            body.append("g")
+                .attr("transform", "translate(0, "+bodyHeight+")")
+                .call(d3.axisBottom(xScale))
+                // .tickFormat(d3.timeFormat("%b"))
+            d3.selectAll("path.domain").remove();
+            d3.selectAll("line").style("stroke", "silver");
+            d3.selectAll("text").style("fill", "silver");
+            d3.selectAll("text").style("font-size", "14px");
+    
+            body.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -50)
+            .attr("x",0 - (bodyHeight / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("fill", "silver")
+            .text("Deaths by Police per 100,000 Inhabitants")
+            .style("font-weight", "bold")  
+            .style("font-family", "sans-serif")
+                
+            // generate the lines
+            // line for whites
+            valueline_w = d3.line().curve(d3.curveCardinal)
+                          .x(d => xScale(d.date))
+                          .y(d => yScale(d.white))
+                          .defined(d => !!d.white)  
+    
+            let path1 = body.append("path")
+                .datum(data)
+                .attr("d", valueline_w)
+                .attr("class", "line")
+                // .attr("stroke", "#bfbfbf")
+                // .attr("fill", "black")
+                .attr("stroke", "#9595A0")
+                .attr("stroke-linejoin", "round")
+                .attr("stroke-linecap", "round")
+    
+            // line for blacks
+            valueline_b = d3.line().curve(d3.curveCardinal)
+                          .x(d => xScale(d.date))
+                          .y(d => yScale(d.black))
+                          .defined(d => !!d.black)      
+            let path2 = body.append("path")
+                .datum(data)
+                .attr("d", valueline_b)
+                .attr("class", "line")
+                // .attr("stroke", "#404040")
+                .attr("stroke", "#0E2034")
+                .attr("stroke-linejoin", "round")
+                .attr("stroke-linecap", "round")
+    
+            // line for latino
+            valueline_l = d3.line().curve(d3.curveCardinal)
+                          .x(d => xScale(d.date))
+                          .y(d => yScale(d.latino))
+                          .defined(d => !!d.latino)      
+            let path3 = body.append("path")
+                .datum(data)
+                .attr("d", valueline_l)
+                .attr("class", "line")
+                // .attr("stroke", "#7f7f7f")
+                .attr("stroke", "#4E5262")
+                .attr("stroke-linejoin", "round")
+                .attr("stroke-linecap", "round")
+                
+    
+    
+            // create the legend
+            // body.append("circle").attr("cx",50).attr("cy",10).attr("r", 6).style("fill", "#404040")
+            // body.append("circle").attr("cx",50).attr("cy",50).attr("r", 6).style("fill", "#7f7f7f")
+            // body.append("circle").attr("cx",50).attr("cy",90).attr("r", 6).style("fill", "#bfbfbf")
+            body.append("text").attr("x", 70).attr("y", 12).text("African American/Black").style("font-size", "13px").style("font-weight", "bold").attr("alignment-baseline","middle").attr("font-family", "sans-serif").attr("fill", "#404040")
+            body.append("text").attr("x", 70).attr("y", 52).text("Hispanic/Latino").style("font-size", "13px").style("font-weight", "bold").attr("alignment-baseline","middle").attr("font-family", "sans-serif").attr("fill", "#7f7f7f")
+            body.append("text").attr("x", 70).attr("y", 92).text("European American/White").style("font-size", "13px").style("font-weight", "bold").attr("alignment-baseline","middle").attr("font-family", "sans-serif").attr("fill", "#bfbfbf")
+    
+            var totalLength = [path1.node().getTotalLength(), path2.node().getTotalLength(), path3.node().getTotalLength()];
+            // var totalLength = path1.node().getTotalLength()
+    
+            console.log(totalLength);
+            console.log(totalLength[0])
+    
+            path1
+                .attr("stroke-dasharray", totalLength[0] + " " + totalLength[0])
+                .attr("stroke-dashoffset", totalLength[0])
+            .transition() // Call Transition Method
+                .duration(4000) // Set Duration timing (ms)
+                .ease(d3.easeLinear) // Set Easing option
+                .attr("stroke-dashoffset", 0);
+    
+            path2
+                .attr("stroke-dasharray", totalLength[1] + " " + totalLength[1])
+                .attr("stroke-dashoffset", totalLength[1])
+            .transition() // Call Transition Method
+                .duration(4000) // Set Duration timing (ms)
+                .ease(d3.easeLinear) // Set Easing option
+                .attr("stroke-dashoffset", 0);
+    
+            path3
+                .attr("stroke-dasharray", totalLength[2] + " " + totalLength[2])
+                .attr("stroke-dashoffset", totalLength[2])
+            .transition() // Call Transition Method
+                .duration(4000) // Set Duration timing (ms)
+                .ease(d3.easeLinear) // Set Easing option
+                .attr("stroke-dashoffset", 0);
+    
+    
+        }   
+    
         
-      svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).ticks(10))
-        .attr("class", "axis");
-    
-      // Add Y axis
-      let maxValue = d3.max(data, d => d.black)
-      var y = d3.scaleLinear()
-        .domain([0, 20])
-        .range([ height, 0 ]);
-        
-      svg.append("g")
-        .call(d3.axisRight(y))
-        .attr("class", "axis")
-        .attr("id", "yAxis")
-        .attr("transform", "translate(" + width/1.00000005 + "0)")
-        d3.selectAll("path.domain").remove();
-
-        svg.append("text")
-          .attr("class", "axisLabel")
-          .attr("transform", "rotate(-90)")
-          .attr("y", width*1.04)
-          .attr("x",0 - (height / 2))
-          .attr("dy", "1em")
-          .style("text-anchor", "middle")
-          .style("fill", "silver")
-          .text("Deaths by Police per 100,000 Inhabitants")
-
-
-      // color palette
-      var color = d3.scaleOrdinal()
-        .domain(keys)
-        // .range(['#bfbfbf','#7f7f7f','#404040'])
-        // .range(['#9595A0','#4E5262','#0E2034'])
-        .range(['#e5e5e8','#61616d','#171717'])
-        // .range(['#e5e5e8','#9595a0','#171717'])
-
-    
-      //stack the data?
-      var stackedData = d3.stack()
-        .keys(keys)
-        (data)
-        console.log("This is the stack result: ", stackedData)
-
-      // create a tooltip
-      var Tooltip = svg
-        .append("text")
-        .attr("id", "tooltip")
-        .attr("x", 0)
-        .attr("y", 0)
-        .style("opacity", 0)
-
-      // Three function that change the tooltip when user hover / move / leave a cell
-      var mouseover = function(d) {
-        Tooltip.style("opacity", 1)
-        d3.selectAll(".myArea").style("opacity", .2)
-        d3.select(this)
-          // .style("stroke", "black")
-          // .style("stroke-width", "1")
-          .style("opacity", 1)
-      }
-      var mousemove = function(d,i) {
-        grp = keys[i]
-        // console.log(d3.max(stackedData[i])[1])
-        // console.log(stackedData[i][19][1])
-        Tooltip.attr("y", y(stackedData[i][19][1]))
-        Tooltip.attr("x", x(d3.max(data.map(d=>+d.date)))+4)
-        Tooltip.text("+ " + Math.round(d3.max(data.map(d=>+d[grp]))-d3.min(data.map(d=>+d[grp]))) + " deaths per 100,000")
-        d3.selectAll("#yAxis").attr("opacity", "0")
-        d3.selectAll(".axisLabel").attr("opacity", "0")
-      }
-      var mouseleave = function(d) {
-        Tooltip.style("opacity", 0)
-        d3.selectAll(".myArea").style("opacity", 1).style("stroke", "none")
-        d3.selectAll(".axisLabel").attr("opacity", "1")
-        d3.selectAll("#yAxis").attr("opacity", "1")
-
-       }
-
-       // Area generator
-      var area = d3.area()
-        .x(function(d) { return x(d.data.date); })
-        .y0(function(d) { return y(d[0]); })
-        .y1(function(d) { return y(d[1]); })
-        .curve(d3.curveNatural);
-    
-      // Show the areas
-      svg
-        .selectAll("mylayers")
-        .data(stackedData)
-        .enter()
-        .append("path")
-        .attr("class", "myArea")
-        .attr("id", "myArea")
-          .style("fill", function(d) { return color(d.key); })
-          .attr("d", area)
-        .on("mouseover", mouseover)
-          .on("mousemove", mousemove)
-          .on("mouseleave", mouseleave)
-
-        // Legend
-        // svg.append("circle").attr("cx",50).attr("cy",10).attr("r", 6).style("fill", "#404040")
-        // svg.append("circle").attr("cx",50).attr("cy",50).attr("r", 6).style("fill", "#7f7f7f")
-        // svg.append("circle").attr("cx",50).attr("cy",90).attr("r", 6).style("fill", "#bfbfbf")
-        svg.append("text").attr("x", 0).attr("y", 12).text("African American/Black").attr("alignment-baseline","middle").attr("class", "legend").attr("fill", "#171717")
-        svg.append("text").attr("x", 0).attr("y", 52).text("Hispanic/Latino").attr("alignment-baseline","middle").attr("class", "legend").attr("fill", "#61616d")
-        svg.append("text").attr("x", 0).attr("y", 92).text("European American/White").attr("alignment-baseline","middle").attr("class", "legend").attr("fill", "#cbcbd1")
-        
-        // //Create an SVG text element and append a textPath element
-        // svg.append("text")
-        //   .append("textPath") //append a textPath to the text element
-        //     .attr("id", "textPath")
-        //     // .attr("dy", 20)
-        //     // .attr("dx", -100)
-        //     .attr("xlink:href", "#myArea") //place the ID of the path here
-        //     .style("text-anchor","end") //place the text halfway on the arc
-        //     .attr("startOffset", "45%")
-        //     .attr("fill", "white")
-        //     .text("White");
-    })
-    
     </script>
     </html>

@@ -24,6 +24,9 @@
     let body = d3.select("#body")
     d3.csv("https://gist.githubusercontent.com/lnicoletti/f882ff644e6bdc76b6d518a8b8857b99/raw/cb28adf0826168ca9ef8e936027fdf54523a15c0/deaths_by_race.csv").then(showData)
 
+// d3.csv("data/deaths_by_race_city_year.csv", function(data) {
+
+    // data.filter(d=>d.city=="National Total")
     function showData(data) {
         let bodyHeight = 500
         let bodyWidth = 800
@@ -77,7 +80,7 @@
                       .x(d => xScale(d.date))
                       .y(d => yScale(d.white))
                       .defined(d => !!d.white)  
-                          
+
         let path1 = body.append("path")
             .datum(data)
             .attr("d", valueline_w)

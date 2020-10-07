@@ -10,28 +10,136 @@
             .text {
                 font: sans-serif
             }
+
+        h4 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+        font-style: bold;
+        text-align: center;
+
+    }
+
+    h5 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size:medium;
+        /* font-style:oblique; */
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .description {
+      max-width: 520px;
+      text-align: justify;
+      text-anchor: middle;
+      color: rgb(167, 167, 167);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: small;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      margin-bottom: 10;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dropOptions {
+        /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+        font-size: small;
+        font-weight: bold;
+        /* background: rgb(238, 237, 237); */
+        padding: 5;
+        margin: 10;
+    }
+
+    .buttons {
+        text-align: center;
+    }
+
+    .legend {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14;
+        font-weight:bold;
+      }
     
         </style>
     </head>
     
     <body>
-        <svg id="container" height="700" width="1200">
-            <g id="body" transform="translate(50,50)"></g>
-        </svg>
+        <h4>Police deaths by race (2000-Present)</h4>
+        <div class="subtitle">
+            <p class="description"> The chart below illustrates the death toll of policing in the U.S. broken
+                by race. Use the dropdown menu to visualize the death toll of policing in a particular location.
+                Please note that for some cities or towns, data is not available for some particular years.
+        </div>
+        <h5>Filter by city</h5> 
+        <div class="buttons">
+            <select id="dropdown" class="dropOptions"></select>
+        </div>
+        <div id="chart" style="text-align: center;">
+            <svg id="container" height="700" width="1200" style="text-align: center;">
+                <g id="body" transform="translate(200,50)"></g>
+            </svg>
+        </div>
     </body>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script>
         let body = d3.select("#body")
         // d3.csv("https://gist.githubusercontent.com/lnicoletti/f882ff644e6bdc76b6d518a8b8857b99/raw/cb28adf0826168ca9ef8e936027fdf54523a15c0/deaths_by_race.csv").then(showData)
     
-        d3.csv("data/deaths_by_race_city_year.csv").then(showData)
+        d3.csv("data/deaths_by_race_city_year.csv").then((data)=> {
+        
+        populateDropdown(data)
+        
+        initialOption = "National Total"
+        showData(data, initialOption)
 
-        function showData(data) {
+        d3.select("#dropdown").on("change", function(d) {
+            // recover the option that has been chosen
+            var selectedOption = d3.select(this).property("value")
+            // run the updateChart function with this selected option
+            showData(data, selectedOption)
+            })
+        
+        
+        })
+
+        function populateDropdown(data) {
+            var select = d3.select("#dropdown")
+
+            console.log(d3.map(data, d=>d.city).keys())
+
+            unique_cities = d3.map(data, d=>d.city).keys()
+
+            select
+                .append("option")
+                .attr("value", "National Total")
+                .text("National Total");
+
+            select.selectAll("option")
+            .data(unique_cities)
+            .enter()
+                .append("option")
+                .attr("value", d=>d)
+                .text(d=>d);
+        }
+
+        function showData(data, selectedOption) {
+
+            d3.selectAll(".line").remove()
+            d3.selectAll(".axis").remove()
+            d3.selectAll("text").remove()
+            d3.selectAll("line").remove()
+
             let bodyHeight = 500
             let bodyWidth = 800
 
-            year_filter = 2019
-            data = data.filter(d=>d.city=="National Total")
+            year_filter = 2020
+            data = data.filter(d=>d.city==selectedOption)
             data = data.filter(d=>d.date<year_filter)
 
             // convert date field to datetime object
@@ -44,13 +152,16 @@
     
             console.log(data)
             
-            let maxValue = d3.max(data, d => d.black)
+            let maxValues = [d3.max(data, d => d.black), d3.max(data, d => d.white), d3.max(data, d => d.latino)]
+            maxValue = d3.max(maxValues)
+            console.log(maxValue)
     
             // make yScale and yAxis
             let yScale = d3.scaleLinear()
                            .range([bodyHeight, 0])
                            .domain([0, maxValue])
             body.append("g")
+                .attr("class", ".axis")
                 .call(d3.axisLeft(yScale))
             
             // make xScale and xAxis
@@ -58,6 +169,7 @@
                            .domain(d3.extent(data, d => d.date))
                            .range([0, bodyWidth])
             body.append("g")
+                .attr("class", ".axis")
                 .attr("transform", "translate(0, "+bodyHeight+")")
                 .call(d3.axisBottom(xScale))
                 // .tickFormat(d3.timeFormat("%b"))
@@ -79,10 +191,10 @@
                 
             // generate the lines
             // line for whites
-            valueline_w = d3.line().curve(d3.curveCardinal)
+            valueline_w = d3.line() //curve(d3.curveBasis)
                           .x(d => xScale(d.date))
                           .y(d => yScale(d.white))
-                          .defined(d => !!d.white)  
+                        //   .defined(d => !!d.white)  
     
             let path1 = body.append("path")
                 .datum(data)
@@ -90,48 +202,63 @@
                 .attr("class", "line")
                 // .attr("stroke", "#bfbfbf")
                 // .attr("fill", "black")
-                .attr("stroke", "#9595A0")
+                .attr("stroke", "#e5e5e8")
                 .attr("stroke-linejoin", "round")
                 .attr("stroke-linecap", "round")
+            body.append("text")
+                .attr("y", yScale(data.map(d=>d.white)[data.length-1]))
+                .attr("x", xScale(d3.max(data.map(d=>+d.date)))+4)
+                .transition() // Call Transition Method
+                .delay(2000)
+                .text("European American/White")
+                .attr("fill", "#bfbfbf")
+                .attr("class", "legend")
     
             // line for blacks
-            valueline_b = d3.line().curve(d3.curveCardinal)
+            valueline_b = d3.line()//.curve(d3.curveBasis)
                           .x(d => xScale(d.date))
                           .y(d => yScale(d.black))
-                          .defined(d => !!d.black)      
+                        //   .defined(d => !!d.black)      
             let path2 = body.append("path")
                 .datum(data)
                 .attr("d", valueline_b)
                 .attr("class", "line")
                 // .attr("stroke", "#404040")
-                .attr("stroke", "#0E2034")
+                .attr("stroke", "#171717")
                 .attr("stroke-linejoin", "round")
                 .attr("stroke-linecap", "round")
+            body.append("text")
+                .attr("y", yScale(data.map(d=>d.black)[data.length-1]))
+                .attr("x", xScale(d3.max(data.map(d=>+d.date)))+4)
+                .transition() // Call Transition Method
+                .delay(4000)
+                .text("African American/Black")
+                .attr("fill", "#171717")
+                .attr("class", "legend")
     
             // line for latino
-            valueline_l = d3.line().curve(d3.curveCardinal)
+            valueline_l = d3.line()//.curve(d3.curveBasis)
                           .x(d => xScale(d.date))
                           .y(d => yScale(d.latino))
-                          .defined(d => !!d.latino)      
+                        //   .defined(d => !!d.latino)      
             let path3 = body.append("path")
                 .datum(data)
                 .attr("d", valueline_l)
                 .attr("class", "line")
                 // .attr("stroke", "#7f7f7f")
-                .attr("stroke", "#4E5262")
+                .attr("stroke", "#61616d")
                 .attr("stroke-linejoin", "round")
                 .attr("stroke-linecap", "round")
-                
-    
-    
-            // create the legend
-            // body.append("circle").attr("cx",50).attr("cy",10).attr("r", 6).style("fill", "#404040")
-            // body.append("circle").attr("cx",50).attr("cy",50).attr("r", 6).style("fill", "#7f7f7f")
-            // body.append("circle").attr("cx",50).attr("cy",90).attr("r", 6).style("fill", "#bfbfbf")
-            body.append("text").attr("x", 70).attr("y", 12).text("African American/Black").style("font-size", "13px").style("font-weight", "bold").attr("alignment-baseline","middle").attr("font-family", "sans-serif").attr("fill", "#404040")
-            body.append("text").attr("x", 70).attr("y", 52).text("Hispanic/Latino").style("font-size", "13px").style("font-weight", "bold").attr("alignment-baseline","middle").attr("font-family", "sans-serif").attr("fill", "#7f7f7f")
-            body.append("text").attr("x", 70).attr("y", 92).text("European American/White").style("font-size", "13px").style("font-weight", "bold").attr("alignment-baseline","middle").attr("font-family", "sans-serif").attr("fill", "#bfbfbf")
-    
+            body.append("text")
+                .attr("y", yScale(data.map(d=>d.latino)[data.length-1]))
+                .attr("x", xScale(d3.max(data.map(d=>+d.date)))+4)
+                .transition() // Call Transition Method
+                .delay(3000)
+                .text("Hispanic/Latino")
+                .attr("fill", "#61616d")
+                .attr("class", "legend")
+
+                        
             var totalLength = [path1.node().getTotalLength(), path2.node().getTotalLength(), path3.node().getTotalLength()];
             // var totalLength = path1.node().getTotalLength()
     
@@ -142,9 +269,9 @@
                 .attr("stroke-dasharray", totalLength[0] + " " + totalLength[0])
                 .attr("stroke-dashoffset", totalLength[0])
             .transition() // Call Transition Method
-                .duration(4000) // Set Duration timing (ms)
+                .duration(2000) // Set Duration timing (ms)
                 .ease(d3.easeLinear) // Set Easing option
-                .attr("stroke-dashoffset", 0);
+                .attr("stroke-dashoffset", 0)
     
             path2
                 .attr("stroke-dasharray", totalLength[1] + " " + totalLength[1])
@@ -158,7 +285,7 @@
                 .attr("stroke-dasharray", totalLength[2] + " " + totalLength[2])
                 .attr("stroke-dashoffset", totalLength[2])
             .transition() // Call Transition Method
-                .duration(4000) // Set Duration timing (ms)
+                .duration(3000) // Set Duration timing (ms)
                 .ease(d3.easeLinear) // Set Easing option
                 .attr("stroke-dashoffset", 0);
     

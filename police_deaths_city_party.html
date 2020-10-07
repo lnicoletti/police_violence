@@ -129,7 +129,7 @@
       data = data.filter(d=>(+d.year===2000)|(+d.year===2019))
 
       xScale.domain(d3.extent(data, function(d) { return d.year; }));
-      yScale.domain([0,d3.max(data, function(d) {  return d.value; })]);
+      yScale.domain([0,d3.max(data, function(d) {  return d.value; })+0.5]);
       
       // Nest data by subject.
       var cities = d3.nest()
@@ -245,7 +245,7 @@
         .append("text")
           .attr("x", function (d) { return xScale(+d.year); } )
           .attr("y", function (d) { return yScale(+d.value)- 5; } )
-          .text(function (d) { return Math.round(+d.value); })
+          .text(function (d) { return Math.round(+d.value*10)/10; })
           .style("fill", function (d) { return myColor(d.party); } )
           .style("font", "10px Arial")
           .style("font-weight","bold")

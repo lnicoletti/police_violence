@@ -286,8 +286,8 @@
 
     // let selectedCountry = undefined;
 
-    // d3.csv("https://gist.githubusercontent.com/lnicoletti/b5cac73cbb8c4cdbb38875c95607fe5f/raw/14bd11ef30d6c8d59d838c7ab7485f46d4f2312d/citiesYearDeathsHT_party.csv")
-    d3.csv("data/citiesYearDeathsHT_party_n.csv")
+    d3.csv("https://gist.githubusercontent.com/lnicoletti/c312a25a680167989141e8315b26c92a/raw/707ead31e5bdbb886ff8f7dc5635d5d0568a0a81/citiesYearDeathsHT_party_n.csv")
+    // d3.csv("data/citiesYearDeathsHT_party_n.csv")
         .then((data) => {
         
             type = "most"
@@ -964,7 +964,7 @@
         console.log(selected_city.toLowerCase())
         // console.log(circles._groups[0].filter(d=>d.__data__.county === selected_city))
         console.log(circles._groups[0].filter(d=>d.__data__.county.toLowerCase().match(selected_city)))
-        circles.attr("opacity", d=>d.county.toLowerCase().match(selected_city)?"0.8":"0.2")
+        circles.attr("opacity", d=>d.county.toLowerCase().match(selected_city.toLowerCase())?"0.8":"0.2")
 
         })
         

@@ -980,7 +980,7 @@
         console.log(selected_city.toLowerCase())
         // console.log(circles._groups[0].filter(d=>d.__data__.county === selected_city))
         console.log(circles._groups[0].filter(d=>d.__data__.county.toLowerCase().match(selected_city)))
-        circles.attr("opacity", d=>d.county.toLowerCase().match(selected_city)?"0.8":"0.2")
+        circles.attr("opacity", d=>d.county.toLowerCase().match(selected_city.toLowerCase())?"0.8":"0.2")
 
         })
         

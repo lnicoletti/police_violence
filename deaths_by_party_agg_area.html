@@ -81,7 +81,7 @@
       // Add Y axis
       let maxValue = d3.max(data, d => d.red)
       var y = d3.scaleLinear()
-        .domain([0, 16])
+        .domain([0, 1.6])
         .range([ height3, 0 ]);
       svg3.append("g")
         .call(d3.axisRight(y))
@@ -134,9 +134,9 @@
       var mousemove = function(d,i) {
         grp = keys[i]
         // console.log(d3.max(stackedData[i])[1])
-        Tooltip.attr("y", y(stackedData[i][19][1]))
+        Tooltip.attr("y", y(stackedData[i][19][1]/10))
         Tooltip.attr("x", x(d3.max(data.map(d=>+d.year)))+4)
-        Tooltip.text("+ " + Math.round(d3.max(data.map(d=>+d[grp]))-d3.min(data.map(d=>+d[grp]))) + " deaths per 100,000")
+        // Tooltip.text("+ " + Math.round(d3.max(data.map(d=>+d[grp]))-d3.min(data.map(d=>+d[grp]))) + " deaths per 100,000")
         d3.selectAll("#yAxis").attr("opacity", "0")
         d3.selectAll(".axisLabel").attr("opacity", "0")
       }
@@ -159,8 +159,8 @@
           .style("fill", function(d) { console.log(d.key) ; return color(d.key); })
           .attr("d", d3.area()
             .x(function(d, i) { return x(d.data.year); })
-            .y0(function(d) { return y(d[0]); })
-            .y1(function(d) { return y(d[1]); }).curve(d3.curveNatural))
+            .y0(function(d) { return y(d[0]/10); })
+            .y1(function(d) { return y(d[1]/10); }).curve(d3.curveNatural))
           .on("mouseover", mouseover)
           .on("mousemove", mousemove)
           .on("mouseleave", mouseleave)

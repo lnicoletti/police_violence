@@ -85,8 +85,8 @@
       // -1- Create a tooltip div that is hidden by default:
       var tooltip = d3.select("#my_dataviz2")
         .append("div")
-          .style("opacity", 0)
-          .attr("class", "tooltip")
+          .style("display", "none")
+          .attr("class", "tooltipScatter")
           // .style("background-color", "black")
           // .style("border-radius", "5px")
           // .style("padding", "10px")

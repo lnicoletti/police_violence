@@ -1,0 +1,53 @@
+<meta charset="utf-8">
+<html>
+  <head>
+    <style>
+    h4 {
+            /* text-align: left; */
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: x-large;
+            font-style: bold;
+            /* width: 1400; */
+    }
+
+    .secondview {
+            display: inline;
+    }
+
+    .axis text{
+        fill: silver;
+        font-size: 14px;
+      }
+
+      .axis line{
+        stroke: silver
+      }
+
+      .tooltip {
+        position: absolute;
+        background-color: white;
+        border: solid 2px silver;
+        padding: 10;
+      }
+
+    </style>
+  </head>
+
+<!-- Load d3.js -->
+
+<body>
+  <div class = "secondview">
+    <h4 style = "text-align: left; width: 1250;">The case for #defundthepolice: both
+      <span style="color: #DD1F26">Republican</span> and 
+        <span style="color: #0076C0">Democrat</span> cities with
+        more police officers per capita also have more deaths by 
+        police per capita.
+    </h4>
+  <!-- Create a div where the graph will take place -->
+    <div id="my_dataviz2"></div>
+  </div>
+</body>
+
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="deaths_vs_officers.js"></script>
+    </html>

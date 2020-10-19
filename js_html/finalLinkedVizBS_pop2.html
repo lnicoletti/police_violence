@@ -1,0 +1,267 @@
+<html>
+
+<head>
+    <style>
+        /* body {
+            padding-left: 20px;
+        } */
+
+        /* svg { */
+            /* border: solid 1px #000; */
+            /* margin-top: ; */
+            /* background-color: lightgrey; */
+            /* left: 0px;
+            right:0px; */
+            /* } */
+
+        /* #tooltipBar {
+            border: solid 1px #ccc;
+            top: 10px;
+            left: 0px;
+            padding: 5px;
+            font-size: 13px;
+            font-family: Arial, Helvetica, sans-serif;
+            position: fixed;
+            display: none;
+            background-color: white;
+            color:#03071e;            
+        } */
+
+        /* #barchart {
+            left: 0px;
+            right: 0px;
+        } */
+
+        #tooltipText {
+            /* border: solid 1px #ccc;
+            top: 10px;
+            left: 0px;
+            padding: 5px; */
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* position: fixed;
+            display: none;
+            background-color: white; */
+            color:#ccc;           
+        }
+
+        #timeline {
+            /* border: solid 1px #ccc; */
+            top: 10px;
+            left: 0px;
+            padding: 5px;
+            position:fixed;
+            /* opacity:0; */
+            /* hide it for when theres no hovering */
+            /* display:none; */
+            background-color: white;
+        }
+
+
+        #timeline path {
+            fill: none
+        }
+
+        .forceText {
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 8px;
+        text-anchor: middle;
+        fill: white;
+        }
+
+        /* .xAxis text, .yAxis text{
+        fill: silver;
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+      } */
+
+      .xAxis line, .yAxis line{
+        stroke: silver;
+      }
+
+      .xAxis text {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .xAxis path, .yAxis path {
+          display: none;
+      }
+
+      .axisLabel {
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h4 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+        font-style: bold;
+    }
+
+    h5 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size:medium;
+        /* font-style:oblique; */
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .description {
+      max-width: 520px;
+      text-align: justify;
+      text-anchor: middle;
+      color: rgb(167, 167, 167);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: small;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      margin-bottom: 10;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dropOptions {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .buttons {
+      justify-content: center;
+      display: flex;
+    }
+
+    button {
+      border-color: lightgray;
+      border-style:solid;
+      border-width: 0.5;
+      /* color: white; */
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      /* display: inline-block; */
+      font-size: 12px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    button:hover {
+      background-color: darkgray;
+      color: white;
+    }
+
+    button:focus{
+      font-weight: bold;
+    }
+
+    .search {
+        text-align: center;
+    }
+
+    .legend circle {
+        fill: none;
+        stroke: #ccc;
+        }
+
+    .legend text {
+    fill: silver;
+    font: 8px sans-serif;
+    text-anchor: middle;
+    }
+
+    .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 40%;
+    vertical-align: top;
+    overflow: hidden;
+    }
+    .svg-content {
+        display: inline-block;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        left: 0;
+    }
+
+
+    </style>
+</head>
+ 
+<body>
+    <h4 style = "text-align: center">Death toll of 
+        <span style="color: #DD1F26">republican</span> and 
+        <span style="color: #0076C0">democrat</span> 
+        <!-- <select class="dropOptions" id="typeDropdown">
+            <option value="most">most</option>
+            <option value="least">least</option> -->
+        <!-- </select>  -->
+        police forces in 
+        <select class="dropOptions" id="yearDropdown">
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+            <option value="2007">2007</option>
+            <option value="2006">2006</option>
+            <option value="2005">2005</option>
+            <option value="2004">2004</option>
+            <option value="2003">2003</option>
+            <option value="2002">2002</option>
+            <option value="2001">2001</option>
+            <option value="2000">2000</option>
+        </select>
+    </h4>
+    <!-- <div id="sliderDiv"></div><input id="slider" type="range" min="2000" max="2020" step="1" value="2000"> -->
+    <div class="subtitle">
+        <p class="description"> For a given year, the chart below shows the death toll of policing in 
+            U.S. cities above 50,000 people. Bubbles represent cities, and are sized by population.
+             Hover over a bubble to see how police violence has evolved over time in a specific city.
+    </div>
+    <h5>Choose a metric</h5>
+        <div class="buttons">
+            <button id="death_count" type="button" value="death_count">Total Deaths</button>
+            <button id="death_hthou" type="button" value="death_hthou">Deaths per 100,000 People</button>
+        </div>
+    <h5>Or search for a city</h5> 
+    <div class="buttons">
+        <input id="citySearch" type="input"></input></div>
+        <div style="text-align:center;" id="charts"></div>
+    <!-- <input type="dropdown"></input> -->
+    <div id="chart" class="svg-container" style="text-align: center;">
+    <svg id="barchart">
+        <g class="xAxis" />
+        <g class="yAxis" />
+        <g class="body" />
+    </svg>
+    </div>
+    <svg id="timeline">
+        <g class="xAxis" />
+        <g class="yAxis" />
+        <g class="body">
+            <path style="stroke: black" />
+        </g>
+    </svg>
+    <!-- <svg id="tooltipBar">Tooltip</svg> -->
+</body>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<!-- <script src="https://d3js.org/d3-quadtree.v1.min.js"></script> -->
+<script src="finalLinkedVizBS_pop2.js"></script>
+
+</html>

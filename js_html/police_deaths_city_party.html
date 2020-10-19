@@ -1,0 +1,111 @@
+<!-- <!DOCTYPE html>
+<meta charset="utf-8"> -->
+<html>
+  <head>
+    <style>
+
+        /* body {
+          font: 10px Arial;
+          margin: 0;
+          
+        } */
+        
+        .line {
+          /* fill: none;
+          stroke: #426789; */
+          stroke-width: 2px;
+          }
+        
+        /* .area {
+          fill: #e8eef4;
+        } */
+        
+        g#xAxisG text, g#yAxisG text {
+            stroke: none;
+            fill: silver;
+        }
+
+        .axisSM line {
+          stroke: silver
+        }
+
+        .axisSM text {
+          font-size: 9px;
+
+        }
+        
+        /* header, div#source {
+            margin-left: 40px;
+            margin-bottom: 38px;
+        } */
+        h4 {
+            /* text-align: left; */
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: x-large;
+            font-style: bold;
+        }
+        
+        #title {
+            position: relative;
+            text-align: left;
+            font-size: normal;
+            color: silver;
+            font: 10px Arial;
+            }
+
+        /* svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            } */
+
+          #usLabel {
+            position: relative;
+            text-align: left;
+            font: 10px Arial;
+            fill: silver;
+            /* font-weight: bold; */
+          }
+
+          .description {
+          max-width: 520px;
+          text-align: justify;
+          text-anchor: middle;
+          color: rgb(167, 167, 167);
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: small;
+          margin-bottom: 0;
+        }
+
+        .subtitle {
+          margin-top: 0;
+          margin-bottom: 10;
+          display: flex;
+          justify-content: center;
+        }
+
+       
+      </style>
+    </head>
+    <body>
+        <h4 style = "text-align: center">Change in police violence in the 
+            U.S. top 20 most populated 
+            <span style="color: #DD1F26">republican</span> and 
+            <span style="color: #0076C0">democrat</span> cities
+        </h4>
+        <div class="subtitle">
+          <p class="description"> For each city, the chart below shows the evolution of police caused deaths per
+            100,000 inhabitants from 2000-present. In each graph a city's values can be compared to the national average 
+            (grey line). Hover over a circle to to see each city's values in both 2000 and 2019. </p>
+          </div>
+        <p><br/></p>
+        <p id="title" style="text-align:left; margin-top: -20px;">
+        <!-- <p id="title" style="margin-left: 15px; margin-top: -20px;"> -->
+            Deaths by Police per 100,000 Inhabitants</p>
+    </body>
+    <div style="text-align:center;" id="charts"></div>
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="police_deaths_city_party.js"></script>
+</html>

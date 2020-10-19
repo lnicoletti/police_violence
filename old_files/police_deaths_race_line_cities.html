@@ -84,7 +84,6 @@
         </style>
     </head>
     
-    <body>
         <h4>Police deaths by race (2000-Present)</h4>
         <div class="subtitle">
             <p class="description"> The chart below illustrates the death toll of policing in the U.S. broken
@@ -100,7 +99,6 @@
                 <g id="RaceChartBody" transform="translate(200,50)"></g>
             </svg>
         </div>
-    </body>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script>
         let Chartbody = d3.select("#RaceChartBody")
@@ -157,9 +155,10 @@
             let bodyWidth0 = 800
 
             year_filter = 2020
+            populationfilter = 100000
             data = data.filter(d=>d.city==selectedCity)
             data = data.filter(d=>d.date<year_filter)
-
+            
             // convert date field to datetime object
             data = data.map(d => ({
                 date: new Date(d.date),

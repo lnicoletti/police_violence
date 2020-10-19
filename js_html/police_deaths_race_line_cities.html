@@ -1,0 +1,104 @@
+
+<html>
+    <head>
+        <style>
+
+        /* #container {
+            background-color: black;
+            width: 100%;
+            align-content: flex-end;
+        } */
+            .Raceline {
+                fill:none;
+                stroke-width: 4px;
+            }
+            .Raceaxis text{
+            fill: silver;
+            font-size: 14px;
+            }
+
+            .Raceaxis line{
+                stroke: silver
+            }
+    
+            /* .Racetext {
+                font: sans-serif;
+                fill: silver;
+            } */
+
+        h4 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+        font-style: bold;
+        text-align: center;
+
+        }
+
+    h5 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size:medium;
+        /* font-style:oblique; */
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .description {
+      max-width: 520px;
+      text-align: justify;
+      text-anchor: middle;
+      color: rgb(167, 167, 167);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: small;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      margin-bottom: 10;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dropdownOptions {
+        /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+        font-size: small;
+        font-weight: bold;
+        /* background: rgb(238, 237, 237); */
+        padding: 5;
+        margin: 10;
+    }
+
+    .citybuttons {
+        text-align: center;
+    }
+
+    .Racelegend {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14;
+        font-weight:bold;
+      }
+    
+        </style>
+    </head>
+    
+        <h4>Police deaths by race (2000-Present)</h4>
+        <div class="subtitle">
+            <p class="description"> The chart below illustrates the death toll of policing in the U.S. broken
+                by race. Use the dropdown menu to visualize the racial breakdown of police violence in a particular location.
+                Please note that for some cities or towns, data is not available for some particular years.
+        </div>
+        <h5>Filter by city</h5> 
+        <div class="citybuttons">
+            <select id="citydropdown" class="dropdownOptions"></select>
+        </div>
+        <div id="racechart" style="text-align: center;">
+            <svg id="raceContainer" height="700" width="1200" style="text-align: center;">
+                <g id="RaceChartBody" transform="translate(200,50)"></g>
+            </svg>
+        </div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="police_deaths_race_line_cities.js"></script>
+    </html>

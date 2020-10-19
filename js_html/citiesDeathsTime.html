@@ -1,0 +1,92 @@
+<html>
+<head>
+</head>
+<style>
+    .bubble {
+        fill-opacity: .5;
+        stroke: #fff;
+        stroke-width: .5px;
+        }
+        
+    .legend circle {
+        fill: none;
+        stroke: #ccc;
+        }
+
+    .legend text {
+    fill: #777;
+    font: 10px sans-serif;
+    text-anchor: middle;
+    }
+
+    #tooltipMap {
+            border: solid 1px #ccc;
+            padding: 10px;
+            /* change the tooltip so that its position can be moved around */
+            position: fixed;
+            /* hide it for when theres no hovering */
+            display: block;
+            background-color: white;
+            color:#03071e;            
+        }
+
+    h4 {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+        font-style: bold;
+    }
+
+    h5 {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size:medium;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .description {
+      max-width: 520px;
+      text-align: justify;
+      text-anchor: middle;
+      color: rgb(167, 167, 167);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: small;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      margin-bottom: 10;
+      display: flex;
+      justify-content: center;
+    }
+
+</style>
+
+<!-- <body> -->
+    <h4 style = "text-align: center">Deaths by police in the U.S. (2000-present)</h4>
+    <!-- <div id="sliderDiv"></div><input id="slider" type="range" min="2000" max="2020" step="1" value="2000"> -->
+    <div class="subtitle">
+        <p class="description"> Spatial distribution of fatal encounters between civilians and police
+            since the year 2000, where each circle represents a city. Hover on a circle 
+            to see the number of deaths by police for that city in a given year. Play with the slider to 
+            see how police violence evolves over time. Each year, 
+            <span style="color:brown"> <b>cities with the highest number of deaths by police</b></span> are highlighted. </p>
+        </div>
+        <h5>Filter by year</h5>
+    <div class="row align-items-center">
+        <!-- <div class="col-sm-2"><p id="value"></p></div> -->
+        <div class="col-sm"><div id="slider"></div></div>
+      </div>
+    <div style = "text-align: center">
+        <svg id="container" height="660" width="1250">
+            <g id="body" transform="translate(200,0)"></g>
+        </svg>
+    </div>
+    <div id="tooltipMap">Tooltip</div>
+<!-- </body> -->
+<!-- <script src="d3.js"></script> -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://unpkg.com/d3-simple-slider"></script>
+<script src="citiesDeathsTime.js"></script>
+</html>

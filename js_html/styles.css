@@ -1,0 +1,576 @@
+.bubble {
+    fill-opacity: .5;
+    stroke: #fff;
+    stroke-width: .3px;
+    }
+
+.bubble:hover {
+    stroke:#000;
+    /* stroke-width: 1.2; */
+    cursor: crosshair;
+    }
+
+.scatterBubble:hover {
+    stroke:#000;
+    /* stroke-width: 1.2; */
+    cursor: crosshair;
+    }
+
+.legend circle {
+    fill: none;
+    stroke: #ccc;
+    opacity: 0.6;
+    stroke-width: 1px;
+    }
+
+.legend text {
+    fill: #777;
+    font-family: sans-serif;
+    font-size: 10px;
+    text-anchor: middle;
+}
+
+.stateText {
+    font-family: sans-serif;
+    font-size: 12px;
+    opacity: 0.7;
+    /* color: rgb(77, 77, 77); */
+}
+
+#tooltipMap {
+        border: solid 1px #ccc;
+        padding: 10px;
+        /* change the tooltip so that its position can be moved around */
+        position: fixed;
+        /* hide it for when theres no hovering */
+        display: block;
+        background-color: white;
+        color:#03071e;            
+    }
+
+#slider text {
+    font-size:12px
+}
+
+#tooltipScatter {
+    border: solid 1px #ccc;
+    padding: 10px;
+    /* change the tooltip so that its position can be moved around */
+    position: fixed;
+    /* hide it for when theres no hovering */
+    display: block;
+    background-color: white;
+    /* color:#03071e;             */
+}
+
+h4 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: x-large;
+    font-style: bold;
+}
+
+h5 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:medium;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.description {
+  max-width: 520px;
+  text-align: justify;
+  text-anchor: middle;
+  color: rgb(167, 167, 167);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 10;
+  display: flex;
+  justify-content: center;
+}
+
+#rep {
+    fill: #DD1F26
+  }
+
+  #dem {
+    fill: #0076C0
+  }
+
+  .axis text{
+    fill: silver;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+
+  }
+
+  .axis line{
+    stroke: silver
+  }
+
+  #tooltip {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .legend {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16;
+    font-weight:bold;
+  }
+
+  .axisLabel {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #my_dataviz3 {
+      display: inline-block;
+      /* position: relative; */
+      width: 70%;
+      /* padding-bottom: 40%; */
+      margin-left: 15%;
+      margin-right: 15%;
+      text-align: center;
+    }
+
+    h4 {
+        /* text-align: left; */
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+        font-style: bold;
+        /* width: 1400; */
+}
+
+.secondview {
+        display: inline;
+}
+
+.axis text{
+    fill: silver;
+    font-size: 14px;
+  }
+
+  .axis line{
+    stroke: silver
+  }
+
+  .tooltip {
+    position: absolute;
+    background-color: white;
+    border: solid 2px silver;
+    padding: 10;
+  }
+
+  #my_dataviz2 {
+      display: inline-block;
+      /* position: relative; */
+      width: 70%;
+      /* padding-bottom: 40%; */
+      margin-left: 15%;
+      margin-right: 15%;
+      text-align: center;
+    }
+
+    #scatterTitle {
+      display: inline-block;
+      /* position: relative; */
+      width: 60%;
+      /* padding-bottom: 40%; */
+      margin-left: 20%;
+      margin-right: 20%;
+      text-align: center;
+    }
+
+    #tooltipText {
+        /* border: solid 1px #ccc;
+        top: 10px;
+        left: 0px;
+        padding: 5px; */
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        /* position: fixed;
+        display: none;
+        background-color: white; */
+        color:#ccc;           
+    }
+
+    #timeline {
+        /* border: solid 1px #ccc; */
+        top: 10px;
+        left: 0px;
+        padding: 5px;
+        position:fixed;
+        /* opacity:0; */
+        /* hide it for when theres no hovering */
+        /* display:none; */
+        background-color: white;
+    }
+
+
+    #timeline path {
+        fill: none
+    }
+
+    .forceText {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    text-anchor: middle;
+    fill: white;
+    }
+
+    /* .xAxis text, .yAxis text{
+    fill: silver;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  } */
+
+  .xAxis line, .yAxis line{
+    stroke: silver;
+  }
+
+  .xAxis text {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .xAxis path, .yAxis path {
+      display: none;
+  }
+
+  .axisLabel {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  h4 {
+    /* text-align: left; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: x-large;
+    font-style: bold;
+}
+
+h5 {
+    /* text-align: left; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:medium;
+    /* font-style:oblique; */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.description {
+  max-width: 520px;
+  text-align: justify;
+  text-anchor: middle;
+  color: rgb(167, 167, 167);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 10;
+  display: flex;
+  justify-content: center;
+}
+
+.dropOptions {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.buttons {
+  justify-content: center;
+  display: flex;
+}
+
+button {
+  border-color: lightgray;
+  border-style:solid;
+  border-width: 0.5;
+  /* color: white; */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button:hover {
+  background-color: darkgray;
+  color: white;
+}
+
+button:focus{
+  font-weight: bold;
+}
+
+.search {
+    text-align: center;
+}
+
+.legend circle {
+    fill: none;
+    stroke: #ccc;
+    }
+
+.legend text {
+fill: silver;
+font: 8px sans-serif;
+text-anchor: middle;
+}
+
+.svg-container {
+display: inline-block;
+position: relative;
+width: 95%;
+padding-bottom: 5%;
+margin-left: 4%;
+/* margin-right: 2.5%; */
+vertical-align: top;
+overflow: hidden;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+}
+
+.line {
+    /* fill: none;
+    stroke: #426789; */
+    stroke-width: 2px;
+    }
+  
+  /* .area {
+    fill: #e8eef4;
+  } */
+  
+  g#xAxisG text, g#yAxisG text {
+      stroke: none;
+      fill: silver;
+  }
+
+  .axisSM line {
+    stroke: silver
+  }
+
+  .axisSM text {
+    font-size: 9px;
+
+  }
+  
+  /* header, div#source {
+      margin-left: 40px;
+      margin-bottom: 38px;
+  } */
+  h4 {
+      /* text-align: left; */
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: x-large;
+      font-style: bold;
+  }
+  
+  #title {
+      position: relative;
+      text-align: left;
+      font-size: normal;
+      color: silver;
+      font: 10px Arial;
+      }
+
+  /* svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      } */
+
+    #usLabel {
+      position: relative;
+      text-align: left;
+      font: 10px Arial;
+      fill: silver;
+      /* font-weight: bold; */
+    }
+
+    .description {
+    max-width: 520px;
+    text-align: justify;
+    text-anchor: middle;
+    color: rgb(167, 167, 167);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    margin-bottom: 0;
+  }
+
+  .subtitle {
+    margin-top: 0;
+    margin-bottom: 10;
+    display: flex;
+    justify-content: center;
+  }
+
+  #charts {
+    display: inline-block;
+    /* position: relative; */
+    width: 70%;
+    /* padding-bottom: 40%; */
+    margin-left: 15%;
+    margin-right: 15%;
+    /* justify-content: center; */
+  }
+  #title {
+    display: inline-block;
+    /* position: relative; */
+    width: 65.6%;
+    /* padding-bottom: 40%; */
+    margin-left: 17.2%;
+    margin-right: 17.2%;
+    /* justify-content: center; */
+  }
+
+  .Raceline {
+    fill:none;
+    stroke-width: 4px;
+}
+.Raceaxis text{
+fill: silver;
+font-size: 14px;
+}
+
+.Raceaxis line{
+    stroke: silver
+}
+
+/* .Racetext {
+    font: sans-serif;
+    fill: silver;
+} */
+
+h4 {
+/* text-align: left; */
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size: x-large;
+font-style: bold;
+text-align: center;
+
+}
+
+h5 {
+/* text-align: left; */
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size:medium;
+/* font-style:oblique; */
+font-weight: 600;
+text-align: center;
+margin-bottom: 0;
+}
+
+.description {
+max-width: 520px;
+text-align: justify;
+text-anchor: middle;
+color: rgb(167, 167, 167);
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: small;
+margin-bottom: 0;
+}
+
+.subtitle {
+margin-top: 0;
+margin-bottom: 10;
+display: flex;
+justify-content: center;
+}
+
+.citybuttons {
+text-align: center;
+}
+
+.Racelegend {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14;
+font-weight:bold;
+}
+
+.Raceline {
+    fill:none;
+    stroke-width: 4px;
+}
+.Raceaxis text{
+fill: silver;
+font-size: 14px;
+}
+
+.Raceaxis line{
+    stroke: silver
+}
+
+.dropdownOptions {
+font-size: small;
+font-weight: bold;
+padding: 5;
+margin: 10;
+}
+
+.citybuttons {
+text-align: center;
+}
+
+.Racelegend {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14;
+font-weight:bold;
+}
+
+#rep {
+        fill: #DD1F26
+      }
+
+      #dem {
+        fill: #0076C0
+      }
+
+      .axis line{
+        stroke: silver
+      }
+
+      #tooltip {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+      }
+
+      .legend {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16;
+        font-weight:bold;
+      }
+
+      .axisLabel {
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #my_dataviz3 {
+          display: inline-block;
+          width: 70%;
+          margin-left: 15%;
+          margin-right: 15%;
+          text-align: center;
+        }

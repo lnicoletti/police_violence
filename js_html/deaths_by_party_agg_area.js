@@ -1,26 +1,31 @@
 
     // set the dimensions and margins of the graph
-    var margin3 = {top: 20, right: 150, bottom: 30, left: 18},
-        width3 = 1400 - margin3.left - margin3.right,
+    var margin3 = {top: 20, right: 100, bottom: 30, left: 18},
+        width3 = 1250 - margin3.left - margin3.right,
         height3 = 700 - margin3.top - margin3.bottom;
     
     // append the svg object to the body of the page
     var svg3 = d3.select("#my_dataviz3")
       .append("svg")
-        .attr("width", width3 + margin3.left + margin3.right)
-        .attr("height", height3 + margin3.top + margin3.bottom)
+      .attr("preserveAspectRatio", "xMinYMin meet")
+      .attr("viewBox", "0 0 "+ (width3 + margin3.left + margin3.right) +"," + (height3 + margin3.top + margin3.bottom)+"")
       .append("g")
         .attr("transform",
               "translate(" + margin3.left + "," + margin3.top + ")");
+      //   .attr("width", width3 + margin3.left + margin3.right)
+      //   .attr("height", height3 + margin3.top + margin3.bottom)
+      // .append("g")
+      //   .attr("transform",
+      //         "translate(" + margin3.left + "," + margin3.top + ")");
     
     // Parse the Data
     // death_by_city_party_agg.csv
-    d3.csv("https://gist.githubusercontent.com/lnicoletti/2b332934b105db020c454251ce1f6fa3/raw/c63e340d29e2f322a2581f78dad930db160e862f/death_by_city_party_agg.csv", function(data) {
+    d3.csv("https://gist.githubusercontent.com/lnicoletti/2b332934b105db020c454251ce1f6fa3/raw/c63e340d29e2f322a2581f78dad930db160e862f/death_by_city_party_agg.csv").then(function(data) {
     
       // List of groups = header of the csv files
       var keys = data.columns.slice(2)
         console.log(data)
-        console.log(keys)
+
       // Add X axis
       var x = d3.scaleLinear()
         .domain(d3.extent(data, function(d) { return d.year; }))

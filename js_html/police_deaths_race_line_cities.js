@@ -1,26 +1,39 @@
-let Chartbody = d3.select("#RaceChartBody")
-        d3.csv("https://gist.githubusercontent.com/lnicoletti/f941139d7bf40385a325b92e6750a14f/raw/677990a4c3de14e8b71756cbe5c7c4ec363b0be4/deaths_by_race_city_year.csv").then((data)=> {
-    
-        // d3.csv("data/deaths_by_race_city_year.csv").then((data)=> {
-        
-        populateDropdown(data)
-        
-        initialOption = "National Total"
-        drawLines(data, initialOption)
+var margin2 = {top: 20, right: 70, bottom: 70, left: 70},
+width2 = 1250 - margin2.left - margin2.right,
+height2 = 800 - margin2.top - margin2.bottom;
 
-        d3.select("#citydropdown").on("change", function(d) {
-            // recover the option that has been chosen
-            var selectedCity = d3.select(this).property("value")
-            // run the updateChart function with this selected option
-            d3.selectAll(".Raceline").remove()
-            d3.selectAll(".Raceaxis").remove()
-            d3.selectAll(".Racelegend").remove()
-            d3.selectAll(".raceAxisText").remove()
-            drawLines(data, selectedCity)
-            })
-        
-        
+// height=700 
+// width=1200
+// let Chartbody = d3.select("#RaceChartBody")
+let Chartbody = d3.select("div#racechart").select("#raceContainer")
+                    .attr("preserveAspectRatio", "xMinYMin meet")
+                    .attr("viewBox", "0 0 "+ width2 +"," + height2+"")
+                    .append("g")
+                    .attr("transform",
+                        "translate(" + margin2.left + "," + margin2.top + ")");
+
+d3.csv("https://gist.githubusercontent.com/lnicoletti/f941139d7bf40385a325b92e6750a14f/raw/677990a4c3de14e8b71756cbe5c7c4ec363b0be4/deaths_by_race_city_year.csv").then((data)=> {
+
+    // d3.csv("data/deaths_by_race_city_year.csv").then((data)=> {
+    console.log(data)
+    populateDropdown(data)
+    
+    initialOption = "National Total"
+    drawLines(data, initialOption)
+
+    d3.select("#citydropdown").on("change", function(d) {
+        // recover the option that has been chosen
+        var selectedCity = d3.select(this).property("value")
+        // run the updateChart function with this selected option
+        d3.selectAll(".Raceline").remove()
+        d3.selectAll(".Raceaxis").remove()
+        d3.selectAll(".Racelegend").remove()
+        d3.selectAll(".raceAxisText").remove()
+        drawLines(data, selectedCity)
         })
+    
+    
+    })
 
         function populateDropdown(data) {
             var select = d3.select("#citydropdown")
@@ -48,7 +61,7 @@ let Chartbody = d3.select("#RaceChartBody")
 
             // d3.selectAll("line").remove()
 
-            let bodyHeight0 = 500
+            let bodyHeight0 = 450
             let bodyWidth0 = 800
 
             year_filter = 2020

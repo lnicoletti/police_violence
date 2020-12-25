@@ -1,8 +1,10 @@
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@master/js_html/styles.css">
 </head>
 <style>
-    .bubble {
+
+    /* .bubble {
         fill-opacity: .5;
         stroke: #fff;
         stroke-width: .5px;
@@ -22,9 +24,7 @@
     #tooltipMap {
             border: solid 1px #ccc;
             padding: 10px;
-            /* change the tooltip so that its position can be moved around */
             position: fixed;
-            /* hide it for when theres no hovering */
             display: block;
             background-color: white;
             color:#03071e;            
@@ -59,11 +59,11 @@
       margin-bottom: 10;
       display: flex;
       justify-content: center;
-    }
+    } */
 
 </style>
 
-<!-- <body> -->
+<body>
     <h4 style = "text-align: center">Deaths by police in the U.S. (2000-present)</h4>
     <!-- <div id="sliderDiv"></div><input id="slider" type="range" min="2000" max="2020" step="1" value="2000"> -->
     <div class="subtitle">
@@ -71,21 +71,28 @@
             since the year 2000, where each circle represents a city. Hover on a circle 
             to see the number of deaths by police for that city in a given year. Play with the slider to 
             see how police violence evolves over time. Each year, 
-            <span style="color:brown"> <b>cities with the highest number of deaths by police</b></span> are highlighted. </p>
+            <span style="color:#cc0000"> <b>cities with the highest number of deaths by police</b></span> are highlighted. </p>
         </div>
-        <h5>Filter by year</h5>
+        <h5 >Filter by year</h5>
     <div class="row align-items-center">
         <!-- <div class="col-sm-2"><p id="value"></p></div> -->
-        <div class="col-sm"><div id="slider"></div></div>
+        <div class="col-sm">
+            <div id="slider"></div>
+        </div>
       </div>
-    <div style = "text-align: center">
-        <svg id="container" height="660" width="1250">
-            <g id="body" transform="translate(200,0)"></g>
+
+    <div id="chart" class="svg-container" style="text-align: center;">
+        <svg id="timeMap">
+            <!-- <g id="body"></g> -->
         </svg>
     </div>
-    <div id="tooltipMap">Tooltip</div>
-<!-- </body> -->
-<!-- <script src="d3.js"></script> -->
+    <!-- <div style = "text-align: center" class="svg-container">
+        <svg id="container" height="660" width="1250" >
+            <g id="body" transform="translate(200,0)"></g>
+        </svg>
+    </div> -->
+    <div id="tooltipMap"></div>
+</body>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://unpkg.com/d3-simple-slider@1.10.1/dist/d3-simple-slider.min.js"></script>
 <!-- <script src="citiesDeathsTime.js"></script> -->

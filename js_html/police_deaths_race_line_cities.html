@@ -1,14 +1,10 @@
 
 <html>
     <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@master/js_html/styles.css">
         <style>
 
-        /* #container {
-            background-color: black;
-            width: 100%;
-            align-content: flex-end;
-        } */
-            .Raceline {
+            /* .Raceline {
                 fill:none;
                 stroke-width: 4px;
             }
@@ -21,13 +17,8 @@
                 stroke: silver
             }
     
-            /* .Racetext {
-                font: sans-serif;
-                fill: silver;
-            } */
 
         h4 {
-        /* text-align: left; */
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: x-large;
         font-style: bold;
@@ -36,10 +27,8 @@
         }
 
     h5 {
-        /* text-align: left; */
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size:medium;
-        /* font-style:oblique; */
         font-weight: 600;
         text-align: center;
         margin-bottom: 0;
@@ -63,10 +52,8 @@
     }
 
     .dropdownOptions {
-        /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
         font-size: small;
         font-weight: bold;
-        /* background: rgb(238, 237, 237); */
         padding: 5;
         margin: 10;
     }
@@ -79,11 +66,11 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14;
         font-weight:bold;
-      }
+      } */
     
         </style>
     </head>
-    
+    <body>
         <h4>Police deaths by race (2000-Present)</h4>
         <div class="subtitle">
             <p class="description"> The chart below illustrates the death toll of policing in the U.S. broken
@@ -94,11 +81,17 @@
         <div class="citybuttons">
             <select id="citydropdown" class="dropdownOptions"></select>
         </div>
-        <div id="racechart" style="text-align: center;">
+        <!-- <div id="racechart" style="text-align: center;">
             <svg id="raceContainer" height="700" width="1200" style="text-align: center;">
                 <g id="RaceChartBody" transform="translate(200,50)"></g>
             </svg>
+        </div> -->
+        <div id="racechart" class="svg-container" style="text-align: center;">
+            <svg id="raceContainer">
+                <!-- <g id="RaceChartBody" transform="translate(200,50)"></g> -->
+            </svg>
         </div>
+    </body>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <!-- <script src="police_deaths_race_line_cities.js"></script> -->
     <script src="https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@master/js_html/police_deaths_race_line_cities.js"></script>

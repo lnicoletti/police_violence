@@ -574,3 +574,260 @@ font-weight:bold;
           margin-right: 15%;
           text-align: center;
         }
+
+            /* body {
+          font: 10px Arial;
+          margin: 0;
+          
+        } */
+        
+        .line {
+          /* fill: none;
+          stroke: #426789; */
+          stroke-width: 2px;
+          }
+        
+        /* .area {
+          fill: #e8eef4;
+        } */
+        
+        g#xAxisG text, g#yAxisG text {
+            stroke: none;
+            fill: silver;
+        }
+
+        .axisSM line {
+          stroke: silver
+        }
+
+        .axisSM text {
+          font-size: 9px;
+
+        }
+        
+        /* header, div#source {
+            margin-left: 40px;
+            margin-bottom: 38px;
+        } */
+        h4 {
+            /* text-align: left; */
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: x-large;
+            font-style: bold;
+        }
+        
+        #title {
+            position: relative;
+            text-align: left;
+            font-size: normal;
+            color: silver;
+            font: 10px Arial;
+            }
+
+        /* svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            } */
+
+          #usLabel {
+            position: relative;
+            text-align: left;
+            font: 10px Arial;
+            fill: silver;
+            /* font-weight: bold; */
+          }
+
+          .description {
+          max-width: 520px;
+          text-align: justify;
+          text-anchor: middle;
+          color: rgb(167, 167, 167);
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: small;
+          margin-bottom: 0;
+        }
+
+        .subtitle {
+          margin-top: 0;
+          margin-bottom: 10;
+          display: flex;
+          justify-content: center;
+        }
+
+        #charts {
+          display: inline-block;
+          /* position: relative; */
+          width: 70%;
+          /* padding-bottom: 40%; */
+          margin-left: 15%;
+          margin-right: 15%;
+          /* justify-content: center; */
+        }
+        #title {
+          display: inline-block;
+          /* position: relative; */
+          width: 65.6%;
+          /* padding-bottom: 40%; */
+          margin-left: 17.2%;
+          margin-right: 17.2%;
+          /* justify-content: center; */
+        }
+
+        #tooltipText {
+          /* border: solid 1px #ccc;
+          top: 10px;
+          left: 0px;
+          padding: 5px; */
+          font-size: 10px;
+          font-family: Arial, Helvetica, sans-serif;
+          /* position: fixed;
+          display: none;
+          background-color: white; */
+          color:#ccc;           
+      }
+      
+      #timeline {
+          /* border: solid 1px #ccc; */
+          top: 10px;
+          left: 0px;
+          padding: 5px;
+          position:fixed;
+          /* opacity:0; */
+          /* hide it for when theres no hovering */
+          /* display:none; */
+          background-color: white;
+      }
+      
+      
+      #timeline path {
+          fill: none
+      }
+      
+      .forceText {
+          font-weight: bold;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 8px;
+          text-anchor: middle;
+          fill: white;
+      }
+      
+      
+      .xAxis line, .yAxis line{
+          stroke: silver;
+      }
+      
+      .xAxis text {
+          font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      .xAxis path, .yAxis path {
+          display: none;
+      }
+      
+      .axisLabel {
+          font-weight: bold;
+          font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      h4 {
+          /* text-align: left; */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          font-size: x-large;
+          font-style: bold;
+      }
+      
+      h5 {
+          /* text-align: left; */
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          font-size:medium;
+          /* font-style:oblique; */
+          font-weight: 600;
+          text-align: center;
+          margin-bottom: 0;
+      }
+      
+      .description {
+          max-width: 520px;
+          text-align: justify;
+          text-anchor: middle;
+          color: rgb(167, 167, 167);
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: small;
+          margin-bottom: 0;
+      }
+      
+      .subtitle {
+          margin-top: 0;
+          margin-bottom: 10;
+          display: flex;
+          justify-content: center;
+      }
+      
+      .dropOptions {
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          font-size: x-large;
+          font-weight: bold;
+      }
+      
+      .buttons {
+          justify-content: center;
+          display: flex;
+      }
+      
+      button {
+          border-color: lightgray;
+          border-style:solid;
+          border-width: 0.5;
+          /* color: white; */
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          /* display: inline-block; */
+          font-size: 12px;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      button:hover {
+          background-color: darkgray;
+          color: white;
+      }
+      
+      button:focus{
+          font-weight: bold;
+      }
+      
+      .search {
+          text-align: center;
+      }
+      
+      .legend circle {
+          fill: none;
+          stroke: #ccc;
+          }
+      
+      .legend text {
+          fill: silver;
+          font: 8px sans-serif;
+          text-anchor: middle;
+          }
+      
+      .svg-container {
+          display: inline-block;
+          position: relative;
+          width: 95%;
+          padding-bottom: 40%;
+          margin-left: 4%;
+          /* margin-right: 2.5%; */
+          vertical-align: top;
+          overflow: hidden;
+          }
+      
+      .svg-content {
+          display: inline-block;
+          position: absolute;
+          text-align: center;
+          top: 0;
+          left: 0;
+      }

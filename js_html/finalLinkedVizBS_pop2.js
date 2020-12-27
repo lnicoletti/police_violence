@@ -302,7 +302,6 @@
         //     .style("font-family", "sans-serif")
     }
 
-
     function drawBarChart(data, type, year, kind) {
         popFilter = 50000
         // remove all previous text

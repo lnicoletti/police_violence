@@ -18,13 +18,13 @@
       .ticks(3);
     
     var area = d3.area()
-        .x(function(d) { return xScale(d.year); })
+        .x(function(d) { return xScale(+d.year); })
         .y0(height4)
-        .y1(function(d) { return yScale(d.value); });
+        .y1(function(d) { return yScale(+d.value); });
     
     var line = d3.line()
-        .x(function(d) { return xScale(d.year); })
-        .y(function(d) { return yScale(d.value); });
+        .x(function(d) { return xScale(+d.year); })
+        .y(function(d) { return yScale(+d.value); });
 
     // Add a scale for bubble color
     var myColor = d3.scaleOrdinal()
@@ -33,8 +33,12 @@
     //death_by_city_party.csv
     // d3.csv("https://gist.githubusercontent.com/lnicoletti/d8e01d5991e20eb19b7aa68b674311eb/raw/c87d0d8d0fa419878be0efe2917de2bb59c29bdb/death_by_city_party.csv", convertTextToNumbers, function(error, data) {
       // d3.csv("data/death_by_city_party.csv", convertTextToNumbers, function(error, data) {
-      d3.csv("https://gist.githubusercontent.com/lnicoletti/bd55c7bd6b172270df1606b166071791/raw/f687c8d75e9333e06534710994aedf1fb7f9957c/death_by_city_party.csv", convertTextToNumbers, function(error, data) {
+      d3.csv("https://gist.githubusercontent.com/lnicoletti/bd55c7bd6b172270df1606b166071791/raw/f687c8d75e9333e06534710994aedf1fb7f9957c/death_by_city_party.csv").then((data)=>{
+      showSmallMultiples(data)})
 
+      function showSmallMultiples(data) {
+
+      console.log(data)
       data.sort(function(x, y){
         // return d3.ascending(x.MV - x.LV, y.MV - y.LV);
         return d3.ascending(x.party, y.party);
@@ -42,8 +46,8 @@
 
       data = data.filter(d=>(+d.year===2000)|(+d.year===2019))
 
-      xScale.domain(d3.extent(data, function(d) { return d.year; }));
-      yScale.domain([0,d3.max(data, function(d) {  return d.value; })+0.5]);
+      xScale.domain(d3.extent(data, function(d) { return +d.year; }));
+      yScale.domain([0,d3.max(data, function(d) {  return +d.value; })+0.5]);
       
       // Nest data by subject.
       var cities = d3.nest()
@@ -167,7 +171,7 @@
           .on('mouseenter',function() {focus.style("opacity", "1")})
           .on('mousemove',function() {focus.style("opacity", "1")})
           .on('mouseleave',function () {focus.style("opacity", "0")})
-    });
+    };
     
     function convertTextToNumbers(d) {
       d.year = +d.year;

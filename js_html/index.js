@@ -69,11 +69,13 @@ let Chartbody = d3.select("div#racechart").select("#raceContainer")
                     .attr("transform",
                         "translate(" + margin2.left + "," + margin2.top + ")");
 
+
 // // scatter plot constants
+heightScatter = 750 - margin2.top - margin2.bottom;
 var svg2 = d3.select("div#my_dataviz2")
       .select("#scatterPolice")
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 "+ (width2 + margin2.left + margin2.right) +"," + (height2 + margin2.top + margin2.bottom)+"")
+      .attr("viewBox", "0 0 "+ (width2 + margin2.left + margin2.right) +"," + (heightScatter + margin2.top + margin2.bottom)+"")
       .append("g")
         .attr("transform",
               "translate(" + margin2.left + "," + margin2.top + ")");
@@ -196,7 +198,7 @@ Promise.all([
         // bubble chart
         type = "most"
         kind = "tot"
-        drawBarChart(bubbleData, type, 2020, kind)
+        drawBubbleChart(bubbleData, type, 2020, kind)
     })
 
 // map functions
@@ -579,7 +581,7 @@ function drawScatter(data) {
       .range([ 0, width2]);
 
     svg2.append("g")
-      .attr("transform", "translate(0," + height2 + ")")
+      .attr("transform", "translate(0," + heightScatter + ")")
       // .attr("transform", "translate(" + margin2.left + "," + height2 + ")")
       .call(d3.axisBottom(x).ticks(18))
       .attr("class", "axis")
@@ -588,7 +590,7 @@ function drawScatter(data) {
     let maxDeaths = d3.max(data, d => +d.d_2010)/10
     var y = d3.scaleLinear()
       .domain([0, maxDeaths+0.2])
-      .range([ height2, 0]);
+      .range([ heightScatter, 0]);
       
     svg2.append("g")
       .call(d3.axisLeft(y))
@@ -605,7 +607,7 @@ function drawScatter(data) {
     svg2.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin2.left)
-      .attr("x",0 - (height2 / 2))
+      .attr("x",0 - (heightScatter / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .style("fill", "silver")
@@ -617,7 +619,7 @@ function drawScatter(data) {
   svg2.append("text")             
      .attr("transform",
           "translate(" + (width2/2) + " ," + 
-                         (height2 + margin2.bottom) + ")")
+                         (heightScatter + margin2.bottom) + ")")
      .style("text-anchor", "middle")
      .text("Police Officers Per 100,000 Inhabitants")
      .style("fill", "silver")   
@@ -729,7 +731,7 @@ function drawScatter(data) {
              .attr("r", d => d.radius)
              .attr("fill","none")
              .attr("stroke","silver")
-             .attr("stroke-width","2px")
+             .attr("stroke-width","1px")
          
      textLegend = svg2.append("g")
          // textLegend = legend.append("g")
@@ -1166,7 +1168,7 @@ function showTooltip5(ttip, text1, text2, text3, coords, data, county, c) {
         .call(wrap, 80)
 }
 
-function drawBarChart(data, type, year, kind) {
+function drawBubbleChart(data, type, year, kind) {
     popFilter = 50000
     // remove all previous text
     // console.log(data)
@@ -1300,6 +1302,15 @@ function drawBarChart(data, type, year, kind) {
             .attr("class", "forceText")
             .text(d=>+d.population>600000 ? d.county:'')
             .style("font-size", d=>fontScale(+d.population)+"px")
+            .on("mouseenter", (d) => {
+                showTooltip5(ttip, d.county, Math.round(d.death_count), d.date, [d3.event.clientX, d3.event.clientY], dataType, d.county, d)
+            })
+            .on("mousemove", (d) => {
+                showTooltip5(ttip, d.county, Math.round(d.death_count), d.date, [d3.event.clientX, d3.event.clientY], dataType, d.county, d)
+            })
+            .on("mouseleave", (d) => {
+                d3.select("#timeline").style("display", "none")
+            })
 
     // transition to new updated year
     circles.merge(newCircles)

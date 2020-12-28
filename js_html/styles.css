@@ -87,11 +87,11 @@ h5 {
   font-size: 18px;
   margin-bottom: 0;
   line-height: 1.2;
+  margin-top: 50;
+  margin-bottom: 50;
   }
   
   .subtitle {
-  margin-top: 0;
-  margin-bottom: 0;
   display: flex;
   justify-content: center;
   }
@@ -180,14 +180,17 @@ h5 {
       text-align: center;
     }
 
-    #scatterTitle {
+    .figTitle {
       display: inline-block;
       /* position: relative; */
-      width: 60%;
+      /* max-width: 45vw; */
       /* padding-bottom: 40%; */
-      margin-left: 20%;
-      margin-right: 20%;
-      text-align: center;
+      margin-left: 27.5%;
+      margin-right: 27.5%;
+      text-align: left;
+      font-family: Georgia;
+      font-weight: 700;
+      font-size: 25px;
     }
 
     #tooltipText {
@@ -218,6 +221,10 @@ h5 {
 
     #timeline path {
         fill: none
+    }
+
+    #citySearch {
+      margin:15px
     }
 
     .forceText {
@@ -285,6 +292,7 @@ button {
   border-width: 0.5;
   /* color: white; */
   padding: 10px 20px;
+  margin: 15px;
   text-align: center;
   text-decoration: none;
   /* display: inline-block; */
@@ -687,6 +695,7 @@ font-weight:bold;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
           font-size: small;
           margin-bottom: 0;
+          line-height: 1.1;
       }
       
       .figSubtitle {

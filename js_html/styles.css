@@ -78,21 +78,22 @@ h5 {
 }
 
 .description {
-  max-width: 520px;
+  max-width: 45vw;
   text-align: justify;
   text-anchor: middle;
-  color: rgb(167, 167, 167);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: small;
+  /* color: rgb(167, 167, 167); */
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
   margin-bottom: 0;
-}
-
-.subtitle {
+  }
+  
+  .subtitle {
   margin-top: 0;
-  margin-bottom: 10;
+  margin-bottom: 0;
   display: flex;
   justify-content: center;
-}
+  }
 
 #rep {
     fill: #DD1F26
@@ -266,23 +267,6 @@ h5 {
     margin-bottom: 0;
 }
 
-.description {
-  max-width: 520px;
-  text-align: justify;
-  text-anchor: middle;
-  color: rgb(167, 167, 167);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: small;
-  margin-bottom: 0;
-}
-
-.subtitle {
-  margin-top: 0;
-  margin-bottom: 10;
-  display: flex;
-  justify-content: center;
-}
-
 .dropOptions {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: x-large;
@@ -335,7 +319,7 @@ text-anchor: middle;
 display: inline-block;
 position: relative;
 width: 95%;
-padding-bottom: 5%;
+/* padding-bottom: 5%; */
 margin-left: 4%;
 /* margin-right: 2.5%; */
 vertical-align: top;
@@ -374,10 +358,7 @@ overflow: hidden;
 
   }
   
-  /* header, div#source {
-      margin-left: 40px;
-      margin-bottom: 38px;
-  } */
+
   h4 {
       /* text-align: left; */
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -407,23 +388,6 @@ overflow: hidden;
       fill: silver;
       /* font-weight: bold; */
     }
-
-    .description {
-    max-width: 520px;
-    text-align: justify;
-    text-anchor: middle;
-    color: rgb(167, 167, 167);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: small;
-    margin-bottom: 0;
-  }
-
-  .subtitle {
-    margin-top: 0;
-    margin-bottom: 10;
-    display: flex;
-    justify-content: center;
-  }
 
   #charts {
     display: inline-block;
@@ -479,23 +443,6 @@ font-size:medium;
 font-weight: 600;
 text-align: center;
 margin-bottom: 0;
-}
-
-.description {
-max-width: 520px;
-text-align: justify;
-text-anchor: middle;
-color: rgb(167, 167, 167);
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-font-size: small;
-margin-bottom: 0;
-}
-
-.subtitle {
-margin-top: 0;
-margin-bottom: 10;
-display: flex;
-justify-content: center;
 }
 
 .citybuttons {
@@ -639,23 +586,6 @@ font-weight:bold;
             /* font-weight: bold; */
           }
 
-          .description {
-          max-width: 520px;
-          text-align: justify;
-          text-anchor: middle;
-          color: rgb(167, 167, 167);
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
-          font-size: small;
-          margin-bottom: 0;
-        }
-
-        .subtitle {
-          margin-top: 0;
-          margin-bottom: 10;
-          display: flex;
-          justify-content: center;
-        }
-
         #charts {
           display: inline-block;
           /* position: relative; */
@@ -748,7 +678,7 @@ font-weight:bold;
           margin-bottom: 0;
       }
       
-      .description {
+      .figDescription {
           max-width: 520px;
           text-align: justify;
           text-anchor: middle;
@@ -758,7 +688,7 @@ font-weight:bold;
           margin-bottom: 0;
       }
       
-      .subtitle {
+      .figSubtitle {
           margin-top: 0;
           margin-bottom: 10;
           display: flex;
@@ -813,16 +743,6 @@ font-weight:bold;
           text-anchor: middle;
           }
       
-      .svg-container {
-          display: inline-block;
-          position: relative;
-          width: 95%;
-          padding-bottom: 40%;
-          margin-left: 4%;
-          /* margin-right: 2.5%; */
-          vertical-align: top;
-          overflow: hidden;
-          }
       
       .svg-content {
           display: inline-block;
@@ -831,3 +751,82 @@ font-weight:bold;
           top: 0;
           left: 0;
       }
+
+/* typography and paragraphs */
+.smalltitle {
+  margin-top: 80px;
+  margin-bottom: 50px;
+  /* margin-left: 30%;
+  margin-right: 30%; */
+  font-weight:500;
+  font-size:50px;
+  /* text-align: left; */
+  font-family: Georgia;
+  /* font-size: x-large; */
+  font-style: bold;
+  max-width: 50vw;
+  /* text-align: center; */
+  /* text-anchor: middle; */
+}
+
+.titleContainer {
+  text-align: center;
+  justify-content:center;
+  text-anchor: middle;
+  margin-left: 25vw;
+}
+
+.subTitle {
+  font-weight:500;
+  font-size:25px;
+  margin-bottom: 2%;
+  opacity: 0.9;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 0px;
+}
+
+.creditLink{
+  color: rgb(53, 53, 53)
+}
+
+.credits {
+  font-weight:500;
+  font-size:14;
+  opacity: 0.8;
+  margin-bottom: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* color: #ccc */
+}
+
+.sectionHeader {
+  /* text-align: left; */
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: x-large; */
+  font-style: bold;
+  color: #ccc;
+  max-width: 700;
+  text-anchor: middle;
+  justify-content:left;
+  }
+
+  .padded-dropcap {
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+    position: relative;
+    top: -0.15em;
+    margin-bottom: -0.5em;
+    margin-left: -6px;
+    margin-right: 2px;
+    font-size: 100px;
+  }
+
+  .titleArt {
+    width:95%;
+    margin-top:10%;
+    margin-bottom: 10%;
+  }
+
+  .header {
+    justify-content: center;
+  }

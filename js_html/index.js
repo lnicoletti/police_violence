@@ -59,7 +59,7 @@ let path = d3.geoPath()
 // // line chart constants
 var margin2 = {top: 20, right: 70, bottom: 70, left: 70},
 width2 = 1250 - margin2.left - margin2.right,
-height2 = 800 - margin2.top - margin2.bottom;
+height2 = 600 - margin2.top - margin2.bottom;
 
 // line chart
 let Chartbody = d3.select("div#racechart").select("#raceContainer")
@@ -77,6 +77,21 @@ var svg2 = d3.select("div#my_dataviz2")
       .append("g")
         .attr("transform",
               "translate(" + margin2.left + "," + margin2.top + ")");
+
+// // area chart constants
+// set the dimensions and margins of the graph
+var margin3 = {top: 20, right: 100, bottom: 30, left: 18},
+width3 = 1250 - margin3.left - margin3.right,
+height3 = 700 - margin3.top - margin3.bottom;
+
+// append the svg object to the body of the page
+var svg3 = d3.select("#my_dataviz3")
+.append("svg")
+.attr("preserveAspectRatio", "xMinYMin meet")
+.attr("viewBox", "0 0 "+ (width3 + margin3.left + margin3.right) +"," + (height3 + margin3.top + margin3.bottom)+"")
+.append("g")
+.attr("transform",
+      "translate(" + margin3.left + "," + margin3.top + ")");
 
 // // small multiples constants
 var margin4 = {top: 8, right: 15, bottom: 16, left: 30},
@@ -116,7 +131,7 @@ let barchart = d3.select("div#chart").select("#barchart")
                 .attr("viewBox", "0 0 "+ width5 +"," + height5+"")
                 // .classed("svg-content", true);
 
-let timeline = d3.select("#timeline")
+let timeline = d3.select("#timeline").style("visibility", "hidden")
 
 timeline.attr("height",height5/4)
 timeline.attr("width", width5/5)
@@ -128,7 +143,8 @@ Promise.all([
         d3.csv("https://gist.githubusercontent.com/lnicoletti/f941139d7bf40385a325b92e6750a14f/raw/677990a4c3de14e8b71756cbe5c7c4ec363b0be4/deaths_by_race_city_year.csv"),
         d3.csv("https://gist.githubusercontent.com/lnicoletti/1cc02dd942ff7efb1f7d7f1bc8e908cf/raw/c37b69c25c2855b8c7a7bd456561d9ff056757e7/deaths_vs_officers.csv"),
         d3.csv("https://gist.githubusercontent.com/lnicoletti/bd55c7bd6b172270df1606b166071791/raw/f687c8d75e9333e06534710994aedf1fb7f9957c/death_by_city_party.csv"),
-        d3.csv("https://gist.githubusercontent.com/lnicoletti/c312a25a680167989141e8315b26c92a/raw/707ead31e5bdbb886ff8f7dc5635d5d0568a0a81/citiesYearDeathsHT_party_n.csv")]).then((datasources) => {
+        d3.csv("https://gist.githubusercontent.com/lnicoletti/c312a25a680167989141e8315b26c92a/raw/707ead31e5bdbb886ff8f7dc5635d5d0568a0a81/citiesYearDeathsHT_party_n.csv"),
+        d3.csv("https://gist.githubusercontent.com/lnicoletti/2b332934b105db020c454251ce1f6fa3/raw/c63e340d29e2f322a2581f78dad930db160e862f/death_by_city_party_agg.csv")]).then((datasources) => {
 
         let mapInfo = datasources[0]
         let mapData = datasources[1]
@@ -136,7 +152,8 @@ Promise.all([
         let scatterData = datasources[3]
         let SMdata = datasources[4]
         let bubbleData = datasources[5]
-        
+        let areaData = datasources[6]
+
         // map
         let filteredData = mapData.filter(d => +d.date === 2000)
         console.log(filteredData)
@@ -169,6 +186,9 @@ Promise.all([
 
         // scatter plot
         drawScatter(scatterData)
+
+        // area chart
+        drawArea(areaData)
 
         // small multiples
         showSmallMultiples(SMdata)
@@ -742,6 +762,118 @@ function drawScatter(data) {
     //     .on('mouseleave',function () {focus.style("opacity", "0")})
 }
 
+// area chart functions
+function drawArea(data) {
+    
+    // List of groups = header of the csv files
+    var keys = data.columns.slice(2)
+      console.log(data)
+
+    // Add X axis
+    var x = d3.scaleLinear()
+      .domain(d3.extent(data, function(d) { return d.year; }))
+      .range([ 0, width3 ]);
+    svg3.append("g")
+      .attr("transform", "translate(0," + height3 + ")")
+      .call(d3.axisBottom(x).ticks(10))
+      .attr("class", "axis");
+  
+    // Add Y axis
+    let maxValue = d3.max(data, d => d.red)
+    var y = d3.scaleLinear()
+      .domain([0, 1.6])
+      .range([ height3, 0 ]);
+    svg3.append("g")
+      .call(d3.axisRight(y))
+      .attr("class", "axis")
+      .attr("id", "yAxis")
+      .attr("transform", "translate(" + width3/1.00000005 + "0)")
+      d3.selectAll("path.domain").remove();
+      
+
+      svg3.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("class", "axisLabel")
+        .attr("y", width3*1.04)
+        .attr("x",0 - (height3 / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("fill", "silver")
+        .text("Deaths by Police per 100,000 Inhabitants")
+        .style("font-weight", "bold")  
+        .style("font-family", "sans-serif")
+
+    // color palette
+    var color = d3.scaleOrdinal()
+      .domain(keys)
+      .range(['#0076C0', '#DD1F26'])
+  
+    //stack the data?
+    var stackedData = d3.stack()
+      .keys(keys)
+      (data)
+      console.log("This is the stack result: ", stackedData)
+  
+      // create a tooltip
+    var Tooltip = svg3
+        .append("text")
+        .attr("id", "tooltip")
+        .attr("x", 0)
+        .attr("y", 0)
+        .style("opacity", 0)
+
+    // Three function that change the tooltip when user hover / move / leave a cell
+    var mouseover = function(d) {
+      Tooltip.style("opacity", 1)
+      d3.selectAll(".myArea").style("opacity", .2)
+      d3.select(this)
+        // .style("stroke", "black")
+        // .style("stroke-width", "1")
+        .style("opacity", 1)
+    }
+    var mousemove = function(d,i) {
+      grp = keys[i]
+      // console.log(d3.max(stackedData[i])[1])
+      Tooltip.attr("y", y(stackedData[i][19][1]/10))
+      Tooltip.attr("x", x(d3.max(data.map(d=>+d.year)))+4)
+      // Tooltip.text("+ " + Math.round(d3.max(data.map(d=>+d[grp]))-d3.min(data.map(d=>+d[grp]))) + " deaths per 100,000")
+      d3.selectAll("#yAxis").attr("opacity", "0")
+      d3.selectAll(".axisLabel").attr("opacity", "0")
+    }
+    var mouseleave = function(d) {
+      Tooltip.style("opacity", 0)
+      d3.selectAll(".myArea").style("opacity", 1).style("stroke", "none")
+      d3.selectAll(".axisLabel").attr("opacity", "1")
+      d3.selectAll("#yAxis").attr("opacity", "1")
+
+     }
+     
+    // Show the areas
+    svg3
+      .selectAll("mylayers")
+      .data(stackedData)
+      .enter()
+      .append("path")
+      .attr("class", "myArea")
+      .attr("id", "myArea")
+        .style("fill", function(d) { console.log(d.key) ; return color(d.key); })
+        .attr("d", d3.area()
+          .x(function(d, i) { return x(d.data.year); })
+          .y0(function(d) { return y(d[0]/10); })
+          .y1(function(d) { return y(d[1]/10); }).curve(d3.curveNatural))
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
+
+      // Legend
+      // svg3.append("circle").attr("cx",50).attr("cy",10).attr("r", 6).style("fill", "#404040")
+      // svg3.append("circle").attr("cx",50).attr("cy",50).attr("r", 6).style("fill", "#7f7f7f")
+      // svg3.append("circle").attr("cx",50).attr("cy",90).attr("r", 6).style("fill", "#bfbfbf")
+      svg3.append("text").attr("id", "dem").attr("x", 0).attr("y", 12).text("Democrat Cities").attr("class", "legend")
+      svg3.append("text").attr("id", "rep").attr("x", 0).attr("y", 52).text("Republican Cities").attr("class", "legend")  
+  
+}
+
 // small multiples functions
 function showSmallMultiples(data) {
 
@@ -889,19 +1021,13 @@ function showTooltip5(ttip, text1, text2, text3, coords, data, county, c) {
 
     // remove previous text: 
     timeline.selectAll("#tooltipText").remove()
-    // console.log(party)
-    // tooltip = d3.select("#tooltipBar")
-    //     .style("display", "block")
-    //     .style("top", y + "px")
-    //     .style("left", x + "px")
-    //     // .html(text2>100? "hthough": "count")
-        // .html(ttip === "tot" ? "<b>" + text1 + "<br/>" + text2 + "</b> deaths by police in " + "<b>" + text3 + "</b>" : 
-        //     "<b>" + text1 + "<br/>" + text2 + "</b> deaths by police per 100,000 individuals in " + "<b>" + text3 + "</b>")
+    
     timeline
         .style("display", "block")
         .style("top", y + "px")
         .style("left", x + "px")
         .style("border", "solid 1px #ccc")
+        .style("visibility", "visible")
         // .syle("display", "block")
 
     // rename data column based on what we are showing

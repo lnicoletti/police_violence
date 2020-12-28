@@ -1,12 +1,67 @@
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@master/js_html/styles.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@master/js_html/styles.css"> -->
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
+    <!-- Title art and intro section -->
+    <div class="header" style = "text-align: center">
+    <img class="titleArt" src="../imgs/title.svg" alt="titleArt">
+    </div>
+    <div class="titleContainer">
+        <h1 class="smalltitle">Visualizing <i><b>deaths</b></i> caused by <i><b>policing</b></i> in the United States</h1>
+    </div>
+    <p style = "text-align: center" class="credits">Data Analysis and Visualization by 
+        <b><a href="https://www.leonardonicoletti.com" target="_blank" class="creditLink">Leonardo Nicoletti</a></b><br><br> 
+        Text by <b><a href="https://www.orlandonicoletti.com" target="_blank" class="creditLink">Orlando Nicoletti</a></b><br><br> 
+        Title Art by <b><a href="https://antoinebc.cargo.site/" target="_blank" class="creditLink">Antoine Balouka</a></b></h1>
+    <div class="subtitle">
+        <p class="description"> 
+            <span class="padded-dropcap">T</span>he police is an institution that we have made central to our societies. 
+            We invest enormous amounts of money, time, and effort in its daily operation, in its enhancement, and in its reform; 
+            we are deeply committed to sustaining it. Yet many of us spend little time thinking about what the police actually do. 
+            This is especially true for those of us who are the most privileged, who don't interact with the police unless we want to. 
+            Ideologically, our society is at ease with the police committing various forms of violence — surveillance, arrest, detainment, 
+            and even murder — because it is considered legitimate, necessary, integral to our well-being. This soothing illusion has only 
+            been able to persist, however, because of a consistent disregard for those on the receiving end of this violence, for the 
+            communities who experience the police not in theory but in practice.<br><br>
+        
+            For as long as the police has existed, those who are policed have denounced the harassment, humiliation, and abuse perpetrated 
+            by law enforcement, as well as their role in destroying people and communities. It has been easy to ignore these voices because 
+            the most policed are often the most marginalized, but also because victims of police are made illegitimate by design: since the 
+            police only inflict violence on those who deserve it, to be violated by police makes one both deserving of violence and 
+            undeserving of a voice, et voilà. <br><br>
+
+            Yet our failure to reckon with the dark sidereality of policing is also caused by the systematic opacity of police departments. 
+            In the U.S., there is no concerted governmental effort to keep track of acts of violence committed by police, so if one wanted 
+            to see the ‘hard’ science, the numbers that describe police activity — they simply wouldn’t find them. This lack of data is 
+            especially disturbing when it comes to civilian deaths caused by police. The Las Vegas Review-Journal writes, "The nation’s 
+            leading law enforcement agency [FBI] collects vast amounts of information on crime nationwide, but missing from this clearinghouse 
+            are statistics on where, how often, and under what circumstances police use deadly force. In fact, no one anywhere comprehensively 
+            tracks the most significant act police can do in the line of duty: take a life.” <br><br>
+
+            To address this situation, journalist and researcher D. Brian Burghart undertook the project of compiling all civilian 
+            deaths caused by police in the United States, from Jan. 1st 2000 to today. This dataset, which is freely available on his 
+            website fatalencounters.org, is the only comprehensive record of the deaths caused by policing in the United States. This 
+            includes “all deaths that happen when police are present or that are caused by police: on-duty, off-duty, criminal, 
+            line-of-duty, local, federal, intentional, accidental – all of them.” To be sure, thesethis data consists of more than the 
+            murders committed by police officers; it also speaks of the people who die from the consequences of an arrest, those who die 
+            during a pursuit, or those who take their lives during a standoff with the police or that die in firefight. All of these 
+            lives constitute the death toll of policing, that is, the lives lost because of the presence and operation of the police. 
+            Burghart writes, "If this dataset falls short of your expectations in any way, contact your representatives. Local, state and 
+            federal agencies don’t require collection of complete data regarding the numbers and characteristics of people their employees 
+            kill because they don’t want citizens to have access to transparent and verifiable data. The State’s reasons for this are more 
+            opaque.” <br><br>
+
+            In an effort to visualize the death toll of policing in the United States and to explore some of the dynamics that underlie this 
+            phenomenon, we draw on data from Fatal Encounters and put themit in conversation with information about the governance of the 
+            places where these deaths occur. <br><br></p>
+    </div>
     <!-- map section -->
     <h4 style = "text-align: center">Deaths by police in the U.S. (2000-present)</h4>
-    <div class="subtitle">
-        <p class="description"> Spatial distribution of fatal encounters between civilians and police
+    <div class="figSubtitle">
+        <p class="figDescription"> Spatial distribution of fatal encounters between civilians and police
             since the year 2000, where each circle represents a city. Hover on a circle 
             to see the number of deaths by police for that city in a given year. Play with the slider to 
             see how police violence evolves over time. Each year, 
@@ -24,10 +79,26 @@
         </svg>
     </div>
     <div id="tooltipMap"></div>
+    <div class="subtitle">
+        <p class="description"> 
+            In recent years, video footage of brutal police murders has forced us all to reckon with the reality of policing, 
+            and in recent months millions of people have taken to the streets to demand justice, accountability, and freedom from 
+            unjustified police violence. Central to the analysis developed by this movement is an understanding of the role of police 
+            in subjugating Black people and maintaining racial hierarchies. This has been true from the very inception of the police, 
+            throughout its history, and it remains true today.<br><br>
+
+            The systemic racism of policing becomes apparent when one looks at the data on who dies when interacting with police. 
+            Disaggregating police-caused deaths by race reveals three phenomena. First, deaths caused by policing have been increasing 
+            consistently over the past 20 years, and this trend is true for Black, Hispanic, and white people indiscriminately. Second, 
+            Black and Latino people are losing their lives at the hands of police at higher rates than white people — they are 
+            disproportionately affected by the violence of policing, even though they are minorities in the population. Third, these 
+            deaths are becoming increasingly skewed towards minorities. These three alarming trends suggest that the police is becoming 
+            increasingly aggressive and invested in maintaining the racial order.<br><br></p>
+    </div>
     <!-- racelines section -->
     <h4>Police deaths by race (2000-Present)</h4>
-    <div class="subtitle">
-        <p class="description"> The chart below illustrates the death toll of policing in the U.S. broken
+    <div class="figSubtitle">
+        <p class="figDescription"> The chart below illustrates the death toll of policing in the U.S. broken
             by race. Use the dropdown menu to visualize the racial breakdown of police violence in a particular location.
             Please note that for some cities or towns, data is not available for some particular years.
     </div>
@@ -39,6 +110,24 @@
     <div id="racechart" class="svg-container" style="text-align: center;">
         <svg id="raceContainer">
         </svg>
+    </div>
+    <div class="subtitle">
+        <p class="description"> 
+            One of the key demands of the current movement to end police violence is to 'defund the police'. This approach to police 
+            reform, shaped by the work of police and prison abolitionists, is in stark contrast with the last century of liberal 
+            police reform. Traditionally, police reform has attempted to make the police a fairer institution, but in practice it 
+            has consisted in giving more money and often more power to the police. Defunding the police is a reform that intends to 
+            reduce the scope and power of the police — while at the same time increasing resources for services that address the 
+            social, economic, and political roots of violence and harm, and ensuring universal access to health care, housing, and 
+            education. This kind of reform is rooted in the understanding that "the only way to diminish police violence is to reduce 
+            contact between the public and the police.” <br><br>
+
+            This understanding, which abolitionists have attained through their experience dealing with the police but also by witnessing 
+            decades of failed police reform, is also substantiated by the data. By using data on the size of the police force in seventy 
+            U.S. cities, a general trend appears: more police officers per capita correlate with more deaths caused by police per capita. 
+            That is, a higher police presence is associated with a higher rate of people killed by policing. It is also relevant to notice 
+            that this trend is true for both Democrat- and Republican-run cities, which (if we assume Democrats implement more police reforms 
+            than Republicans) indicates that liberal police reform does not counteract this fundamental tendency.<br><br></p>
     </div>
     <!-- police officers section -->
     <div class = "secondview">
@@ -53,16 +142,37 @@
           <svg id="scatterPolice"></svg>
         </div>
     </div>
+    <div class="subtitle">
+        <p class="description"> 
+            Still, it is important to note that police in Democrat-run cities cause less deaths than in Republican cities. Breaking 
+            down the data by political party reveals that, on average, Republican cities have had consistently higher rates of 
+            police-caused deaths than Democratic cities over the past twenty years. This suggests that liberal reforms are at least 
+            more successful, or less damaging, than the Republican approach to law enforcement. A closer look at the twenty most 
+            populated Democratic and Republican cities confirms this trend. Police-caused deaths have remained constant or decreased 
+            in half of Democratic cities, and they are consistently below the national average; in contrast, police-caused deaths have 
+            increased in 17 of the 20 most populated Republican cities, and all but 7 cities are over the national average. In addition, 
+            the rates of increase of police-caused deaths have been considerably steeper in Republican cities.<br><br></p>
+    </div>
     <!-- area chart section -->
     <div id="my_dataviz3" class="svg-container" style="text-align: center;"></div>
+    <div class="subtitle">
+        <p class="description"> 
+            The near-stability of the rate of people killed by police in Democratic cities is a success when compared to the increases in 
+            Republican cities, but it is a failure in relation to the overall goal of ending the death of civilians at the hands of the 
+            police. This data is consistent with critiques of liberal police reform that describe it as a futile cycle: reform is always 
+            an aesthetic transformation of the police, whose aim is to renew the legitimacy of the institution after a scandal, while doing 
+            nothing to address the oppressive nature of the police. Inevitably, every reform is followed by new scandals, which lead to more 
+            reforms, and the cycle repeats. The stagnation of policing death rates in Democratic cities seems to be a perfect representation 
+            of this tragic loop. <br><br></p>
+    </div>
     <!-- small multiple lines section -->
     <h4 style = "text-align: center">Change in police violence in the 
         U.S. top 20 most populated 
         <span style="color: #DD1F26">republican</span> and 
         <span style="color: #0076C0">democrat</span> cities
     </h4>
-    <div class="subtitle">
-      <p class="description"> For each city, the chart below shows the evolution of police caused deaths per
+    <div class="figSubtitle">
+      <p class="figDescription"> For each city, the chart below shows the evolution of police caused deaths per
         100,000 inhabitants from 2000-present. In each graph a city's values can be compared to the national average 
         (grey line). Hover over a circle to to see each city's values in both 2000 and 2019. </p>
       </div>
@@ -71,6 +181,15 @@
     <p id="title" style="text-align:left; margin-top: -20px;">
         Deaths by Police per 100,000 Inhabitants</p>
     <div style="text-align:center;" id="charts"></div>
+    <div class="subtitle">
+        <p class="description"> 
+            The graphic below shows the U.S. cities where the police was the most deadly, for every year since the year 2000. 
+            In 2020, amidst national protests against police violence, and with officers under increased scrutiny, police killings 
+            have persisted unabated. Recent shootings in Los Angeles, Lancaster, and Kenosha have renewed protests, and other 
+            disturbing deaths caused by police are being re-examined. The police, in the meantime, has been busy protecting its 
+            impunity by engaging in illegal acts of violence against protestors, as well as journalists, medics, and legal observers, 
+            both in the streets and in their homes.  <br><br></p>
+    </div>
     <!-- bubblechart section -->
     <h4 style = "text-align: center">Death toll of 
         <span style="color: #DD1F26">republican</span> and 
@@ -105,8 +224,8 @@
         </select>
     </h4>
     <!-- <div id="sliderDiv"></div><input id="slider" type="range" min="2000" max="2020" step="1" value="2000"> -->
-    <div class="subtitle">
-        <p class="description"> For a given year, the chart below shows the death toll of policing in 
+    <div class="figSubtitle">
+        <p class="figDescription"> For a given year, the chart below shows the death toll of policing in 
             U.S. cities above 50,000 people. Bubbles represent cities, and are sized by population.
              Hover over a bubble to see how police violence has evolved over time in a specific city.
     </div>
@@ -134,6 +253,27 @@
             <path style="stroke: black" />
         </g>
     </svg>
+    <div class="subtitle">
+        <p class="description"> 
+            The data above is about the people who have lost their lives because of policing. Although these deaths are some of the 
+            most jarring consequences of policing, they are only the tip of the iceberg. Death is one end of a continuum of police 
+            violence that includes surveillance and harassment by police patrols, random searches, physical and sexual abuse, arrests, 
+            detainment, fines, incarceration, as well as the social, political, economic and psychological toll that policing takes on 
+            individuals and communities. Most of this violence is legal, and is simply the result of policing functioning as intended. 
+            Unsurprisingly, data about these forms of violence is virtually nonexistent. This, however, does not mean that we lack the 
+            means to recognize and address them. Sometimes, grasping reality is as easy as listening to those who have experienced it, 
+            and to trust the analyses and solutions they have developed.<br><br>
+
+            Still, the numbers presented in this analysis speak of policing as a site of death and of reproduction of American racial 
+            hierarchies; they also speak of the resilience of these features, even in the face of political efforts intent on 
+            separating good policing from bad policing. Taken together, these phenomena could be understood through a simple notion: 
+            the problem is not that the police is imperfect, the problem is that the police is the police. We should not be thinking 
+            of ‘fixing' the institution, but rather of acting towards a society where such an institution is undesired and unnecessary.<br><br>
+            
+            Here are some resources to help us think and act towards a better world: <br><br>
+            
+            </p>
+    </div>
 </body>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://unpkg.com/d3-simple-slider@1.10.1/dist/d3-simple-slider.min.js"></script>

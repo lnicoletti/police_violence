@@ -19,34 +19,22 @@ return 2000 + d;
 });
 
 console.log(dataTime)
-
-// slider = d3.select("#slider")
-var sliderTime = d3
-    .sliderBottom()
-    .min(d3.min(dataTime))
-    .max(d3.max(dataTime))
-    // .step(1000 * 60 * 60 * 24 * 365)
-    .step(1)
-    .width(770)
-    // .tickFormat(d3.timeFormat('%Y'))
-    .tickValues(dataTime)
-    .tickFormat(d3.format("d"))
-    // .default(new Date(2000, 01, 01))
-    .default(2000)
-    // .on('onchange', val => {
-    //   d3.select('p#value').text(d3.timeFormat('%Y')(val));
-    // console.log(val)});
-
-var gTime = d3
-            .select('div#slider')
-            .append("center")
-            .append('svg')
-            .attr('width', 800)
-            .attr('height', 50)
-            .append('g')
-            .attr('transform', 'translate(15,10)')
-
-gTime.call(sliderTime);  
+ // slider = d3.select("#slider")
+ var sliderTime = d3
+ .sliderBottom()
+ .min(d3.min(dataTime))
+ .max(d3.max(dataTime))
+ // .step(1000 * 60 * 60 * 24 * 365)
+ .step(1)
+ .width(770)
+ // .tickFormat(d3.timeFormat('%Y'))
+ .tickValues(dataTime)
+ .tickFormat(d3.format("d"))
+ // .default(new Date(2000, 01, 01))
+ .default(2000)
+ // .on('onchange', val => {
+ //   d3.select('p#value').text(d3.timeFormat('%Y')(val));
+ // console.log(val)});
 
 // set projection               
 let projection = d3.geoAlbersUsa()
@@ -71,6 +59,16 @@ let Chartbody = d3.select("div#racechart").select("#raceContainer")
 
 
 // // scatter plot constants
+var sliderScatter = d3
+ .sliderBottom()
+ .min(d3.min(dataTime))
+ .max(d3.max(dataTime))
+ .step(1)
+ .width(770)
+ .tickValues(dataTime)
+ .tickFormat(d3.format("d"))
+ .default(2000)
+
 heightScatter = 750 - margin2.top - margin2.bottom;
 var svg2 = d3.select("div#my_dataviz2")
       .select("#scatterPolice")
@@ -141,9 +139,12 @@ timeline.attr("width", width5/5)
 // Load data and run functions to render charts
 Promise.all([
         d3.json("https://gist.githubusercontent.com/lnicoletti/57326b3b9e7bc72e2dc13dcb86df5404/raw/21f5c8df18527f2db881a46d8f59572fabeb3114/us-states.geojson"),
-        d3.csv("https://gist.githubusercontent.com/lnicoletti/628370f9fc1aaa007ba0971992ff8369/raw/79cf991c84fde7bdad677e485321490e261205ad/citiesYearDeathsHT.csv"),
-        d3.csv("https://gist.githubusercontent.com/lnicoletti/f941139d7bf40385a325b92e6750a14f/raw/677990a4c3de14e8b71756cbe5c7c4ec363b0be4/deaths_by_race_city_year.csv"),
-        d3.csv("https://gist.githubusercontent.com/lnicoletti/1cc02dd942ff7efb1f7d7f1bc8e908cf/raw/c37b69c25c2855b8c7a7bd456561d9ff056757e7/deaths_vs_officers.csv"),
+        // d3.csv("https://gist.githubusercontent.com/lnicoletti/628370f9fc1aaa007ba0971992ff8369/raw/79cf991c84fde7bdad677e485321490e261205ad/citiesYearDeathsHT.csv"), // d3.csv("data/processed/citiesYearDeaths_28122020.csv")
+        d3.csv("../data/processed/citiesYearDeaths_28122020.csv"),
+        // d3.csv("https://gist.githubusercontent.com/lnicoletti/f941139d7bf40385a325b92e6750a14f/raw/677990a4c3de14e8b71756cbe5c7c4ec363b0be4/deaths_by_race_city_year.csv"), // d3.csv("../data/processed/deaths_by_race_city_year_28122020.csv")
+        d3.csv("../data/processed/deaths_by_race_city_year_28122020.csv"),
+        // d3.csv("https://gist.githubusercontent.com/lnicoletti/1cc02dd942ff7efb1f7d7f1bc8e908cf/raw/c37b69c25c2855b8c7a7bd456561d9ff056757e7/deaths_vs_officers.csv"), // d3.csv("../data/processed/deaths_vs_officers_28122020.csv"),
+        d3.csv("../data/processed/deaths_vs_officers_20years_28122020.csv"),
         d3.csv("https://gist.githubusercontent.com/lnicoletti/bd55c7bd6b172270df1606b166071791/raw/f687c8d75e9333e06534710994aedf1fb7f9957c/death_by_city_party.csv"),
         d3.csv("https://gist.githubusercontent.com/lnicoletti/c312a25a680167989141e8315b26c92a/raw/707ead31e5bdbb886ff8f7dc5635d5d0568a0a81/citiesYearDeathsHT_party_n.csv"),
         d3.csv("https://gist.githubusercontent.com/lnicoletti/2b332934b105db020c454251ce1f6fa3/raw/c63e340d29e2f322a2581f78dad930db160e862f/death_by_city_party_agg.csv")]).then((datasources) => {
@@ -159,6 +160,7 @@ Promise.all([
         // map
         let filteredData = mapData.filter(d => +d.date === 2000)
         console.log(filteredData)
+        makeSlider('div#slider', sliderTime)
         showMap(mapInfo)
         showData(filteredData)
         showLegend(filteredData)
@@ -187,7 +189,17 @@ Promise.all([
             })
 
         // scatter plot
-        drawScatter(scatterData)
+        makeSlider('div#sliderScatter', sliderScatter)
+        drawScatter(scatterData, "d_2000")
+        sliderScatter.on("onchange", val => {
+            d3.select("#scatterPolice").selectAll("circle").remove()
+            d3.select("#scatterPolice").selectAll("text").remove()
+            d3.select("#scatterPolice").selectAll(".axis").remove()
+            let value = "d_"+val
+            console.log(value)
+            // filteredData = mapData.filter(d => +d.date === value);
+            drawScatter(scatterData, value)
+        })
 
         // area chart
         drawArea(areaData)
@@ -393,10 +405,10 @@ function drawLines(data, selectedCity) {
     let bodyHeight0 = 450
     let bodyWidth0 = 800
 
-    year_filter = 2020
-    populationfilter = 100000
+    // year_filter = 2020
+    populationfilter = 200000
     data = data.filter(d=>d.city==selectedCity)
-    data = data.filter(d=>d.date<year_filter)
+    // data = data.filter(d=>d.date<year_filter)
     
     // convert date field to datetime object
     data = data.map(d => ({
@@ -405,8 +417,6 @@ function drawLines(data, selectedCity) {
         white: +d.white,
         latino: +d.latino
     }))
-
-    console.log(data)
     
     let maxValues = [d3.max(data, d => d.black), d3.max(data, d => d.white), d3.max(data, d => d.latino)]
     maxValue = d3.max(maxValues)
@@ -416,6 +426,7 @@ function drawLines(data, selectedCity) {
     let yScale = d3.scaleLinear()
                    .range([bodyHeight0, 0])
                    .domain([0, maxValue])
+                   
     Chartbody.append("g")
         .attr("class", "Raceaxis")
         .attr("transform", "translate("+bodyWidth0+",0)")
@@ -425,6 +436,7 @@ function drawLines(data, selectedCity) {
     let xScale = d3.scaleUtc()
                    .domain(d3.extent(data, d => d.date))
                    .range([0, bodyWidth0])
+
     Chartbody.append("g")
         .attr("class", "Raceaxis")
         .attr("transform", "translate(0, "+bodyHeight0+")")
@@ -562,20 +574,22 @@ function drawLines(data, selectedCity) {
 }
 
 // scatter functions
-function drawScatter(data) {
+function drawScatter(data, year) {
     // d3.csv("data/deaths_vs_officers.csv", function(data) {
+
+    // year = "d_2010"
 
     console.log(data)
     // data for text
-    // pareto = data.filter(d => +d.d_2010 > 1500);
-    pareto = data.filter(function(d){ return +d.d_2010/10 >= 0.8 || +d.police_hthou/10 >= 180})
-    not_pareto = data.filter(function(d){ return +d.d_2010/10 < 12.2 && +d.police_hthou/10 < 180})
+    data = data.filter(d => (+d[year] <= 4) && (+d[year] > 0) && (+d.police_hthou < 400));
+    pareto = data.filter(function(d){ return +d[year] >= 1.5 || +d.police_hthou >= 240})
+    not_pareto = data.filter(function(d){ return +d[year] < 12.2 && +d.police_hthou < 180})
     // data = data.filter(d=>d.population>200000)
     console.log(data)
     console.log(pareto)
     console.log(not_pareto)
     // Add X axis
-    let maxPolice = d3.max(data, d => +d.police_hthou)/10
+    let maxPolice = d3.max(data, d => +d.police_hthou)
     var x = d3.scaleLinear()
       .domain([0, maxPolice+20])
       .range([ 0, width2]);
@@ -587,7 +601,7 @@ function drawScatter(data) {
       .attr("class", "axis")
   
     // Add Y axis
-    let maxDeaths = d3.max(data, d => +d.d_2010)/10
+    let maxDeaths = d3.max(data, d => +d[year])
     var y = d3.scaleLinear()
       .domain([0, maxDeaths+0.2])
       .range([ heightScatter, 0]);
@@ -629,9 +643,9 @@ function drawScatter(data) {
     // Add a scale for bubble size
     let popExtent = d3.extent(data, d => +d.population)
     console.log(popExtent)
-    var z = d3.scaleLinear()
+    var z = d3.scaleSqrt()
       .domain(popExtent)
-      .range([5, 30]);
+      .range([5, 27.5]);
 
     // Add a scale for bubble color
     var myColor = d3.scaleOrdinal()
@@ -659,8 +673,8 @@ function drawScatter(data) {
       tooltip
         .style("opacity", 1)
         .html("<span style='color:" + color + ";'>" + "<b>" +d.city + "</b>"+"</br>"
-        + "<b>" + Math.round(d.police_hthou*100)/1000 + "</b> Police Officers per 100,000 Inhabitants </br>" 
-        + "<b>" + Math.round(d.d_2010*100)/1000 + "</b> Deaths by Police per 100,000 Inhabitants </span>")
+        + "<b>" + Math.round(d.police_hthou*100)/100 + "</b> Police Officers per 100,000 Inhabitants </br>" 
+        + "<b>" + Math.round(d[year]*100)/100 + "</b> Deaths by Police per 100,000 Inhabitants </span>")
         .style("left", (d3.event.clientX) + 10 + "px")
         .style("top", (d3.event.clientY) - 10 + "px")
         // .style("font-weight", "bold")
@@ -686,8 +700,8 @@ function drawScatter(data) {
       .enter()
       .append("circle")
       .attr("class", "scatterBubble")
-        .attr("cx", function (d) { return x(+d.police_hthou/10); } )
-        .attr("cy", function (d) { return y(+d.d_2010/10); } )
+        .attr("cx", function (d) { return x(+d.police_hthou); } )
+        .attr("cy", function (d) { return y(+d[year]); } )
         // .attr("r", "7px" )
         .attr("r", function (d) { return z(+d.population); } )
         .style("fill", function (d) { return myColor(d.party); } )
@@ -704,8 +718,8 @@ function drawScatter(data) {
       .data(pareto)
       .enter()
       .append("text")
-        .attr("x", d=> (d.city=="Oklahoma City, OK")|(d.city=="Omaha, NE")? x(+d.police_hthou/10) - 10:x(+d.police_hthou/10) + 10)
-        .attr("y", d=> y(+d.d_2010/10) + 5)
+        .attr("x", d=> (d.city=="Oklahoma City, OK")|(d.city=="Omaha, NE")? x(+d.police_hthou) - 10:x(+d.police_hthou) + 10)
+        .attr("y", d=> y(+d[year]) + 5)
         .text(function (d) { return d.city; })
       
         .style("fill", function (d) { return myColor(d.party); } )
@@ -746,22 +760,6 @@ function drawScatter(data) {
              .attr("fill","silver")
              .attr("id", "info") 
             //  .call(wrap, 100)
-
-
-    // add interactivity
-    // var focus = svg2.selectAll("dot")
-    //    .data(not_pareto)
-    //   .enter()
-    //   .append("text")
-    //   .attr("x", function (d) { return x(+d.police_hthou) + 10; } )
-    //     .attr("y", function (d) { return y(+d.d_2010) + 5; } )
-    //     .text(function (d) { return d.city; })
-    //     .style("fill", function (d) { return myColor(d.party); } )
-    //     // .style("font-weight","bold")
-    //     .style("opacity", "0")
-    //   //   .on("mouseover", function() { focus.style("display", null); })
-    //     .on('mouseenter',function() {focus.style("opacity", "1")})
-    //     .on('mouseleave',function () {focus.style("opacity", "0")})
 }
 
 // area chart functions
@@ -1600,6 +1598,20 @@ d3.select("#yearDropdown").on("change", function(d) {
 }
 
 // general functions
+function makeSlider(div, slider) {
+
+    var gTime = d3
+                .select(div)
+                .append("center")
+                .append('svg')
+                .attr('width', 800)
+                .attr('height', 50)
+                .append('g')
+                .attr('transform', 'translate(15,10)')
+
+    gTime.call(slider);  
+}
+
 function wrap(text, width) {
     text.each(function () {
         var text = d3.select(this),

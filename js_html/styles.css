@@ -48,7 +48,8 @@
         color:#03071e;            
     }
 
-#slider text {
+#slider text,
+#sliderScatter text {
     font-size:12px
 }
 

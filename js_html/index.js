@@ -224,6 +224,7 @@ Promise.all([
         // bubble chart
         type = "most"
         kind = "tot"
+        bubbleData = bubbleData.filter(d=>d.county != "New York, NY")
         drawBubbleChart(bubbleData, type, 2020, kind)
     })
 

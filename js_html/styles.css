@@ -287,6 +287,12 @@ h5 {
   display: flex;
 }
 
+input {
+  padding: 5px;
+  margin: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 button {
   border-color: lightgray;
   border-style:solid;

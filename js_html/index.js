@@ -145,8 +145,10 @@ Promise.all([
         d3.csv("../data/processed/deaths_by_race_city_year_28122020.csv"),
         // d3.csv("https://gist.githubusercontent.com/lnicoletti/1cc02dd942ff7efb1f7d7f1bc8e908cf/raw/c37b69c25c2855b8c7a7bd456561d9ff056757e7/deaths_vs_officers.csv"), // d3.csv("../data/processed/deaths_vs_officers_28122020.csv"),
         d3.csv("../data/processed/deaths_vs_officers_20years_28122020.csv"),
-        d3.csv("https://gist.githubusercontent.com/lnicoletti/bd55c7bd6b172270df1606b166071791/raw/f687c8d75e9333e06534710994aedf1fb7f9957c/death_by_city_party.csv"),
-        d3.csv("https://gist.githubusercontent.com/lnicoletti/c312a25a680167989141e8315b26c92a/raw/707ead31e5bdbb886ff8f7dc5635d5d0568a0a81/citiesYearDeathsHT_party_n.csv"),
+        // d3.csv("https://gist.githubusercontent.com/lnicoletti/bd55c7bd6b172270df1606b166071791/raw/f687c8d75e9333e06534710994aedf1fb7f9957c/death_by_city_party.csv"),
+        d3.csv("../data/processed/death_by_city_party_28122020.csv"),
+        // d3.csv("https://gist.githubusercontent.com/lnicoletti/c312a25a680167989141e8315b26c92a/raw/707ead31e5bdbb886ff8f7dc5635d5d0568a0a81/citiesYearDeathsHT_party_n.csv"),
+        d3.csv("../data/processed/citiesYearDeathsHT_party_n_28122020.csv"),
         d3.csv("https://gist.githubusercontent.com/lnicoletti/2b332934b105db020c454251ce1f6fa3/raw/c63e340d29e2f322a2581f78dad930db160e862f/death_by_city_party_agg.csv")]).then((datasources) => {
 
         let mapInfo = datasources[0]
@@ -192,14 +194,26 @@ Promise.all([
         makeSlider('div#sliderScatter', sliderScatter)
         drawScatter(scatterData, "d_2000")
         sliderScatter.on("onchange", val => {
+            // console.log(d3.select("#scatterPolice").selectAll(".highlighted"))
             d3.select("#scatterPolice").selectAll("circle").remove()
             d3.select("#scatterPolice").selectAll("text").remove()
             d3.select("#scatterPolice").selectAll(".axis").remove()
+            d3.select("#tooltipScatter").remove()
             let value = "d_"+val
             console.log(value)
-            // filteredData = mapData.filter(d => +d.date === value);
             drawScatter(scatterData, value)
         })
+
+        // d3.select("#citySearchScatter").on("input", function() {
+
+        //     selected_city = d3.event.target.value;
+            
+        //     console.log(selected_city.toLowerCase())
+        //     // console.log(circles._groups[0].filter(d=>d.__data__.county === selected_city))
+        //     // console.log(dot._groups[0].filter(d=>d.__data__.city.toLowerCase().match(selected_city)))
+        //     d3.select("#scatterPolice").selectAll("circle").style("opacity", d=>d.city.toLowerCase().match(selected_city.toLowerCase())?"0.8":"0.2")
+        //     // dot.style("opacity", d=>d.city.toLowerCase().match(selected_city.toLowerCase())?"0.8":"0.2")
+        //     })
 
         // area chart
         drawArea(areaData)
@@ -575,14 +589,15 @@ function drawLines(data, selectedCity) {
 
 // scatter functions
 function drawScatter(data, year) {
+    // function drawScatter(data) {
     // d3.csv("data/deaths_vs_officers.csv", function(data) {
 
-    // year = "d_2010"
+    // year = "d_2000"
 
     console.log(data)
     // data for text
     data = data.filter(d => (+d[year] <= 4) && (+d[year] > 0) && (+d.police_hthou < 400));
-    pareto = data.filter(function(d){ return +d[year] >= 1.5 || +d.police_hthou >= 240})
+    pareto = data.filter(function(d){ return +d[year] >= 2 || +d.police_hthou >= 260})
     not_pareto = data.filter(function(d){ return +d[year] < 12.2 && +d.police_hthou < 180})
     // data = data.filter(d=>d.population>200000)
     console.log(data)
@@ -609,6 +624,7 @@ function drawScatter(data, year) {
     svg2.append("g")
       .call(d3.axisLeft(y))
       .attr("class", "axis")
+      .attr("id", "scatterYaxis")
         // .attr("transform",
         //     "translate(" + margin2.left + "," + margin2.top + ")");
       d3.selectAll("path.domain").remove();
@@ -663,7 +679,7 @@ function drawScatter(data, year) {
         // .style("color", "Black")
 
     // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
-    var showTooltip = function(d) {
+    var showTooltip = function(d, year) {
       var color = myColor(d.party)
       tooltip
       .style("display", "block")
@@ -697,8 +713,7 @@ function drawScatter(data, year) {
     // svg2.append('g')
       svg2.selectAll("dot")
       .data(data)
-      .enter()
-      .append("circle")
+      .join("circle")
       .attr("class", "scatterBubble")
         .attr("cx", function (d) { return x(+d.police_hthou); } )
         .attr("cy", function (d) { return y(+d[year]); } )
@@ -709,15 +724,14 @@ function drawScatter(data, year) {
         .attr("stroke", "white")
         .style("stroke-width", "2px")
         // -3- Trigger the functions
-        .on("mouseover", showTooltip )
-        .on("mousemove", moveTooltip )
-        .on("mouseleave", hideTooltip )
+        .on("mouseover", d=>showTooltip(d,year) )
+        .on("mousemove", d=>moveTooltip(d,year) )
+        .on("mouseleave", d=>hideTooltip(d,year) )
 
-    svg2.append('g')
+    var text = svg2.append('g')
       .selectAll("text")
       .data(pareto)
-      .enter()
-      .append("text")
+      .join("text")
         .attr("x", d=> (d.city=="Oklahoma City, OK")|(d.city=="Omaha, NE")? x(+d.police_hthou) - 10:x(+d.police_hthou) + 10)
         .attr("y", d=> y(+d[year]) + 5)
         .text(function (d) { return d.city; })
@@ -760,6 +774,64 @@ function drawScatter(data, year) {
              .attr("fill","silver")
              .attr("id", "info") 
             //  .call(wrap, 100)
+
+    // Search functionality
+    function updateOpacity() {
+        d3.select("#citySearchScatter").on("input", function() {
+
+            selected_city = d3.event.target.value;
+            
+            console.log(selected_city.toLowerCase())
+            // console.log(circles._groups[0].filter(d=>d.__data__.county === selected_city))
+            console.log(dot._groups[0].filter(d=>d.__data__.city.toLowerCase().match(selected_city)))
+            dot.style("opacity", d=>d.city.toLowerCase().match(selected_city.toLowerCase())?"0.8":"0.2")
+            text.style("opacity", d=>d.city.toLowerCase().match(selected_city.toLowerCase())?"0.8":"0.2")
+            })
+    }
+    updateOpacity()
+
+    // sliderScatter.on("onchange", val => {
+    //     // d3.select("#scatterPolice").selectAll("circle").remove()
+    //     // d3.select("#scatterPolice").selectAll("text").remove()
+    //     d3.select("#scatterPolice").selectAll("#scatterYaxis").remove()
+    //     // d3.select("#tooltipScatter").remove()
+    //     let newYear = "d_"+val
+    //     console.log(newYear)
+    //     // update new data
+    //     newData = data.filter(d => (+d[newYear] <= 4) && (+d[newYear] > 0) && (+d.police_hthou < 400));
+    //     newPareto = newData.filter(function(d){ return +d[newYear] >= 2 || +d.police_hthou >= 260})
+    //     console.log(newData)
+    //     // update new scale domains
+    //     let newMaxPolice = d3.max(newData, d => +d.police_hthou)
+    //     x.domain([0, newMaxPolice+20])
+
+    //     let newMaxDeaths = d3.max(newData, d => +d[newYear])
+    //     y.domain([0, newMaxDeaths+0.2])
+
+    //     svg2.append("g")
+    //         .call(d3.axisLeft(y))
+    //         .attr("class", "axis")
+    //         .attr("id", "scatterYaxis")
+        
+    //     d3.selectAll("path.domain").remove();
+    //     // update circles
+
+    //     newDots = 
+    //     svg2.selectAll("dot")
+    //         .data(newData)
+    //         // .join("circle")
+
+    //     dot.join(newDots)
+    //         .attr("cx", function (d) { return x(+d.police_hthou); } )
+    //         .attr("cy", function (d) { return y(+d[newYear]); } )
+    //         .style("opacity", "0.7")
+    //         .on("mouseover", d=>showTooltip(d,newYear) )
+    //         .on("mousemove", d=>moveTooltip(d,newYear) )
+    //         .on("mouseleave", d=>hideTooltip(d,newYear) )
+
+    //     // remove dots with 0 values
+    //     dot.filter(d=>+d[newYear]===0).remove()
+    // })
 }
 
 // area chart functions
@@ -1179,7 +1251,7 @@ function drawBubbleChart(data, type, year, kind) {
     let bodywidth5 = width5 - margin5.left - margin5.right;
     let bodyheight5 = height5 - margin5.top - margin5.bottom;
 
-    filterData = data.filter(d=>+d.population > popFilter)
+    filterData = data.filter(d=>(+d.population > popFilter)&&(d.county != "New York, NY"))
     filterData = filterData.filter(d=>+d.date === year)
 
     console.log(filterData)
@@ -1190,7 +1262,7 @@ function drawBubbleChart(data, type, year, kind) {
     // draw X-axis
     barchart.append("g")
         .call(d3.axisBottom(xScale))
-        .attr("transform", "translate(0, "+bodyheight5+")")
+        .attr("transform", "translate(0, "+bodyheight5*1.15+")")
         // .call(d3.axisTop(xScale).tickSize(300).ticks(7))
         // .attr("transform", "translate(0, "+bodyheight5+")")
         .attr("class", "yAxis")
@@ -1207,11 +1279,11 @@ function drawBubbleChart(data, type, year, kind) {
     console.log(maxpop)
     var radius = d3.scaleSqrt()
                         .domain([20000, maxpop])
-                        .range([0, 60])
+                        .range([0.5, 65])
 
     var fontScale = d3.scaleLinear()
                         .domain([600000, maxpop])
-                        .range([4.5, 10])
+                        .range([3, 15])
 
     console.log(fontScale(3000000)+"px")
     // xScale.domain(d3.extent(filterData, function(d) { return +d.death_count; }));
@@ -1224,7 +1296,7 @@ function drawBubbleChart(data, type, year, kind) {
     let simulation = d3.forceSimulation()
                 .nodes(filterData)
                 .force('charge', d3.forceManyBody().strength(1))
-                .force('x', d3.forceX().x(function(d) {
+                .force('x', d3.forceX().strength(0.1).x(function(d) {
                     return xScale(+d.death_count);
                 }))
                 .force("y", d3.forceY(bodyheight5/1.5).strength(0.05))
@@ -1298,7 +1370,7 @@ function drawBubbleChart(data, type, year, kind) {
     newText = annot.enter()
             .append("text")
             .attr("class", "forceText")
-            .text(d=>+d.population>600000 ? d.county:'')
+            .text(d=>+d.population>800000 ? d.county:'')
             .style("font-size", d=>fontScale(+d.population)+"px")
             .on("mouseenter", (d) => {
                 showTooltip5(ttip, d.county, Math.round(d.death_count), d.date, [d3.event.clientX, d3.event.clientY], dataType, d.county, d)
@@ -1335,7 +1407,7 @@ function drawBubbleChart(data, type, year, kind) {
 barchart.append("text")
         .attr("id", "xAxisLabel")
         // .attr("transform", "rotate(-90)")
-        .attr("y", bodyheight5*1.08)
+        .attr("y", bodyheight5*1.23)
         .attr("x",0)
         .attr("dy", "1em")
         .attr("font-size", "17px")
@@ -1348,7 +1420,7 @@ barchart.append("text")
 barchart.append("text")
         .attr("id", "xAxisLabel")
         // .attr("transform", "rotate(-90)")
-        .attr("y", bodyheight5*1.08)
+        .attr("y", bodyheight5*1.23)
         .attr("x",bodywidth5)
         .attr("dy", "1em")
         .attr("font-size", "17px")
@@ -1377,7 +1449,7 @@ d3.select("#yearDropdown").on("change", function(d) {
 
             barchart.append("g")
             .call(d3.axisBottom(xScale))
-            .attr("transform", "translate(0, "+bodyheight5+")")
+            .attr("transform", "translate(0, "+bodyheight5*1.15+")")
             .attr("class", "yAxis")
             .selectAll("text")
                 .attr("font-size", "10px")
@@ -1394,7 +1466,7 @@ d3.select("#yearDropdown").on("change", function(d) {
             simulation.nodes(filterData)
                     // .force("center", d3.forceCenter(bodywidth5/ 1.38, bodyheight5 / 1.5))
                     .force('charge', d3.forceManyBody().strength(1))
-                    .force('x', d3.forceX().x(function(d) {
+                    .force('x', d3.forceX().strength(0.1).x(function(d) {
                         return xScale(+d.death_count);
                     }))
                     .force("y", d3.forceY(bodyheight5/1.5).strength(0.05))
@@ -1463,7 +1535,7 @@ d3.select("#yearDropdown").on("change", function(d) {
 
             barchart.append("g")
             .call(d3.axisBottom(xScale))
-            .attr("transform", "translate(0, "+bodyheight5+")")
+            .attr("transform", "translate(0, "+bodyheight5*1.15+")")
             .attr("class", "yAxis")
             .selectAll("text")
                 .attr("font-size", "10px")
@@ -1481,7 +1553,7 @@ d3.select("#yearDropdown").on("change", function(d) {
             simulation
                     // .force('charge', d3.forceManyBody().strength(1))
                     // .force("center", d3.forceCenter(bodywidth5/ 1.38, bodyheight5 / 1.5))
-                    .force('x', d3.forceX().x(function(d) {
+                    .force('x', d3.forceX().strength(0.1).x(function(d) {
                         return xScale(+d.death_count);
                     }))
                     .force("y", d3.forceY(bodyheight5/1.5).strength(0.05))
@@ -1511,11 +1583,11 @@ d3.select("#yearDropdown").on("change", function(d) {
             // Remove X-Axis
             d3.select("#barchart").selectAll(".yAxis").remove()
             // Update the X-scale and X-Axis
-            xScale.domain([0, d3.max(filterData, d => +d.death_hthou)+1])
+            xScale.domain([-0.17, d3.max(filterData, d => +d.death_hthou)+1])
 
             barchart.append("g")
             .call(d3.axisBottom(xScale))
-            .attr("transform", "translate(0, "+bodyheight5+")")
+            .attr("transform", "translate(0, "+bodyheight5*1.15+")")
             .attr("class", "yAxis")
             .selectAll("text")
                 .attr("font-size", "10px")
@@ -1533,7 +1605,7 @@ d3.select("#yearDropdown").on("change", function(d) {
             simulation
                     // .force('charge', d3.forceManyBody().strength(1))
                     // .force("center", d3.forceCenter(bodywidth5/ 2, bodyheight5 / 1.5))
-                    .force('x', d3.forceX().x(function(d) {
+                    .force('x', d3.forceX().strength(0.1).x(function(d) {
                         return xScale(+d.death_hthou);
                     }))
                     .force("y", d3.forceY(bodyheight5/1.5).strength(0.05))
@@ -1576,10 +1648,10 @@ d3.select("#yearDropdown").on("change", function(d) {
     
     var legend = barchart.append("g")
         .attr("class", "legend")
-        .attr("transform", "translate(" + (bodywidth5/2) + "," + (bodyheight5*1.29) + ")")
+        .attr("transform", "translate(" + (bodywidth5/2) + "," + (100) + ")")
 
     .selectAll("g")
-        .data([100000, 500000, 1000000, 2000000])
+        .data([500000, 1000000, 3000000, 6000000])
     .enter().append("g");
 
     legend.append("circle")

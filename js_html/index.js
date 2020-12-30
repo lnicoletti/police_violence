@@ -140,17 +140,18 @@ timeline.attr("width", width5/5)
 Promise.all([
         d3.json("https://gist.githubusercontent.com/lnicoletti/57326b3b9e7bc72e2dc13dcb86df5404/raw/21f5c8df18527f2db881a46d8f59572fabeb3114/us-states.geojson"),
         // d3.csv("https://gist.githubusercontent.com/lnicoletti/628370f9fc1aaa007ba0971992ff8369/raw/79cf991c84fde7bdad677e485321490e261205ad/citiesYearDeathsHT.csv"), // d3.csv("data/processed/citiesYearDeaths_28122020.csv")
-        d3.csv("../data/processed/citiesYearDeaths_28122020.csv"),
+        // d3.csv("../data/processed/citiesYearDeaths_28122020.csv"),
+        d3.csv("https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@d43c0fe/data/processed/citiesYearDeaths_28122020.csv"),
         // d3.csv("https://gist.githubusercontent.com/lnicoletti/f941139d7bf40385a325b92e6750a14f/raw/677990a4c3de14e8b71756cbe5c7c4ec363b0be4/deaths_by_race_city_year.csv"), // d3.csv("../data/processed/deaths_by_race_city_year_28122020.csv")
-        d3.csv("../data/processed/deaths_by_race_city_year_28122020.csv"),
+        d3.csv("https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@d43c0fe/data/processed/deaths_by_race_city_year_28122020.csv"),
         // d3.csv("https://gist.githubusercontent.com/lnicoletti/1cc02dd942ff7efb1f7d7f1bc8e908cf/raw/c37b69c25c2855b8c7a7bd456561d9ff056757e7/deaths_vs_officers.csv"), // d3.csv("../data/processed/deaths_vs_officers_28122020.csv"),
-        d3.csv("../data/processed/deaths_vs_officers_20years_28122020.csv"),
+        d3.csv("https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@d43c0fe/data/processed/deaths_vs_officers_20years_28122020.csv"),
         // d3.csv("https://gist.githubusercontent.com/lnicoletti/bd55c7bd6b172270df1606b166071791/raw/f687c8d75e9333e06534710994aedf1fb7f9957c/death_by_city_party.csv"),
-        d3.csv("../data/processed/death_by_city_party_28122020.csv"),
+        d3.csv("https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@d43c0fe/data/processed/death_by_city_party_28122020.csv"),
         // d3.csv("https://gist.githubusercontent.com/lnicoletti/c312a25a680167989141e8315b26c92a/raw/707ead31e5bdbb886ff8f7dc5635d5d0568a0a81/citiesYearDeathsHT_party_n.csv"),
-        d3.csv("../data/processed/citiesYearDeathsHT_party_n_28122020.csv"),
+        d3.csv("https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@d43c0fe/data/processed/citiesYearDeathsHT_party_n_28122020.csv"),
         // d3.csv("https://gist.githubusercontent.com/lnicoletti/2b332934b105db020c454251ce1f6fa3/raw/c63e340d29e2f322a2581f78dad930db160e862f/death_by_city_party_agg.csv"),
-        d3.csv("../data/processed/death_by_city_party_agg_28122020.csv")]).then((datasources) => {
+        d3.csv("https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@d43c0fe/data/processed/death_by_city_party_agg_28122020.csv")]).then((datasources) => {
 
         let mapInfo = datasources[0]
         let mapData = datasources[1]

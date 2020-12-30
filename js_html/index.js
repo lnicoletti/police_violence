@@ -1,7 +1,7 @@
 // // map constants
 
 // set width and height of map
-let bodyHeight = 800
+let bodyHeight = 600
 let bodyWidth = 1250
 // let body = d3.select("#body")
 
@@ -38,14 +38,14 @@ console.log(dataTime)
 
 // set projection               
 let projection = d3.geoAlbersUsa()
-                    .scale(1500)
+                    .scale(1300)
                     .translate([bodyWidth/2, bodyHeight/2])
 
 let path = d3.geoPath()
                 .projection(projection)
 
 // // line chart constants
-var margin2 = {top: 20, right: 70, bottom: 70, left: 70},
+var margin2 = {top: 20, right: 70, bottom: 100, left: 70},
 width2 = 1250 - margin2.left - margin2.right,
 height2 = 600 - margin2.top - margin2.bottom;
 
@@ -55,7 +55,7 @@ let Chartbody = d3.select("div#racechart").select("#raceContainer")
                     .attr("viewBox", "0 0 "+ width2 +"," + height2+"")
                     .append("g")
                     .attr("transform",
-                        "translate(" + margin2.left + "," + margin2.top + ")");
+                        "translate(" + margin2.left*3 + "," + margin2.top + ")");
 
 
 // // scatter plot constants
@@ -149,7 +149,8 @@ Promise.all([
         d3.csv("../data/processed/death_by_city_party_28122020.csv"),
         // d3.csv("https://gist.githubusercontent.com/lnicoletti/c312a25a680167989141e8315b26c92a/raw/707ead31e5bdbb886ff8f7dc5635d5d0568a0a81/citiesYearDeathsHT_party_n.csv"),
         d3.csv("../data/processed/citiesYearDeathsHT_party_n_28122020.csv"),
-        d3.csv("https://gist.githubusercontent.com/lnicoletti/2b332934b105db020c454251ce1f6fa3/raw/c63e340d29e2f322a2581f78dad930db160e862f/death_by_city_party_agg.csv")]).then((datasources) => {
+        // d3.csv("https://gist.githubusercontent.com/lnicoletti/2b332934b105db020c454251ce1f6fa3/raw/c63e340d29e2f322a2581f78dad930db160e862f/death_by_city_party_agg.csv"),
+        d3.csv("../data/processed/death_by_city_party_agg_28122020.csv")]).then((datasources) => {
 
         let mapInfo = datasources[0]
         let mapData = datasources[1]
@@ -319,7 +320,7 @@ function showLegend (data) {
     legend.append("text")
         .attr("class", "legend")
         .attr("dy", "1.3em")
-        .text("Fatal Encounters With Police (2000 - Present)")
+        .text("Death Toll of Policing (2000 - Present)")
         .attr("stroke-width", "0")    
         .style("font-size", "11px")
     
@@ -417,8 +418,8 @@ function drawLines(data, selectedCity) {
 
     // d3.selectAll("line").remove()
 
-    let bodyHeight0 = 450
-    let bodyWidth0 = 800
+    let bodyHeight0 = 400
+    let bodyWidth0 = 600
 
     // year_filter = 2020
     populationfilter = 200000
@@ -444,6 +445,7 @@ function drawLines(data, selectedCity) {
                    
     Chartbody.append("g")
         .attr("class", "Raceaxis")
+        // .attr("class", "axis")
         .attr("transform", "translate("+bodyWidth0+",0)")
         .call(d3.axisLeft(yScale).ticks(5).tickSize(bodyWidth0))
     
@@ -454,6 +456,7 @@ function drawLines(data, selectedCity) {
 
     Chartbody.append("g")
         .attr("class", "Raceaxis")
+        // .attr("class", "axis")
         .attr("transform", "translate(0, "+bodyHeight0+")")
         // .call(d3.axisBottom(xScale).ticks(10).tickSize(bodyHeight0))
         .call(d3.axisBottom(xScale).ticks(10))
@@ -473,7 +476,8 @@ function drawLines(data, selectedCity) {
     .text("Deaths by Police per 100,000 Inhabitants")
     .style("font-weight", "bold")  
     .style("font-family", "sans-serif")
-    .attr("class", "raceAxisText")
+    .style("font-size", "11px")
+    // .attr("class", "raceAxisText")
         
     // generate the lines
     // line for whites
@@ -499,7 +503,6 @@ function drawLines(data, selectedCity) {
         .text("European American/White")
         .attr("fill", "#bfbfbf")
         .attr("class", "Racelegend")
-        .attr("font-size", "14px")
 
     // line for blacks
     valueline_b = d3.line()//.curve(d3.curveBasis)
@@ -522,7 +525,7 @@ function drawLines(data, selectedCity) {
         .text("African American/Black")
         .attr("fill", "#171717")
         .attr("class", "Racelegend")
-        .attr("font-size", "14px")
+        .attr("font-size", "11px")
 
     // name2.transition()
     //     .duration(4000)
@@ -552,7 +555,7 @@ function drawLines(data, selectedCity) {
         .text("Hispanic/Latino")
         .attr("fill", "#61616d")
         .attr("class", "Racelegend")
-        .attr("font-size", "14px")
+        .attr("font-size", "11px")
 
                 
     var totalLength = [path1.node().getTotalLength(), path2.node().getTotalLength(), path3.node().getTotalLength()];
@@ -650,7 +653,7 @@ function drawScatter(data, year) {
   svg2.append("text")             
      .attr("transform",
           "translate(" + (width2/2) + " ," + 
-                         (heightScatter + margin2.bottom) + ")")
+                         (heightScatter + margin2.bottom/1.5) + ")")
      .style("text-anchor", "middle")
      .text("Police Officers Per 100,000 Inhabitants")
      .style("fill", "silver")   
@@ -840,21 +843,22 @@ function drawArea(data) {
     
     // List of groups = header of the csv files
     var keys = data.columns.slice(2)
+      console.log(data.columns.slice(2))
       console.log(data)
 
     // Add X axis
     var x = d3.scaleLinear()
-      .domain(d3.extent(data, function(d) { return d.year; }))
+      .domain(d3.extent(data, function(d) { return +d.year; }))
       .range([ 0, width3 ]);
     svg3.append("g")
       .attr("transform", "translate(0," + height3 + ")")
-      .call(d3.axisBottom(x).ticks(10))
+      .call(d3.axisBottom(x).ticks(10).tickFormat(d3.format("d")))
       .attr("class", "axis");
   
     // Add Y axis
-    let maxValue = d3.max(data, d => d.red)
+    let maxValue = d3.max(data, d => +d.red)
     var y = d3.scaleLinear()
-      .domain([0, 1.6])
+      .domain([0, 1.3])
       .range([ height3, 0 ]);
     svg3.append("g")
       .call(d3.axisRight(y))
@@ -931,9 +935,9 @@ function drawArea(data) {
       .attr("id", "myArea")
         .style("fill", function(d) { console.log(d.key) ; return color(d.key); })
         .attr("d", d3.area()
-          .x(function(d, i) { return x(d.data.year); })
-          .y0(function(d) { return y(d[0]/10); })
-          .y1(function(d) { return y(d[1]/10); }).curve(d3.curveNatural))
+          .x(function(d, i) { return x(+d.data.year); })
+          .y0(function(d) { return y(+d[0]); })
+          .y1(function(d) { return y(+d[1]); }).curve(d3.curveNatural))
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
@@ -942,8 +946,8 @@ function drawArea(data) {
       // svg3.append("circle").attr("cx",50).attr("cy",10).attr("r", 6).style("fill", "#404040")
       // svg3.append("circle").attr("cx",50).attr("cy",50).attr("r", 6).style("fill", "#7f7f7f")
       // svg3.append("circle").attr("cx",50).attr("cy",90).attr("r", 6).style("fill", "#bfbfbf")
-      svg3.append("text").attr("id", "dem").attr("x", 0).attr("y", 12).text("Democrat Cities").attr("class", "legend")
-      svg3.append("text").attr("id", "rep").attr("x", 0).attr("y", 52).text("Republican Cities").attr("class", "legend")  
+    //   svg3.append("text").attr("id", "dem").attr("x", 0).attr("y", 12).text("Democrat Cities").attr("class", "legend")
+    //   svg3.append("text").attr("id", "rep").attr("x", 0).attr("y", 52).text("Republican Cities").attr("class", "legend")  
   
 }
 
@@ -956,7 +960,7 @@ function showSmallMultiples(data) {
       return d3.ascending(x.party, y.party);
     })
 
-    data = data.filter(d=>(+d.year===2000)|(+d.year===2019))
+    data = data.filter(d=>(+d.year===2000)|(+d.year===2020))
 
     xScale.domain(d3.extent(data, function(d) { return +d.year; }));
     yScale.domain([0,d3.max(data, function(d) {  return +d.value; })+0.5]);
@@ -1373,15 +1377,15 @@ function drawBubbleChart(data, type, year, kind) {
             .attr("class", "forceText")
             .text(d=>+d.population>800000 ? d.county:'')
             .style("font-size", d=>fontScale(+d.population)+"px")
-            .on("mouseenter", (d) => {
-                showTooltip5(ttip, d.county, Math.round(d.death_count), d.date, [d3.event.clientX, d3.event.clientY], dataType, d.county, d)
-            })
-            .on("mousemove", (d) => {
-                showTooltip5(ttip, d.county, Math.round(d.death_count), d.date, [d3.event.clientX, d3.event.clientY], dataType, d.county, d)
-            })
-            .on("mouseleave", (d) => {
-                d3.select("#timeline").style("display", "none")
-            })
+            // .on("mouseenter", (d) => {
+            //     showTooltip5(ttip, d.county, Math.round(d.death_count), d.date, [d3.event.clientX, d3.event.clientY], dataType, d.county, d)
+            // })
+            // .on("mousemove", (d) => {
+            //     showTooltip5(ttip, d.county, Math.round(d.death_count), d.date, [d3.event.clientX, d3.event.clientY], dataType, d.county, d)
+            // })
+            // .on("mouseleave", (d) => {
+            //     d3.select("#timeline").style("display", "none")
+            // })
 
     // transition to new updated year
     circles.merge(newCircles)

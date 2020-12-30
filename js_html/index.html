@@ -7,6 +7,7 @@
     <!-- Title art and intro section -->
     <div class="header" style = "text-align: center">
         <img class="titleArt" src="https://cdn.jsdelivr.net/gh/lnicoletti/police_violence@de4c3eb/imgs/title.svg" alt="titleArt">
+        <!-- <img class="titleArt" src="../imgs/Deathtoll.gif" alt="titleArt"> -->
     </div>
     <div class="titleContainer">
         <h1 class="smalltitle">Visualizing <i><b>deaths</b></i> caused by <i><b>policing</b></i> in the United States</h1>
@@ -78,6 +79,7 @@
         </svg>
     </div>
     <div id="tooltipMap"></div>
+    <h4 class="sectionHeader" style = "text-align: center">Racism as exposure to premature death</h4>
     <div class="subtitle">
         <p class="description"> 
             In recent years, video footage of brutal police murders has forced us all to reckon with the reality of policing, 
@@ -110,6 +112,7 @@
         <svg id="raceContainer">
         </svg>
     </div>
+    <h4 class="sectionHeader">Police impunity vs. Police reform vs. Steps towards abolition</h4>
     <div class="subtitle">
         <p class="description"> 
             One of the key demands of the current movement to end police violence is to 'defund the police'. This approach to police 
@@ -130,12 +133,16 @@
     </div>
     <!-- police officers section -->
     <div class = "secondview">
-        <h4 class="figTitle">The case for #defundthepolice: both
+        <h4 class="figTitle">Police Deaths and Police Presence in
           <span style="color: #DD1F26">Republican</span> and 
-            <span style="color: #0076C0">Democrat</span> cities with
-            more police officers per capita also have more deaths by 
-            police per capita.
+            <span style="color: #0076C0">Democrat</span> cities
         </h4>
+        <div class="figSubtitle">
+            <p class="figDescription"> The chart below illustrates police deaths and police presence across U.S. cities. The y-axis shows
+                deaths per 100,000 people and the x-axis shows police officers per 100,000 people. Use the slider below to update data on 
+                police deaths and see how this relationship has evolved since the year 2000. For every year, we use a fixed 2010 estimate for 
+                police presence.
+        </div>
         <!-- scatterplot -->
         <h5>Search for a city</h5> 
         <div class="buttons">
@@ -151,26 +158,28 @@
     </div>
     <div class="subtitle">
         <p class="description"> 
-            Still, it is important to note that police in Democrat-run cities cause less deaths than in Republican cities. Breaking 
-            down the data by political party reveals that, on average, Republican cities have had consistently higher rates of 
-            police-caused deaths than Democratic cities over the past twenty years. This suggests that liberal reforms are at least 
-            more successful, or less damaging, than the Republican approach to law enforcement. A closer look at the twenty most 
+            Still, it is important to note that police in Democrat-run cities cause less deaths than in Republican cities. 
+            Breaking down the data by political party reveals that, on average, Republican cities have had consistently higher 
+            rates of police-caused deaths than Democratic cities over the past twenty years. This suggests that liberal reforms 
+            are at least more successful, or less damaging, than the Republican approach to law enforcement.<br><br></p>
+    </div>
+    <!-- area chart section -->
+    <h4 class="figTitle">
+        <span style="color: #DD1F26">Republican</span> and 
+        <span style="color: #0076C0">Democrat</span> death tolls (2000-present)
+      </h4>
+      <div class="figSubtitle">
+          <p class="figDescription"> The chart below illustrates the evolution of police deaths across all <span style="color: #DD1F26">Republican</span> and 
+            <span style="color: #0076C0">Democrat</span> U.S. cities since the year 2000.
+      </div>
+    <div id="my_dataviz3" class="svg-container" style="text-align: center;"></div>
+    <div class="subtitle">
+        <p class="description"> 
+            A closer look at the twenty most 
             populated Democratic and Republican cities confirms this trend. Police-caused deaths have remained constant or decreased 
             in half of Democratic cities, and they are consistently below the national average; in contrast, police-caused deaths have 
             increased in 17 of the 20 most populated Republican cities, and all but 7 cities are over the national average. In addition, 
             the rates of increase of police-caused deaths have been considerably steeper in Republican cities.<br><br></p>
-    </div>
-    <!-- area chart section -->
-    <div id="my_dataviz3" class="svg-container" style="text-align: center;"></div>
-    <div class="subtitle">
-        <p class="description"> 
-            The near-stability of the rate of people killed by police in Democratic cities is a success when compared to the increases in 
-            Republican cities, but it is a failure in relation to the overall goal of ending the death of civilians at the hands of the 
-            police. This data is consistent with critiques of liberal police reform that describe it as a futile cycle: reform is always 
-            an aesthetic transformation of the police, whose aim is to renew the legitimacy of the institution after a scandal, while doing 
-            nothing to address the oppressive nature of the police. Inevitably, every reform is followed by new scandals, which lead to more 
-            reforms, and the cycle repeats. The stagnation of policing death rates in Democratic cities seems to be a perfect representation 
-            of this tragic loop. <br><br></p>
     </div>
     <!-- small multiple lines section -->
     <h4 class="figTitle">Change in police violence in the 
@@ -188,6 +197,17 @@
     <p id="title" style="text-align:left; margin-top: -20px;">
         Deaths by Police per 100,000 Inhabitants</p>
     <div style="text-align:center;" id="charts"></div>
+    <div class="subtitle">
+        <p class="description"> 
+            The near-stability of the rate of people killed by police in Democratic cities is a success when compared to the increases in 
+            Republican cities, but it is a failure in relation to the overall goal of ending the death of civilians at the hands of the 
+            police. This data is consistent with critiques of liberal police reform that describe it as a futile cycle: reform is always 
+            an aesthetic transformation of the police, whose aim is to renew the legitimacy of the institution after a scandal, while doing 
+            nothing to address the oppressive nature of the police. Inevitably, every reform is followed by new scandals, which lead to more 
+            reforms, and the cycle repeats. The stagnation of policing death rates in Democratic cities seems to be a perfect representation 
+            of this tragic loop.</p>
+    </div>
+    <h4 class="sectionHeader">Police Riots</h4>
     <div class="subtitle">
         <p class="description"> 
             The graphic below shows the U.S. cities where the police was the most deadly, for every year since the year 2000. 
@@ -256,6 +276,7 @@
             <path style="stroke: black" />
         </g>
     </svg>
+    <h4 class="sectionHeader">Beyond policing</h4>
     <div class="subtitle">
         <p class="description"> 
             The data above is about the people who have lost their lives because of policing. Although these deaths are some of the 
@@ -274,7 +295,14 @@
             of ‘fixing' the institution, but rather of acting towards a society where such an institution is undesired and unnecessary.<br><br>
             
             Here are some resources to help us think and act towards a better world: <br><br>
-            
+            <i><a href="https://level.medium.com/abolition-for-the-people-397ef29e3ca5" target="_blank" class="creditLink">“Abolition for the people”: 30 stories from organizers, political prisoners, scholars, and advocates</a></i> <br> <br>
+            <i><a href="https://medium.com/@micahherskind/resource-guide-prisons-policing-and-punishment-effb5e0f6620" target="_blank" class="creditLink">Short pieces, articles and listening/viewing material on prison & police abolition</a></i> <br> <br>
+            <i><a href="https://transformharm.org/" target="_blank" class="creditLink">Resource hub about transformative justice and on the abolition of the prison industrial complex</a></i> <br> <br>
+            <i><a href="https://www.radicalhistoryreview.org/abusablepast/reading-towards-abolition-a-reading-list-on-policing-rebellion-and-the-criminalization-of-blackness/?fbclid=IwAR2uIRH37EyEILfH4VsxTytcSsxOPOu29wQ9JU-StnsJkXthgF8_mAHg1qA" target="_blank" class="creditLink">A reading list on policing, rebellion, and the criminalization of Blackness</a></i> 
+            <i><a href="https://www.aaihs.org/prison-abolition-syllabus-2-0/" target="_blank" class="creditLink">Tracing the past, present and future of incarceration</a></i> <br> <br>
+            <i><a href="https://themetropole.blog/2020/05/06/histories-of-police-policing-and-police-unions-in-the-united-states/" target="_blank" class="creditLink">Histories of police, policing and police unions in the United States</a></i> <br> <br>
+            <i><a href="https://yellowheadinstitute.org/2020/08/10/an-indigenous-abolitionist-study-group-guide/" target="_blank" class="creditLink">An Indigenous Abolitionist Study Guide</a></i> <br> <br>
+            <br> <br>
             </p>
     </div>
 </body>

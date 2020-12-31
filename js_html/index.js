@@ -1589,7 +1589,7 @@ d3.select("#yearDropdown").on("change", function(d) {
             // Remove X-Axis
             d3.select("#barchart").selectAll(".yAxis").remove()
             // Update the X-scale and X-Axis
-            xScale.domain([-0.2, d3.max(filterData, d => +d.death_hthou)+1])
+            xScale.domain([-0.25, d3.max(filterData, d => +d.death_hthou)+1])
 
             barchart.append("g")
             .call(d3.axisBottom(xScale))

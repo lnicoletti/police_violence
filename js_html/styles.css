@@ -87,7 +87,7 @@ h5 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 18px;
   line-height: 1.2;
-  margin-top: 50;
+  margin-top: 5%;
   margin-bottom: 10;
   }
   
@@ -191,6 +191,7 @@ h5 {
       font-family: Georgia;
       font-weight: 700;
       font-size: 22px;
+      line-height: 1;
     }
 
     #tooltipText {
@@ -279,6 +280,9 @@ h5 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: x-large;
     font-weight: bold;
+    border-color:#ccc;
+    border-width: 1.2;
+    border-style: solid;
 }
 
 .buttons {
@@ -481,13 +485,6 @@ fill: silver;
 
 .Raceaxis line{
     stroke: silver
-}
-
-.dropdownOptions {
-font-size: small;
-font-weight: bold;
-padding: 5;
-margin: 10;
 }
 
 .citybuttons {
@@ -763,6 +760,23 @@ text-align: center;
           left: 0;
       }
 
+/* inputs and buttons */
+.searchInput {
+  border-color:#ccc;
+  border-width: 1.2;
+  border-style: solid;
+}
+
+.dropdownOptions {
+  border-color:#ccc;
+  border-width: 1.2;
+  border-style: solid;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5;
+  margin: 10;
+}
+
 /* typography and paragraphs */
 .smalltitle {
   margin-top: 80px;
@@ -803,6 +817,12 @@ text-align: center;
   text-decoration: underline;
 }
 
+.intextLink{
+  color: rgb(53, 53, 53);
+  font-weight:500;
+  text-decoration: underline;
+}
+
 .credits {
   font-weight:500;
   font-size:14;
@@ -832,20 +852,67 @@ text-align: center;
     margin-bottom: 10%;
   }
 
+  .titleVideo {
+    width:95%;
+    margin-left:2.5%;
+    margin-right:2.5%;
+    margin-top:5%;
+    margin-bottom: 0%;
+  }
+
   .header {
     justify-content: center;
   }
 
   .sectionHeader {
     display: inline-block;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia;
     /* position: relative; */
     /* max-width: 45vw; */
     margin-bottom: 0%;
-    margin-top: 10%;
-    margin-left: 27.5%;
-    margin-right: 27.5%;
+    margin-top: 5%;
+    margin-left: 27%;
+    margin-right: 28%;
     text-align: left;
     font-weight: 700;
     font-size: 25px;
+    line-height: 1;
   }
+
+  .inputTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:14px
+  }
+
+  .resourceLinks {
+    line-height:1;
+    color: rgb(53, 53, 53);
+    font-weight:700;
+    text-decoration: none;
+  }
+
+  .methodDescription {
+    /* max-width: 520px; */
+    text-align: justify;
+    text-anchor: middle;
+    /* color: rgb(167, 167, 167); */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    margin-bottom: 0;
+    line-height: 1.1;
+    max-width: 45vw;
+    text-align: justify;
+    text-anchor: middle;
+    color: rgb(53, 53, 53);
+    /* color: rgb(167, 167, 167); */
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+
+.methodSep {
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.1px solid;
+  color:#ccc
+
+}

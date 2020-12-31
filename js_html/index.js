@@ -939,9 +939,9 @@ function drawArea(data) {
           .x(function(d, i) { return x(+d.data.year); })
           .y0(function(d) { return y(+d[0]); })
           .y1(function(d) { return y(+d[1]); }).curve(d3.curveNatural))
-        .on("mouseover", mouseover)
-        .on("mousemove", mousemove)
-        .on("mouseleave", mouseleave)
+        // .on("mouseover", mouseover)
+        // .on("mousemove", mousemove)
+        // .on("mouseleave", mouseleave)
 
       // Legend
       // svg3.append("circle").attr("cx",50).attr("cy",10).attr("r", 6).style("fill", "#404040")

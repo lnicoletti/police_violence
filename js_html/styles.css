@@ -190,7 +190,7 @@ h5 {
       text-align: left;
       font-family: Georgia;
       font-weight: 700;
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1;
     }
 
@@ -827,6 +827,7 @@ text-align: center;
   font-weight:500;
   font-size:14;
   opacity: 0.8;
+  line-height: 1;
   margin-bottom: 50px;
   font-family: Helvetica;
   /* color: #ccc */
@@ -869,7 +870,8 @@ text-align: center;
     font-family: Georgia;
     /* position: relative; */
     /* max-width: 45vw; */
-    margin-bottom: 0%;
+    margin-bottom: -4%;
+    padding-bottom: 0%;
     margin-top: 5%;
     margin-left: 27%;
     margin-right: 28%;
@@ -915,4 +917,180 @@ text-align: center;
   border: 0.1px solid;
   color:#ccc
 
+}
+
+/* small screen responsiveness */
+
+@media (max-width: 500px) {
+  .description {
+    max-width: 90vw;
+    text-align: justify;
+    text-anchor: middle;
+    /* color: rgb(167, 167, 167); */
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 10px;
+    line-height: 1;
+    margin-top: 5%;
+    margin-bottom: 10;
+  }
+  .sectionHeader {
+    display: inline-block;
+    font-family: Georgia;
+    /* position: relative; */
+    /* max-width: 45vw; */
+    margin-bottom: -4%;
+    padding-bottom: 0%;
+    margin-top: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: left;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+  }
+  .figTitle {
+    display: inline-block;
+    /* position: relative; */
+    /* max-width: 45vw; */
+    margin-bottom: 5;
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: left;
+    font-family: Georgia;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .methodDescription {
+    /* max-width: 520px; */
+    text-align: justify;
+    text-anchor: middle;
+    /* color: rgb(167, 167, 167); */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    margin-bottom: 0;
+    line-height: 1.1;
+    max-width: 90vw;
+    text-align: justify;
+    text-anchor: middle;
+    color: rgb(53, 53, 53);
+    /* color: rgb(167, 167, 167); */
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  }
+
+  .methodSep {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.1px solid;
+    color:#ccc
+
+  }
+
+  .figDescription {
+    max-width: 60%;
+    text-align: justify;
+    text-anchor: middle;
+    color: rgb(167, 167, 167);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+  button {
+    border-color: lightgray;
+    border-style:solid;
+    border-width: 0.5;
+    /* color: white; */
+    padding: 5px 10px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .dropOptions {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 14px;
+    font-weight: bold;
+    border-color:#ccc;
+    border-width: 1.2;
+    border-style: solid;
+  }
+
+  .inputTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:10px
+  }
+
+  input {
+    padding: 0px;
+    margin: 0px;
+    max-width: 30%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  /* .slider {
+    max-width: 80%
+  }
+  .track {
+    max-width: 80%
+  }
+
+  .track-inset {
+    max-width: 80%
+  }
+
+  .track-overlay {
+    max-width: 80%
+  } */
+
+  .smalltitle {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* margin-left: 30%;
+    margin-right: 30%; */
+    font-weight:500;
+    font-size:20px;
+    /* text-align: left; */
+    font-family: Georgia;
+    /* font-size: x-large; */
+    font-style: bold;
+    max-width: 90vw;
+    /* text-align: center; */
+    /* text-anchor: middle; */
+  }
+
+  .titleContainer {
+    text-align: center;
+    justify-content:center;
+    text-anchor: middle;
+    margin-left: 5vw;
+  }
+
+  .credits {
+    font-weight:500;
+    font-size:10;
+    opacity: 0.8;
+    line-height: 0.3;
+    margin-bottom: 20px;
+    font-family: Helvetica;
+    /* color: #ccc */
+  }
+  
+  .padded-dropcap {
+    padding-left: 10px;
+    padding-right: 5px;
+    float: left;
+    position: relative;
+    top: -0.15em;
+    margin-bottom: -0.33em;
+    margin-left: -6px;
+    margin-right: 1px;
+    font-size: 65px;
+  }
 }
